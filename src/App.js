@@ -4,46 +4,53 @@ import useField from './hooks/useField'
 
 const App = () => {
 
-    const coinAmount = useField('number')
-    const buyValue = useField('number')
-    const sellValue = useField('number')
-    const buyFee = useField('number')
-    const sellFee = useField('number')
+    //custom hook object with state value in property
+
+    const info = {
+        coinAmount: useField('number'),
+        buyValue: useField('number'),
+        sellValue: useField('number'),
+        buyFee: useField('number'),
+        sellFee: useField('number'),
+    }
+
 
     return (
         <form>
 
+            <h1> Crypto Profit App </h1>
+
             <div>
                 <h3>Coin Amount</h3>
-                <input {...coinAmount} />
+                <input {...info.coinAmount} />
             </div>
 
             <div>
                 <h3>buy value</h3>
-                <input {...buyValue} />
+                <input {...info.buyValue} />
             </div>
 
             <div>
                 <h3>sell value</h3>
-                <input {...sellValue} />
+                <input {...info.sellValue} />
             </div>
 
             <div>
                 <h3>buy fee</h3>
-                <input {...buyFee} />
+                <input {...info.buyFee} />
             </div>
 
             <div>
                 <h3>sell fee</h3>
-                <input {...sellFee} />
+                <input {...info.sellFee} />
             </div>
 
             <div>
-                <Calc />
+                <Calc {...info} />
             </div>
 
         </form>
     )
 }
 
-export default Main
+export default App
