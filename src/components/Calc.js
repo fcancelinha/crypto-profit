@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Calc = ({coinAmount, buyValue, sellValue, buyFee, sellFee}) => {
+const Calc = ({ coinAmount, buyValue, sellValue, buyFee, sellFee }) => {
 
     return (
 
@@ -18,14 +18,14 @@ const Calc = ({coinAmount, buyValue, sellValue, buyFee, sellFee}) => {
             </div>
         </div>
 
-      
+
     )
 }
 
 export default Calc
 
-
-/** 
+// teste
+/**
         coinAmount: useField('number'),
         buyValue: useField('number'),
         sellValue: useField('number'),
