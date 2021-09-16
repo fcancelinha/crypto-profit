@@ -2,11 +2,11 @@ import React from 'react'
 
 const Calc = ({ coinAmount, buyValue, sellValue, buyFee, sellFee }) => {
 
-    const baseBuy = coinAmount.value * buyValue.value;
-    const baseSell = sellValue.value * coinAmount;
-    const profit = baseSell - baseBuy - buyFee - sellFee;
+    const baseBuy = parseFloat((coinAmount.value * buyValue.value).toFixed(5));
+    const baseSell = parseFloat((sellValue.value * coinAmount.value).toFixed(5));
+    const profit = parseFloat((baseSell - baseBuy - buyFee.value - sellFee.value).toFixed(5));
+    const totalFees = parseFloat((parseFloat(buyFee.value) + parseFloat(sellFee.value)).toFixed(5));
 
-    console.log(baseBuy, baseSell, profit)
     return (
 
         <div>
@@ -15,14 +15,13 @@ const Calc = ({ coinAmount, buyValue, sellValue, buyFee, sellFee }) => {
             </div>
 
             <div>
-                Total Fees: {(buyFee.value + sellFee.value)}
+                Total Fees: {totalFees}
             </div>
 
             <div>
-                Total: {baseBuy + profit}
+                Total: {parseFloat(((baseBuy + profit).toFixed(5)))}
             </div>
         </div>
-
 
     )
 }
