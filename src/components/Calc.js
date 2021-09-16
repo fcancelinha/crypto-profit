@@ -1,31 +1,35 @@
 import React from 'react'
 
-const Calc = ({coinAmount, buyValue, sellValue, buyFee, sellFee}) => {
+const Calc = ({ coinAmount, buyValue, sellValue, buyFee, sellFee }) => {
+
+    const baseBuy = parseFloat((coinAmount.value * buyValue.value).toFixed(5));
+    const baseSell = parseFloat((sellValue.value * coinAmount.value).toFixed(5));
+    const profit = parseFloat((baseSell - baseBuy - buyFee.value - sellFee.value).toFixed(5));
+    const totalFees = parseFloat((parseFloat(buyFee.value) + parseFloat(sellFee.value)).toFixed(5));
 
     return (
 
         <div>
             <div>
-                profit: {(coinAmount.value * buyValue.value)}
+                profit: {profit}
             </div>
 
             <div>
-                Fees: {coinAmount.value * buyValue.value}
+                Total Fees: {totalFees}
             </div>
 
             <div>
-                Total: {coinAmount.value * buyValue.value}
+                Total: {parseFloat(((baseBuy + profit).toFixed(5)))}
             </div>
         </div>
 
-      
     )
 }
 
 export default Calc
 
-
-/** 
+// teste
+/**
         coinAmount: useField('number'),
         buyValue: useField('number'),
         sellValue: useField('number'),
