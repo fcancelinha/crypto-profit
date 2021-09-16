@@ -2,19 +2,24 @@ import React from 'react'
 
 const Calc = ({ coinAmount, buyValue, sellValue, buyFee, sellFee }) => {
 
+    const baseBuy = coinAmount.value * buyValue.value;
+    const baseSell = sellValue.value * coinAmount;
+    const profit = baseSell - baseBuy - buyFee - sellFee;
+
+    console.log(baseBuy, baseSell, profit)
     return (
 
         <div>
             <div>
-                profit: {(coinAmount.value * buyValue.value)}
+                profit: {profit}
             </div>
 
             <div>
-                Fees: {coinAmount.value * buyValue.value}
+                Total Fees: {(buyFee.value + sellFee.value)}
             </div>
 
             <div>
-                Total: {coinAmount.value * buyValue.value}
+                Total: {baseBuy + profit}
             </div>
         </div>
 
