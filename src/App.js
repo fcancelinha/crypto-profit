@@ -1,17 +1,16 @@
 import React from 'react'
 import Calc from './components/Calc'
-import useField from './hooks/useField'
+import useNumberField from './hooks/useNumberField'
 
 const App = () => {
 
     //custom hook object with state value in property
-
     const info = {
-        coinAmount: useField('number'),
-        buyValue: useField('number'),
-        sellValue: useField('number'),
-        buyFee: useField('number'),
-        sellFee: useField('number'),
+        coinAmount: useNumberField('number'),
+        buyValue: useNumberField('number'),
+        sellValue: useNumberField('number'),
+        buyFee: useNumberField('number'),
+        sellFee: useNumberField('number'),
     }
 
 

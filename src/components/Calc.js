@@ -2,10 +2,13 @@ import React from 'react'
 
 const Calc = ({ coinAmount, buyValue, sellValue, buyFee, sellFee }) => {
 
-    const baseBuy = parseFloat((coinAmount.value * buyValue.value).toFixed(5));
-    const baseSell = parseFloat((sellValue.value * coinAmount.value).toFixed(5));
-    const profit = parseFloat((baseSell - baseBuy - buyFee.value - sellFee.value).toFixed(5));
-    const totalFees = parseFloat((parseFloat(buyFee.value) + parseFloat(sellFee.value)).toFixed(5));
+    const decimalPlaces = 5
+
+    const baseBuy = (coinAmount.value * buyValue.value).toFixed(decimalPlaces);
+    const baseSell = (sellValue.value * coinAmount.value).toFixed(decimalPlaces);
+    const profit = (baseSell - baseBuy - buyFee.value - sellFee.value).toFixed(decimalPlaces);
+    const totalFees = (buyFee.value + sellFee.value).toFixed(decimalPlaces);
+    const total = (baseBuy + profit).toFixed(decimalPlaces)
 
     return (
 
@@ -19,7 +22,7 @@ const Calc = ({ coinAmount, buyValue, sellValue, buyFee, sellFee }) => {
             </div>
 
             <div>
-                Total: {parseFloat(((baseBuy + profit).toFixed(5)))}
+                Total: {total}
             </div>
         </div>
 
@@ -27,12 +30,3 @@ const Calc = ({ coinAmount, buyValue, sellValue, buyFee, sellFee }) => {
 }
 
 export default Calc
-
-// teste
-/**
-        coinAmount: useField('number'),
-        buyValue: useField('number'),
-        sellValue: useField('number'),
-        buyFee: useField('number'),
-        sellFee: useField('number')
-*/
