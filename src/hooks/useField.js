@@ -5,7 +5,7 @@ const useField = (type, pattern = null) => {
 
     const onChange = (event) => {
 
-        if(pattern.test(event.target.value) || event.target.value === "")
+        if(pattern.test(event.target.value) || !event.target.value)
             setValue(event.target.value)
     }
 

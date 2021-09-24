@@ -1,14 +1,14 @@
 import React from 'react'
-import Calc from './components/Calc'
+import performCalculation from './utils/calculation'
+import ValueDisplay from './components/ValueDisplay'
 import useField from './hooks/useField'
 import Container from '@mui/material/Container'
-import { Typography, Box } from '@mui/material'
-import InputForm from './components/InputForm'
+import ValueInput from './components/ValueInput'
+import AppTitle from './components/AppTitle'
 
 const App = () => {
 
     const REGEX = /^\d+.?\d*/g
-    const title = 'CRYPTO PROFIT APP'
 
     //custom hook object with state value in property "value"
     const fields = {
@@ -19,19 +19,19 @@ const App = () => {
         sellFee: useField('text', REGEX),
     }
 
+    const values = performCalculation(fields)
+
+    console.log(values)
+
     return (
 
         <Container sx={{ maxWidth: 'sm' }} disableGutters >
 
-            <Typography component="div" >
-                <Box sx={{ textAlign: 'center', my: 5 }}>
-                    {title}
-                </Box>
-            </Typography>
+            <AppTitle />
 
-            <InputForm fields={fields} />
+            <ValueInput fields={fields} values={values} />
 
-            <Calc fields={fields} />
+            <ValueDisplay values={values} />
 
         </Container>
     )

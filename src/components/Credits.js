@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CoinPicker = () => {
+const Credits = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const CoinPicker = () => {
     )
 }
 
-export default CoinPicker
+export default Credits
