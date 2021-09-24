@@ -1,54 +1,39 @@
 import React from 'react'
 import Calc from './components/Calc'
-import useNumberField from './hooks/useNumberField'
+import useField from './hooks/useField'
+import Container from '@mui/material/Container'
+import { Typography, Box } from '@mui/material'
+import InputForm from './components/InputForm'
 
 const App = () => {
 
-    //custom hook object with state value in property
-    const info = {
-        coinAmount: useNumberField('number'),
-        buyValue: useNumberField('number'),
-        sellValue: useNumberField('number'),
-        buyFee: useNumberField('number'),
-        sellFee: useNumberField('number'),
+    const REGEX = /^\d+.?\d*/g
+    const title = 'CRYPTO PROFIT APP'
+
+    //custom hook object with state value in property "value"
+    const fields = {
+        coinAmount: useField('text', REGEX),
+        buyValue: useField('text',  REGEX),
+        sellValue: useField('text',REGEX),
+        buyFee: useField('text', REGEX),
+        sellFee: useField('text', REGEX),
     }
 
-
     return (
-        <form>
 
-            <h1> Crypto Profit App </h1>
+        <Container sx={{ maxWidth: 'sm' }} disableGutters >
 
-            <div>
-                <h3>Coin Amount</h3>
-                <input {...info.coinAmount} />
-            </div>
+            <Typography component="div" >
+                <Box sx={{ textAlign: 'center', my: 5 }}>
+                    {title}
+                </Box>
+            </Typography>
 
-            <div>
-                <h3>buy value</h3>
-                <input {...info.buyValue} />
-            </div>
+            <InputForm fields={fields} />
 
-            <div>
-                <h3>sell value</h3>
-                <input {...info.sellValue} />
-            </div>
+            <Calc fields={fields} />
 
-            <div>
-                <h3>buy fee</h3>
-                <input {...info.buyFee} />
-            </div>
-
-            <div>
-                <h3>sell fee</h3>
-                <input {...info.sellFee} />
-            </div>
-
-            <div>
-                <Calc {...info} />
-            </div>
-
-        </form>
+        </Container>
     )
 }
 
