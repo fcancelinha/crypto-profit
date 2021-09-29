@@ -25,15 +25,11 @@ const App = () => {
 
         <Box disableGutters >
 
-            <Box>
+            <CustomAppBar />
 
-                <CustomAppBar />
+            <ValueInput fields={fields} values={values} />
 
-                <ValueInput fields={fields} values={values} />
-
-                <ValueDisplay values={values} />
-
-            </Box>
+            <ValueDisplay values={values} />
 
         </Box>
     )
