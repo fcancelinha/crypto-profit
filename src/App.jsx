@@ -22,22 +22,32 @@ const App = () => {
     const values = performCalculation(fields)
 
     return (
+        
+        <body>
 
-        <Grid container direction="row" justifyContent="center" alignItems="center">
+            <main>
+                <Grid container direction="row" justifyContent="center" alignItems="center">
 
-            <Grid item xs={12} sm={12} md={12}>
-                <CustomAppBar />
-            </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <CustomAppBar />
+                    </Grid>
 
-            <Grid item xs={12} sm={12} md={12}>
-                <ValueInput fields={fields} values={values} />
-            </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <ValueInput fields={fields} values={values} />
+                    </Grid>
 
-            <Grid item xs={12} sm={12} md={12}>
-                <ValueDisplay values={values} />
-            </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <ValueDisplay values={values} />
+                    </Grid>
 
-        </Grid>
+                </Grid>
+            </main>
+
+            <footer>
+
+            </footer>
+        
+        </body>
     )
 }
 

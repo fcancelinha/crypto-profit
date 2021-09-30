@@ -6,7 +6,7 @@ const ValueDisplay = ({ values }) => {
 
     return (
 
-        <Box sx={{ textAlign: 'center', my: 5 }}>
+        <Box sx={{ textAlign: 'center', mt: 3 }}>
 
             <Typography variant="subtitle2">
                 RETURN
