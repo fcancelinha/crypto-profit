@@ -8,22 +8,19 @@ const ValueDisplay = ({ values }) => {
 
         <Box sx={{ textAlign: 'center', my: 5 }}>
 
-            <Typography variant="subtitle2" gutterBottom component="div">
+            <Typography variant="subtitle2">
                 RETURN
+                <Typography variant="h6">
+                    {Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(values.profit)}
+                </Typography>
             </Typography>
 
-            <Typography variant="h6" gutterBottom component="div">
-                {Intl.NumberFormat('de-DE', {style:'currency', currency: 'USD'}).format(values.profit)}
-            </Typography>
-
-            <Typography variant="subtitle2" gutterBottom component="div">
+            <Typography variant="subtitle2" sx={{ mt: 1 }} >
                 TOTAL
+                <Typography variant="h6">
+                    {Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(values.total)}
+                </Typography>
             </Typography>
-
-            <Typography variant="h6" gutterBottom component="div">
-                {Intl.NumberFormat('de-DE', {style:'currency', currency: 'USD'}).format(values.total)}
-            </Typography>
-            
         </Box>
     )
 }
