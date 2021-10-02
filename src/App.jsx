@@ -2,7 +2,7 @@ import React from 'react'
 import { performCalculation } from './utils/calculation'
 import ValueDisplay from './components/ValueDisplay'
 import useField from './hooks/useField'
-import { Grid } from '@mui/material'
+import { Container, Box } from '@mui/material'
 import ValueInput from './components/ValueInput'
 import CustomAppBar from './components/CustomAppBar'
 
@@ -22,32 +22,25 @@ const App = () => {
     const values = performCalculation(fields)
 
     return (
+        <Container maxWidth="false" disableGutters="true">
         
-        <body>
+            <Box>
+                <CustomAppBar />
+            </Box>
 
-            <main>
-                <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Box>
 
-                    <Grid item xs={12} sm={12} md={12}>
-                        <CustomAppBar />
-                    </Grid>
+                <ValueInput fields={fields} values={values} />
 
-                    <Grid item xs={12} sm={12} md={12}>
-                        <ValueInput fields={fields} values={values} />
-                    </Grid>
+                <ValueDisplay values={values} />
 
-                    <Grid item xs={12} sm={12} md={12}>
-                        <ValueDisplay values={values} />
-                    </Grid>
+            </Box>
 
-                </Grid>
-            </main>
+            <Box>
 
-            <footer>
+            </Box>
 
-            </footer>
-        
-        </body>
+        </Container>
     )
 }
 
