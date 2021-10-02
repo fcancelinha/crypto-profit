@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { TextField, Stack, InputAdornment, Button, Tooltip, Collapse } from '@mui/material'
 import ExpandMore from '@mui/icons-material/ExpandMore'
+import ExpandLess from '@mui/icons-material/ExpandLess'
 
 const ValueInput = ({ fields, values }) => {
     const [collapsed, setCollapsed] = useState(false)
@@ -15,7 +16,7 @@ const ValueInput = ({ fields, values }) => {
 
             <TextField
                 {...fields.coinAmount}
-                sx={{ mt: 1, borderRadius: "50%" }}
+                sx={{ mt: 1 }}
                 helperText="≈ 0.121231 BTC"
                 InputProps={{ startAdornment: <InputAdornment position="start"> ₿ </InputAdornment> }}
                 label="Coin Amount"
@@ -40,7 +41,7 @@ const ValueInput = ({ fields, values }) => {
 
             <Tooltip title="Fees" placement="top">
                 <Button variant="outlined" onClick={() => { setCollapsed(!collapsed) }} sx={{ borderRadius: "50%", width: 35, minWidth: 35, height: 35 }} >
-                    <ExpandMore size="large" />
+                    {collapsed ? <ExpandLess size="large" /> : <ExpandMore size="large" />}
                 </Button>
             </Tooltip>
 

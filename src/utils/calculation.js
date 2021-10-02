@@ -22,12 +22,15 @@ export const performCalculation = (inputValue) => {
     const profit = sellValue - buyValue - totalFee
     const total = buyValue + profit
 
+    const inProfit = sellValue > buyValue
+
     return {
         profit,
         total,
         totalFee,
         investmentFee,
-        exitFee
+        exitFee,
+        inProfit
     }
 
 }

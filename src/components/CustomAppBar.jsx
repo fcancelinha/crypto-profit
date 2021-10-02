@@ -1,34 +1,32 @@
 import React from 'react'
-import { Typography, Grid, Box } from '@mui/material'
-import Settings from './Settings'
-
+import { AppBar, IconButton, Box, Typography, Toolbar } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu';
+import NightlightRound from '@mui/icons-material/NightlightRound'
+import Paid from '@mui/icons-material/Paid'
 
 const CustomAppBar = () => {
 
     const title = "Crypto Profit ₿"
-    const subTitle = "Made by @fcancelinha"
 
     return (
-        <Grid container sx={{ my: 2 }}>
-
-            <Grid item xs={0} sm={4} md={4} />
-
-            <Grid item xs={12} sm={4} md={4} sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
-
-                <Typography variant="button" sx={{fontSize: 25}} >
+        <AppBar position="static" elevation={0} sx={{ backgroundColor: 'white', my: 2 }} >
+            <Toolbar variant="dense" sx={{ backgroundColor: 'white', justifyContent: 'space-between' }}>
+                <IconButton size="large" edge="end" aria-label="menu" sx={{ mr: 2 }}>
+                    <MenuIcon />
+                </IconButton>
+                <Typography variant="h6" color="black">
                     {title}
                 </Typography>
-
-                <Typography variant="caption" sx={{ display: 'block' }} >
-                    {subTitle}
-                </Typography>
-            </Grid>
-
-            <Grid item xs={12} sm={4} md={4} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Settings />
-            </Grid>
-
-        </Grid>
+                <Box>
+                    <IconButton >
+                        <Paid />
+                    </IconButton>
+                    <IconButton>
+                        <NightlightRound />
+                    </IconButton>
+                </Box>
+            </Toolbar>
+        </AppBar>
     )
 }
 

@@ -1,25 +1,21 @@
 import React from 'react'
 import { Typography, Box } from '@mui/material'
+import Investment from './Investment'
 
 const ValueDisplay = ({ values }) => {
 
 
     return (
-
         <Box sx={{ textAlign: 'center', mt: 3 }}>
-
-            <Typography variant="subtitle2">
+            <Typography variant="subtitle2" >
                 RETURN
-                <Typography variant="h6">
-                    {Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(values.profit)}
-                </Typography>
+                <Investment value={values.profit} inProfit={values.inProfit} display={true} />
+
             </Typography>
 
             <Typography variant="subtitle2" sx={{ mt: 1 }} >
                 TOTAL
-                <Typography variant="h6">
-                    {Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(values.total)}
-                </Typography>
+                <Investment value={values.total} inProfit={values.inProfit} display={false} />
             </Typography>
         </Box>
     )

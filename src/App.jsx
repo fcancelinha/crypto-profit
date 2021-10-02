@@ -5,6 +5,7 @@ import useField from './hooks/useField'
 import { Container, Box } from '@mui/material'
 import ValueInput from './components/ValueInput'
 import CustomAppBar from './components/CustomAppBar'
+import Donations from './components/Donations'
 
 const App = () => {
 
@@ -37,7 +38,7 @@ const App = () => {
             </Box>
 
             <Box>
-
+                <Donations />
             </Box>
 
         </Container>
