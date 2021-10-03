@@ -65,7 +65,7 @@ const Donations = () => {
             </Box>
 
             <Box sx={{ mt: 2 }}>
-                <a href="github.com/fcancelinha" target="_blank">
+                <a href="https://www.github.com/fcancelinha/crypto-profit" target="_blank" rel="noreferrer">
                     <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" width="80" height="auto" alt="github" style={{ borderRadius: 5 }} />
                 </a>
             </Box>
