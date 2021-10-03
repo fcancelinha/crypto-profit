@@ -40,7 +40,7 @@ const ValueInput = ({ fields, values }) => {
             />
 
             <Tooltip title="Fees" placement="top">
-                <Button variant="outlined" onClick={() => { setCollapsed(!collapsed) }} sx={{ borderRadius: "50%", width: 35, minWidth: 35, height: 35 }} >
+                <Button variant="outlined" onClick={() => { setCollapsed(!collapsed) }} sx={{ borderRadius: 2, height: 20}} >
                     {collapsed ? <ExpandLess size="large" /> : <ExpandMore size="large" />}
                 </Button>
             </Tooltip>

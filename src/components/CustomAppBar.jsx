@@ -14,7 +14,7 @@ const CustomAppBar = () => {
                 <IconButton size="large" edge="end" aria-label="menu" sx={{ mr: 2 }}>
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" color="black">
+                <Typography variant="h5" color="black">
                     {title}
                 </Typography>
                 <Box>
