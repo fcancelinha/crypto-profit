@@ -55,7 +55,7 @@ const App = () => {
 
             </Grid>
 
-            <Grid item  xs={1} sm={1} md={1} lg={1}>
+            <Grid item  xs={1} sm={1} md={1} lg={1} sx={{ display: 'flex', justifyContent: 'flex-end'}}>
                 <VerticalAppBar />
             </Grid>
 
