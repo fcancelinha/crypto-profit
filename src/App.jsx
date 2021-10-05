@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { performCalculation } from './utils/calculation'
 import ValueDisplay from './components/ValueDisplay'
 import useField from './hooks/useField'
-import { Grid, Typography, Stack } from '@mui/material'
+import Typography from '@mui/material/Typography'
+import Stack from '@mui/material/Stack'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 import ValueInput from './components/ValueInput'
 import Donations from './components/Donations'
-import VerticalAppBar from './components/VerticalAppBar'
-
-const title = "Crypto Profit ₿"
-const REGEX = /^\d+.?\d*/g
-
+import MiniAppBar from './components/MiniAppBar'
+import CryptoCaroussel from './components/CryptoCaroussel'
 
 const App = () => {
+    const [cryptoCurs, setCryptoCurs] = useState([])
+
+    const title = "Crypto Profit ₿"
+    const REGEX = /^\d+.?\d*/g
 
     //custom hook object with state value in property "value"
     const fields = {
@@ -26,40 +30,37 @@ const App = () => {
 
     return (
 
-        <Grid container >
-            <Grid item xs={1} sm={1} md={1} lg={1} >
+        <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }} >
+
+            <Grid container sx={{display: 'flex', justifyContent: 'space-between' }} >
+
+                <Grid item sm={1} md={4} lg={4} />
             
-            </Grid>
-
-            <Grid item xs={0} sm={3} md={3} lg={3} >
-
-            </Grid>
-
-            <Grid item xs={10} sm={4} md={4} lg={4} >
-                <Stack>
-
+                <Grid item sm={10} md={4} lg={4}>
                     <Typography variant="h5" color="black" sx={{ my: 2, display: 'flex', justifyContent: 'center' }}>
                         {title}
                     </Typography>
+                </Grid>
 
-                    <ValueInput fields={fields} values={values} />
-
-                    <ValueDisplay values={values} />
-
-                    <Donations />
-
-                </Stack>
-            </Grid>
-
-            <Grid item xs={0} sm={3} md={3} lg={3}>
+                <Grid item sm={1} md={4} lg={4} sx={{display: 'flex', justifyContent: 'flex-end', maxHeight: 40, mt: 1.7}}>
+                    <MiniAppBar />
+                </Grid>
 
             </Grid>
 
-            <Grid item  xs={1} sm={1} md={1} lg={1} sx={{ display: 'flex', justifyContent: 'flex-end'}}>
-                <VerticalAppBar />
-            </Grid>
+            <Stack>
 
-        </Grid>
+                <ValueInput fields={fields} values={values} />
+
+                <ValueDisplay values={values} />
+
+                <CryptoCaroussel />
+
+                <Donations />
+
+            </Stack>
+
+        </Box>
     )
 }
 

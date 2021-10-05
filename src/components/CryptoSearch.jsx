@@ -1,7 +1,6 @@
-
 import React from 'react'
 
-const Cryptocurrencies = () => {
+const CryptoSearch = () => {
     return (
         <div>
             
@@ -9,4 +8,4 @@ const Cryptocurrencies = () => {
     )
 }
 
-export default Cryptocurrencies
+export default CryptoSearch

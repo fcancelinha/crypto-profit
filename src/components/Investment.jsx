@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import React from 'react'
 
 
@@ -14,7 +14,7 @@ const Investment = ({ value, inProfit, currency = 'USD', display }) => {
     }
 
     return (
-        <Typography variant="h6" sx={{color: display ? style.color : "" }}>
+        <Typography variant="body1" sx={{color: display ? style.color : "" }}>
             {Intl.NumberFormat('de-DE', {...options}).format(value)}
         </Typography>
     )

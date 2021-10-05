@@ -1,5 +1,7 @@
 import React from 'react'
-import { Box, Typography, Stack } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Stack from '@mui/material/Stack'
 import bitcoin from '../assets/icons/bitcoin.png'
 import usdt from '../assets/icons/usdt.png'
 import ethereum from '../assets/icons/ethereum.png'
@@ -26,12 +28,11 @@ const style = {
 
 const Donations = () => {
 
-
     return (
-        <Stack sx={{ alignItems: 'center', my: 5, }} spacing={0}>
+        <Stack sx={{ alignItems: 'center', my: 3, }} spacing={0}>
 
             <Typography version="overline" sx={{ my: 1, fontFamily: 'Consolas', fontSize: 16 }}>
-                {"< Buy me a coffe ? ☕/> "}
+                {"< Buy me a coffee ? ☕/> "}
             </Typography>
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
