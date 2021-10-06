@@ -10,8 +10,7 @@ import CryptoCaroussel from './components/CryptoCaroussel'
 import AppTitle from './components/AppTitle'
 
 const App = () => {
-    const [cryptoCurs, setCryptoCurs] = useState([])
-
+   
     const REGEX = /^\d+.?\d*/g
 
     //custom hook object with state value in property "value"

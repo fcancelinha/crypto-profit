@@ -1,13 +1,13 @@
+//https://nomics.com/docs/#operation/getCurrenciesTicker
+const API_KEY = process.env.REACT_APP_CRYPTO_API
+
 
 const getCrypto = async () => {
 
     try {
 
-        const cryptoList =  await fetch("https://api.nomics.com/v1/currencies/ticker?key=your-key-here&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&per-page=100&page=1")
-        console.log(cryptoList)
+        return await fetch(`https://api.nomics.com/v1/currencies/ticker?key=${API_KEY}&ids=BTC,ETH,XRP&interval=1d,30d&convert=USD&per-page=100&page=1`)
 
-        return cryptoList
-        
     } catch (exception) {
         console.debug(exception)
     }
