@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
-import { performCalculation } from './utils/calculation'
-import ValueDisplay from './components/ValueDisplay'
-import useField from './hooks/useField'
-import Stack from '@mui/material/Stack'
-import Box from '@mui/material/Box'
-import ValueInput from './components/ValueInput'
-import Donations from './components/Donations'
-import CryptoCaroussel from './components/CryptoCaroussel'
-import AppTitle from './components/AppTitle'
+import React, { useState, useEffect } from 'react';
+import { performCalculation } from './utils/calculation';
+import { getCrypto } from './services/crypto-service';
+import ValueDisplay from './components/ValueDisplay';
+import useField from './hooks/useField';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import ValueInput from './components/ValueInput';
+import Donations from './components/Donations';
+import CryptoCaroussel from './components/CryptoCaroussel';
+import AppTitle from './components/AppTitle';
 
 const App = () => {
-   
-    const REGEX = /^\d+.?\d*/g
+    const [cryptoList, setCryptoList] = useState([]);
+
+    const REGEX = /^\d+.?\d*/g;
 
     //custom hook object with state value in property "value"
     const fields = {
@@ -20,9 +22,19 @@ const App = () => {
         sellValue: useField('text', REGEX),
         buyFee: useField('text', REGEX),
         sellFee: useField('text', REGEX),
-    }
+    };
 
-    const values = performCalculation(fields)
+    const values = performCalculation(fields);
+
+    useEffect(() => {
+
+        getCrypto()
+            .then(response => {
+                console.log("response:", response);
+                setCryptoList(response.body);
+            });
+
+    }, []);
 
     return (
 
@@ -36,14 +48,14 @@ const App = () => {
 
                 <ValueDisplay values={values} />
 
-                <CryptoCaroussel />
+                <CryptoCaroussel cryptoList={cryptoList} />
 
                 <Donations />
 
             </Stack>
 
         </Box>
-    )
-}
+    );
+};
 
-export default App
+export default App;
