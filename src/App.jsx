@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { performCalculation } from './utils/calculation';
-import { getCrypto } from './services/crypto-service';
+import get from './services/crypto-service';
 import ValueDisplay from './components/ValueDisplay';
 import useField from './hooks/useField';
 import Stack from '@mui/material/Stack';
@@ -11,7 +11,7 @@ import CryptoCaroussel from './components/CryptoCaroussel';
 import AppTitle from './components/AppTitle';
 
 const App = () => {
-    const [cryptoList, setCryptoList] = useState([]);
+    const [cryptoList, setCryptoList] = useState([{}]);
 
     const REGEX = /^\d+.?\d*/g;
 
@@ -28,10 +28,10 @@ const App = () => {
 
     useEffect(() => {
 
-        getCrypto()
+        get()
             .then(response => {
                 console.log("response:", response);
-                setCryptoList(response.body);
+                setCryptoList(response);
             });
 
     }, []);
