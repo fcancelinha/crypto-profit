@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import InputAdornment from '@mui/material/InputAdornment'
 import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
 import Tooltip from '@mui/material/Tooltip'
 import Collapse  from '@mui/material/Collapse'
 import ExpandMore from '@mui/icons-material/ExpandMore'
@@ -44,8 +45,9 @@ const ValueInput = ({ fields, values }) => {
                 variant="outlined"
             />
 
+
             <Tooltip title="Fees" placement="top">
-                <Button variant="outlined" onClick={() => { setCollapsed(!collapsed) }} sx={{ borderRadius: 1, height: 25, mt: 1}} >
+                <Button variant="outlined" size="small" style={{ minWidth: 2, width: 40, height: 40, borderRadius: 40 }} onClick={() => { setCollapsed(!collapsed); }} >
                     {collapsed ? <ExpandLess size="large" /> : <ExpandMore size="large" />}
                 </Button>
             </Tooltip>
