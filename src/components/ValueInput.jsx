@@ -17,7 +17,7 @@ const ValueInput = ({ fields, values }) => {
 
     return (
 
-        <Stack direction="column" justifyContent="center" alignItems="center" >
+        <Stack direction="column" justifyContent="center" alignItems="center" sx={{mt: 5}} >
 
             <TextField
                 {...fields.coinAmount}

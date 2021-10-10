@@ -4,6 +4,7 @@ import get from './services/crypto-service';
 import ValueDisplay from './components/ValueDisplay';
 import useField from './hooks/useField';
 import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import ValueInput from './components/ValueInput';
 import Donations from './components/Donations';
@@ -26,35 +27,39 @@ const App = () => {
 
     const values = performCalculation(fields);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        get()
-            .then(response => {
-                console.log("response:", response);
-                setCryptoList(response);
-            });
+    //     get()
+    //         .then(response => {
+    //             console.log("response:", response);
+    //             setCryptoList(response);
+    //         });
 
-    }, []);
+    // }, []);
 
     return (
 
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', mx: -1, my: -1 }}>
 
-            <Stack>
+            <AppTitle />
 
-                <AppTitle />
+            <Paper sx={{alignSelf: 'center',  mt: -12, borderRadius: 3, mb: 7, pb: 3}} style={{width: '37em'}} elevation={10}>
+                <Stack sx={{alignSelf: 'center'}}>
 
-                <ValueInput fields={fields} values={values} />
+                    <ValueInput fields={fields} values={values} />
 
-                <ValueDisplay values={values} />
+                    <ValueDisplay values={values} />
 
-                <CryptoCaroussel cryptoList={cryptoList} />
+                    <CryptoCaroussel cryptoList={cryptoList} />
 
-                <Donations />
+                    <Donations />
 
-            </Stack>
+                </Stack>
+
+            </Paper>
 
         </Box>
+
     );
 };
 

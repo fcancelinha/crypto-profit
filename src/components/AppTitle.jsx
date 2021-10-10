@@ -1,15 +1,21 @@
 import React from 'react'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+import AppTitleButtons from './AppTitleButtons'
 
-const title = "Crypto Profit ₿"
+const title = "CRYPTO PROFIT"
 
 const AppTitle = () => {
     return (
-        <Box sx={{ my: 2, display: 'flex', justifyContent: 'center'}}>
-            <Typography variant="h5" color="black">
-                {title}
+        <Box sx={{ display: 'flex', flexDirection: 'column', backgroundColor: "black", pb: 15}}>
+            <Typography variant="h3" color="white" sx={{alignSelf: 'center', mt: 2, fontFamily: 'Cairo'}} >
+                {title} <span style={{color: 'gold'}}>₿</span>
             </Typography>
+
+            <Box sx={{alignSelf: 'center', mt: 2}}>
+                <AppTitleButtons />
+            </Box>
+
         </Box>
     )
 }

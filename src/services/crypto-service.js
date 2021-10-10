@@ -10,5 +10,4 @@ export default async function get(currency = 'USD', total = 50) {
     }
 
     console.debug(response.status)
-
 }
