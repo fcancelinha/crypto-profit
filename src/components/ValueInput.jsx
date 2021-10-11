@@ -22,6 +22,7 @@ const ValueInput = ({ fields, values }) => {
 
             <TextField
                 {...fields.coinAmount}
+                color="secondary"
                 sx={{ mt: 1 }}
                 helperText="≈ 0.121231 BTC"
                 InputProps={{ startAdornment: <InputAdornment position="start"> ₿ </InputAdornment> }}
@@ -31,6 +32,7 @@ const ValueInput = ({ fields, values }) => {
 
             <TextField
                 {...fields.buyValue}
+                color="secondary"
                 sx={{ mt: 2, mb: 2 }}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
                 label="Buy Value"
@@ -39,6 +41,7 @@ const ValueInput = ({ fields, values }) => {
 
             <TextField
                 {...fields.sellValue}
+                color="secondary"
                 sx={{ mt: 2, mb: 2 }}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
                 label="Sell Value"
@@ -47,7 +50,7 @@ const ValueInput = ({ fields, values }) => {
 
 
             <Tooltip title="Fees" placement="top">
-                <Button variant="outlined" size="small" style={{ minWidth: 2, width: 40, height: 40, borderRadius: 40 }} onClick={() => { setCollapsed(!collapsed); }} >
+                <Button variant="outlined" color="secondary" size="small" style={{ minWidth: 2, width: 40, height: 40, borderRadius: 40 }} onClick={() => { setCollapsed(!collapsed); }} >
                     {collapsed ? <ExpandLess size="large" /> : <ExpandMore size="large" />}
                 </Button>
             </Tooltip>
@@ -59,6 +62,7 @@ const ValueInput = ({ fields, values }) => {
 
                     <TextField
                         {...fields.buyFee}
+                        color="secondary"
                         sx={{ mt: 2, mb: 1 }}
                         helperText={investmentFee}
                         InputProps={{ startAdornment: <InputAdornment position="start">%</InputAdornment> }}
@@ -69,6 +73,7 @@ const ValueInput = ({ fields, values }) => {
 
                     <TextField
                         {...fields.sellFee}
+                        color="secondary"
                         sx={{ mt: 2 }}
                         helperText={sellingFee}
                         InputProps={{ startAdornment: <InputAdornment position="start">%</InputAdornment> }}

@@ -7,20 +7,25 @@ import MenuIcon from '@mui/icons-material/Menu'
 
 const AppTitleButtons = () => {
 
-
+    const style = {
+        minWidth: 4,
+        height: 40,
+        borderRadius: 40,
+        width: 42,
+    }
 
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <Button variant="outlined" size="small" style={{ minWidth: 4, height: 40, marginRight: 30, borderRadius: 40 }}>
+            <Button variant="outlined" size="small" style={{...style, marginRight: 30 }}>
                 <AttachMoneyIcon />
             </Button>
 
-            <Button variant="outlined" size="small" style={{ minWidth: 4, height: 40, borderRadius: 40 }}>
+            <Button variant="outlined" size="small" style={{ ...style, height: 40 }}>
                 <Brightness4Icon />
             </Button>
 
-            <Button variant="outlined" size="small" style={{ minWidth: 4, height: 40, marginLeft: 30, borderRadius: 40 }}>
+            <Button variant="outlined" size="small" style={{ ...style, marginLeft: 30 }}>
                 <MenuIcon />
             </Button>
         </Box>

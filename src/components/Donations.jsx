@@ -14,7 +14,7 @@ const addresses = {
 
 const style = {
     address: {
-        color: '#EB276C',
+        color: '#D68910',
         fontWeight: 'bold',
         fontFamily: 'monospace'
     },
