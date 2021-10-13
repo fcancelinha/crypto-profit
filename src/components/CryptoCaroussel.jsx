@@ -6,10 +6,9 @@ import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
 const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
-    const [selectedCoin, setSelectedCoin] = useState(mock[0])
+    const [selectedCoin, setSelectedCoin] = useState(false)
 
     const handleChange = (event, newValue) => {
-        console.log("newvalue", newValue)
         setSelectedCoin(newValue);
         setBuyValue(parseFloat(newValue.price).toFixed(3))
     };

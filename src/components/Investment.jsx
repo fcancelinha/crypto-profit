@@ -14,7 +14,7 @@ const Investment = ({ value, inProfit, currency = 'USD', display }) => {
     }
 
     return (
-        <Typography variant="body1" sx={{color: display ? style.color : "" }}>
+        <Typography sx={{color: display ? style.color : "", fontSize: 21 }}>
             {Intl.NumberFormat('de-DE', {...options}).format(value)}
         </Typography>
     )

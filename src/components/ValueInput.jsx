@@ -2,16 +2,15 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import InputAdornment from '@mui/material/InputAdornment'
-import { performCalculation } from '../utils/calculation';
-import useField from '../hooks/useField';
-import ValueDisplay from '../components/ValueDisplay';
+import { performCalculation } from '../utils/calculation'
+import ValueDisplay from '../components/ValueDisplay'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import Collapse  from '@mui/material/Collapse'
 import ExpandMore from '@mui/icons-material/ExpandMore'
 import ExpandLess from '@mui/icons-material/ExpandLess'
-import CachedIcon from '@mui/icons-material/Cached';
+import CachedIcon from '@mui/icons-material/Cached'
 
 const ValueInput = ({ fields }) => {
     const [collapsed, setCollapsed] = useState(false)
