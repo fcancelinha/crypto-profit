@@ -1,19 +1,60 @@
-import React from 'react'
-import Tabs from '@mui/material/Tabs'
+import React, { useState } from 'react'
+import { mock } from '../mock/cryptoList'
+import Tabs, { tabsClasses } from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
-const CryptoCaroussel = ({ cryptoList }) => {
+const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
+    const [selectedCoin, setSelectedCoin] = useState(mock[0])
 
-    console.log("cryptoCarroussel:", cryptoList)
+    const handleChange = (event, newValue) => {
+        console.log("newvalue", newValue)
+        setSelectedCoin(newValue);
+        setBuyValue(parseFloat(newValue.price).toFixed(3))
+    };
+
+    const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
+    const filteredMock = mock.filter(x => filterCoins.indexOf(x.currency) < 0)
+
+    const style = {
+        tabs: {
+            maxWidth: 480, 
+            [`& .${tabsClasses.scrollButtons}`]: {
+                '&.Mui-disabled': { 
+                    opacity: 0.3 
+                }
+            },
+        },
+        tab: {
+            minWidth: 20,
+            height: 80,
+            width: 80
+        },
+        tabAvatar: {
+            width: 35,
+            height: 35
+        }
+    }
+
+    console.log("response inside component:", cryptoList);
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
-            <Tabs variant="scrollable" sx={{ maxWidth: 600 }} aria-label="crypto horizontal tab list">
-                {cryptoList.map(x => {
-                    return <Tab key={x.id} icon={<Avatar alt={x.currency} src={x.logo_url}/>} label={x.currency} />
+            <Tabs variant="scrollable"
+                scrollButtons={true}
+                textColor="secondary"
+                indicatorColor="secondary"
+                sx={{ ...style.tabs }}
+                value={selectedCoin}
+                onChange={handleChange}
+                aria-label="crypto horizontal tab list"
+            >
+
+                {filteredMock.map(x => {
+                    return <Tab key={x.id} value={x} sx={{ ...style.tab }} label={x.currency} icon={<Avatar alt={x.currency} src={x.logo_url} sx={{ ...style.tabAvatar }} />} />;
                 })}
+
             </Tabs>
         </Box>
     )

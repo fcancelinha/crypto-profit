@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import InputAdornment from '@mui/material/InputAdornment'
+import { performCalculation } from '../utils/calculation';
+import useField from '../hooks/useField';
+import ValueDisplay from '../components/ValueDisplay';
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
@@ -10,14 +13,15 @@ import ExpandMore from '@mui/icons-material/ExpandMore'
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import CachedIcon from '@mui/icons-material/Cached';
 
-const ValueInput = ({ fields, values }) => {
+const ValueInput = ({ fields }) => {
     const [collapsed, setCollapsed] = useState(false)
-    const [mode, setMode] = useState(false)
+    const [mode, setMode] = useState(true)
     const [btcEquiv, setBtcEquiv] = useState(0.8372837)
+
+    const values = performCalculation(fields);
 
     const investmentFee = `Investment Fee: ${values.investmentFee.toFixed(2)} $`
     const sellingFee = `Selling Fee: ${values.exitFee.toFixed(2)} $`
-
 
     return (
 
@@ -29,10 +33,10 @@ const ValueInput = ({ fields, values }) => {
                 sx={{ mt: 1, width: 227 }}
                 helperText={`≈ ${btcEquiv} BTC`}
                 InputProps={{
-                    startAdornment: <InputAdornment position="start">{mode ? '₿' : '$' }</InputAdornment>,
+                    startAdornment: <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
                     endAdornment: 
                     <Tooltip title="Change between fiat investment and token amount" placement="top" sx={{mt: 1}}>
-                        <IconButton onClick={() => { setMode(!mode) }} variant="secondary" sx={{ minWidth: 4, width: 4 }}>
+                        <IconButton onClick={() => setMode(!mode)} variant="secondary" sx={{ minWidth: 4, width: 4 }}>
                             <CachedIcon position="end" />
                         </IconButton>
                     </Tooltip>
@@ -97,6 +101,7 @@ const ValueInput = ({ fields, values }) => {
 
             </Collapse>
 
+            <ValueDisplay values={values} />
 
         </Stack>
     )
