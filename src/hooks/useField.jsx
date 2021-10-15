@@ -5,8 +5,6 @@ const useField = (type, pattern = null) => {
 
     const onChange = (event, crypto = null) => {
 
-        console.log(crypto === true)
-
         if (crypto) {
             setValue(crypto)
         } else if (pattern.test(event.target.value) || !event.target.value) {

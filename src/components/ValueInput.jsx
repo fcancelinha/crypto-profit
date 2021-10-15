@@ -17,7 +17,7 @@ const ValueInput = ({ fields }) => {
     const [mode, setMode] = useState(true)
     const [btcEquiv, setBtcEquiv] = useState(0.8372837)
 
-    const values = performCalculation(fields);
+    const values = performCalculation(fields, mode);
 
     const investmentFee = `Investment Fee: ${values.investmentFee.toFixed(2)} $`
     const sellingFee = `Selling Fee: ${values.exitFee.toFixed(2)} $`
@@ -31,6 +31,7 @@ const ValueInput = ({ fields }) => {
                 color="secondary"
                 sx={{ mt: 1, width: 227 }}
                 helperText={`≈ ${btcEquiv} BTC`}
+                placeholder="0"
                 InputProps={{
                     startAdornment: <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
                     endAdornment: 
@@ -47,6 +48,7 @@ const ValueInput = ({ fields }) => {
             <TextField
                 {...fields.buyValue}
                 color="secondary"
+                placeholder="0"
                 sx={{ mt: 2, mb: 2 }}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
                 label="Buy Value"
@@ -56,6 +58,7 @@ const ValueInput = ({ fields }) => {
             <TextField
                 {...fields.sellValue}
                 color="secondary"
+                placeholder="0"
                 sx={{ mt: 2, mb: 2 }}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
                 label="Sell Value"

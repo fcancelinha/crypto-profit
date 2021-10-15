@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { mock } from '../mock/cryptoList'
+import { mock } from '../mocks/cryptoList'
 import Tabs, { tabsClasses } from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
@@ -10,7 +10,7 @@ const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
 
     const handleChange = (event, newValue) => {
         setSelectedCoin(newValue);
-        setBuyValue(parseFloat(newValue.price).toFixed(3))
+        setBuyValue(newValue.price)
     };
 
     const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
@@ -35,8 +35,6 @@ const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
             height: 35
         }
     }
-
-    console.log("response inside component:", cryptoList);
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
