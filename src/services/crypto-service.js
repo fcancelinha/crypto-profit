@@ -8,6 +8,4 @@ export default async function get(currency = 'USD', total = 50) {
     if(response.ok){
         return await response.json()
     }
-
-    console.debug(response.status)
 }

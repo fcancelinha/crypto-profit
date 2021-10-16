@@ -1,23 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Box from '@mui/system/Box';
 import Button from '@mui/material/Button';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import AppsIcon from '@mui/icons-material/Apps';
+import CurrencySelection from './CurrencySelection';
+
+
+const style = {
+    minWidth: 4,
+    height: 35,
+    width: 43,
+};
+
 
 const AppTitleButtons = () => {
-
-    const style = {
-        minWidth: 4,
-        height: 35,
-        width: 43,
-    };
+    const [currency, setCurrency] = useState('$')
 
 
     return (
         <Box sx={{ display: 'flex' }}>
 
-            <Button variant="outlined" size="small" style={{ ...style, marginRight: 30 }}>
+            <Button variant="outlined" size="small" style={{ ...style, marginRight: 25 }}>
                 <Brightness4Icon />
             </Button>
 
@@ -25,11 +28,11 @@ const AppTitleButtons = () => {
                 <AppsIcon />
             </Button>
 
-            <Button variant="outlined" size="small" style={{ ...style, marginLeft: 30}}>
-                <AttachMoneyIcon />
-            </Button>          
+            <CurrencySelection style={style} />
+
         </Box>
     );
 };
 
 export default AppTitleButtons;
+

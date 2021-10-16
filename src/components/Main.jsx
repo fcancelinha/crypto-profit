@@ -6,12 +6,14 @@ import CryptoCaroussel from './CryptoCaroussel';
 const Main = ({cryptoList}) => {
 
     //custom hook object with state value in property "value"
+    const type = 'number'
+
     const fields = {
-        coinAmount: useField('text'),
-        buyValue: useField('text'),
-        sellValue: useField('text'),
-        buyFee: useField('text'),
-        sellFee: useField('text'),
+        coinAmount: useField(type),
+        buyValue: useField(type),
+        sellValue: useField(type),
+        buyFee: useField(type),
+        sellFee: useField(type),
     };
 
     const setBuyValue = (coinValue) => {
