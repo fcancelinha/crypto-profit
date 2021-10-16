@@ -2,12 +2,7 @@ import Typography from '@mui/material/Typography'
 import React from 'react'
 
 
-const Investment = ({ value, inProfit, currency = 'USD', display }) => {
-
-    const options = {
-        style: 'currency',
-        currency
-    }
+const Investment = ({ value, inProfit, options, display }) => {
 
     const style = {
         color: inProfit ? 'green' : 'red'

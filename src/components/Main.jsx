@@ -5,19 +5,17 @@ import CryptoCaroussel from './CryptoCaroussel';
 
 const Main = ({cryptoList}) => {
 
-    const REGEX = /^\d+.?\d*/g;
-
     //custom hook object with state value in property "value"
     const fields = {
-        coinAmount: useField('text', REGEX),
-        buyValue: useField('text', REGEX),
-        sellValue: useField('text', REGEX),
-        buyFee: useField('text', REGEX),
-        sellFee: useField('text', REGEX),
+        coinAmount: useField('text'),
+        buyValue: useField('text'),
+        sellValue: useField('text'),
+        buyFee: useField('text'),
+        sellFee: useField('text'),
     };
 
     const setBuyValue = (coinValue) => {
-        fields.buyValue.onChange(null, coinValue)
+        fields.buyValue.onChange({event: {target: {value: coinValue}}})
     }
 
     return (

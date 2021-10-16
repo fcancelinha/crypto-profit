@@ -1,15 +1,15 @@
 import { useState } from "react"
 
-const useField = (type, pattern = null) => {
+const useField = (type) => {
     const [value, setValue] = useState("")
+    const reg = /^[0-9]+([\\,\\.]?)([0-9]{1,10})?$/g
 
-    const onChange = (event, crypto = null) => {
+    const onChange = (event) => {
 
-        if (crypto) {
-            setValue(crypto)
-        } else if (pattern.test(event.target.value) || !event.target.value) {
-            setValue(event.target.value);
+        if(event.target.value.match(reg) || !event.target.value){
+            setValue(event.target.value.replace(',','.'))
         }
+            
     }
 
     return {
