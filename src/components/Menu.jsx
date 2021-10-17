@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
-import Grow from '@mui/material/Grow';
 import Fade from '@mui/material/Fade';
 import CloseIcon from '@mui/icons-material/Close';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
@@ -22,11 +21,7 @@ const style = {
          mb: 5, 
          mr: 5
     },
-    fab: {
-        backgroundColor: 'black',
-    },
     fabMenu: {
-        backgroundColor: 'black',
         position: 'fixed', 
         right: 0, 
         bottom: 0, 
@@ -37,7 +32,7 @@ const style = {
         borderTopLeftRadius: 500,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
     },
     fabMenuButtonBox: {
         alignSelf: 'flex-end'
@@ -57,21 +52,21 @@ const Menu = () => {
                 in={open}
                 {...(open ? { timeout: 800 } : {timeout: 600})}
             >
-                <Box sx={{ ...style.fabMenu }}>
-                    <Stack direction="column" alignItems="flex-end" sx={{ mb: 4.7 }}>
+                <Box sx={{ ...style.fabMenu }} bgcolor="primary.main">
+                    <Stack direction="column" alignItems="flex-end" sx={{ mb: 4.2 }}>
 
                         <Box sx={{ alignSelf: 'flex-end' }}>
-                            <Fab color="secondary"  sx={{ mr: 11.5, mb: 1 }}>
+                            <Fab color="secondary"  sx={{ mr: 8 }}>
                                 <SearchIcon />
                             </Fab>
                         </Box>
                         <Box sx={{ ...style.fabMenuButtonBox }}>
-                            <Fab color="secondary"  sx={{ mr: 22, mb: 3 }}>
+                            <Fab color="secondary"  sx={{ mr: 20, mb: 3 }}>
                                 <ListAltIcon />
                             </Fab>
                         </Box>
                         <Box sx={{ ...style.fabMenuButtonBox }}>
-                            <Fab color="secondary"  sx={{ mr: 29, mb: 3.5 }}>
+                            <Fab color="secondary"  sx={{ mr: 28, mb: 3.5 }}>
                                 <AttachMoneyIcon />
                             </Fab>
                         </Box>
@@ -84,8 +79,8 @@ const Menu = () => {
                 </Box>
             </Fade>
 
-            <Fab variant="secondary" aria-label="menu" sx={{ ...style.fab }} onClick={() => setOpen(!open)} >
-                {open ? <CloseIcon sx={{ color: 'white' }} /> : <AppsIcon sx={{ color: 'white' }} />}
+            <Fab color={open ? 'secondary' : 'primary'} aria-label="menu" onClick={() => setOpen(!open)} >
+                {open ? <CloseIcon color="primary" /> : <AppsIcon color="secondary" />}
             </Fab>
         </Box>
     )

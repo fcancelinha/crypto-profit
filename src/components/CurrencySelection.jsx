@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton'
 import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
 
 const CurrencySelection = ({ style }) => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -24,7 +23,7 @@ const CurrencySelection = ({ style }) => {
             <IconButton
                 variant="outlined"
                 size="small"
-                style={{ ...style, fontSize: 20, color: 'white' }}
+                style={{ ...style, fontSize: 20}}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}

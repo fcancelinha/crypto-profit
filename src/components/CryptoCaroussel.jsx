@@ -40,6 +40,7 @@ const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
             <Tabs variant="scrollable"
                 scrollButtons={true}
+                allowScrollButtonsMobile
                 textColor="secondary"
                 indicatorColor="secondary"
                 sx={{ ...style.tabs }}

@@ -11,6 +11,7 @@ import Collapse  from '@mui/material/Collapse'
 import ExpandMore from '@mui/icons-material/ExpandMore'
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import CachedIcon from '@mui/icons-material/Cached'
+import Fade from '@mui/material/Fade';
 
 const ValueInput = ({ fields }) => {
     const [collapsed, setCollapsed] = useState(false)
@@ -28,14 +29,13 @@ const ValueInput = ({ fields }) => {
 
             <TextField
                 {...fields.coinAmount}
-                color="secondary"
                 sx={{ mt: 1, width: 250 }}
                 helperText={`≈ ${btcEquiv} BTC`}
                 placeholder="0"
                 InputProps={{
                     startAdornment: <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
                     endAdornment: 
-                    <Tooltip title="Change between fiat investment and token amount" placement="top" sx={{mt: 1}}>
+                    <Tooltip title="Change between fiat investment and token amount" placement="top" TransitionComponent={Fade} TransitionProps={{ timeout: 500 }} sx={{mt: 1}}>
                         <IconButton onClick={() => setMode(!mode)} variant="secondary" sx={{ minWidth: 4, width: 4 }}>
                             <CachedIcon position="end" />
                         </IconButton>
@@ -47,7 +47,6 @@ const ValueInput = ({ fields }) => {
 
             <TextField
                 {...fields.buyValue}
-                color="secondary"
                 placeholder="0"
                 sx={{ mt: 2, mb: 2, width: 250 }}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
@@ -57,7 +56,6 @@ const ValueInput = ({ fields }) => {
 
             <TextField
                 {...fields.sellValue}
-                color="secondary"
                 placeholder="0"
                 sx={{ mt: 2, mb: 2, width: 250}}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
@@ -66,8 +64,8 @@ const ValueInput = ({ fields }) => {
             />
 
 
-            <Tooltip title="Fees" placement="top">
-                <Button variant="outlined" color="secondary" size="small" style={{ minWidth: 2, width: 40, height: 40, borderRadius: 20 }} onClick={() => { setCollapsed(!collapsed); }} >
+            <Tooltip title="Fees" placement="top" TransitionComponent={Fade} TransitionProps={{ timeout: 500 }}>
+                <Button variant="contained" color="primary" size="small" style={{ minWidth: 2, width: 40, height: 40, borderRadius: 20 }} onClick={() => { setCollapsed(!collapsed); }} >
                     {collapsed ? <ExpandLess size="large" /> : <ExpandMore size="large" />}
                 </Button>
             </Tooltip>
@@ -79,7 +77,6 @@ const ValueInput = ({ fields }) => {
 
                     <TextField
                         {...fields.buyFee}
-                        color="secondary"
                         sx={{ mt: 2, mb: 1, width: 200 }}
                         helperText={investmentFee}
                         InputProps={{ startAdornment: <InputAdornment position="start">%</InputAdornment> }}
@@ -90,7 +87,6 @@ const ValueInput = ({ fields }) => {
 
                     <TextField
                         {...fields.sellFee}
-                        color="secondary"
                         sx={{ mt: 2, width: 200 }}
                         helperText={sellingFee}
                         InputProps={{ startAdornment: <InputAdornment position="start">%</InputAdornment> }}

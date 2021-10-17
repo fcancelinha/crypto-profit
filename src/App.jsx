@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import get from './services/crypto-service';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './styles/customTheme';
+
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -25,7 +24,7 @@ const App = () => {
     // }, []);
 
     return (
-        <ThemeProvider theme={theme}>
+  
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', mx: -1, my: -1, backgroundColor: '#FDFEFE' }}>
 
                 <a href="https://www.github.com/fcancelinha/crypto-profit" target="_blank" rel="noreferrer">
@@ -38,7 +37,7 @@ const App = () => {
 
                 <AppTitle />
 
-                <Paper sx={{ alignSelf: 'center', mt: -12, borderRadius: 3, mb: 7, pb: 3, backgroundColor: '#FDFEFE' }} style={{ width: '35em' }} elevation={10}>
+                <Paper sx={{ alignSelf: 'center', mt: -12, borderRadius: 3, pb: 3, mb: 4,  backgroundColor: '#FDFEFE' }} style={{ width: '35em' }} elevation={10}>
                     <Stack sx={{ alignSelf: 'center' }}>
 
                         <Main cryptoList={cryptoList} />
@@ -51,7 +50,7 @@ const App = () => {
                 <Menu />
 
             </Box>
-        </ThemeProvider>
+
     );
 };
 
