@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Menu from '@mui/material/Menu';
+import IconButton from '@mui/material/IconButton'
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 
@@ -20,17 +21,17 @@ const CurrencySelection = ({ style }) => {
 
     return (
         <>
-            <Button
+            <IconButton
                 variant="outlined"
                 size="small"
-                style={{ ...style, marginLeft: 25, fontSize: 20 }}
+                style={{ ...style, fontSize: 20, color: 'white' }}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             >
 
                 $
-            </Button>
+            </IconButton>
             <Menu
                 id="currency-menu"
                 anchorEl={anchorEl}

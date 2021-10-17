@@ -2,7 +2,7 @@ const convertToNumber = (number) => {
     return isNaN(parseFloat(number)) ? 0 : parseFloat(number);
 };
 
-export const performCalculation = (inputValue, mode) => {
+export const calculate = (inputValue, mode) => {
 
     const values = {
         amount: convertToNumber(inputValue.coinAmount.value),

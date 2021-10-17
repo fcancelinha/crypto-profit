@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import InputAdornment from '@mui/material/InputAdornment'
-import { performCalculation } from '../utils/calculation'
+import { calculate } from '../utils/calculation'
 import ValueDisplay from '../components/ValueDisplay'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/Button'
@@ -17,7 +17,7 @@ const ValueInput = ({ fields }) => {
     const [mode, setMode] = useState(true)
     const [btcEquiv, setBtcEquiv] = useState(0.8372837)
 
-    const values = performCalculation(fields, mode);
+    const values = calculate(fields, mode);
 
     const investmentFee = `Investment Fee: ${values.investmentFee.toFixed(2)} $`
     const sellingFee = `Selling Fee: ${values.exitFee.toFixed(2)} $`
@@ -29,7 +29,7 @@ const ValueInput = ({ fields }) => {
             <TextField
                 {...fields.coinAmount}
                 color="secondary"
-                sx={{ mt: 1, width: 227 }}
+                sx={{ mt: 1, width: 250 }}
                 helperText={`≈ ${btcEquiv} BTC`}
                 placeholder="0"
                 InputProps={{
@@ -49,7 +49,7 @@ const ValueInput = ({ fields }) => {
                 {...fields.buyValue}
                 color="secondary"
                 placeholder="0"
-                sx={{ mt: 2, mb: 2 }}
+                sx={{ mt: 2, mb: 2, width: 250 }}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
                 label="Buy Value"
                 variant="outlined"
@@ -59,7 +59,7 @@ const ValueInput = ({ fields }) => {
                 {...fields.sellValue}
                 color="secondary"
                 placeholder="0"
-                sx={{ mt: 2, mb: 2 }}
+                sx={{ mt: 2, mb: 2, width: 250}}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
                 label="Sell Value"
                 variant="outlined"
@@ -67,7 +67,7 @@ const ValueInput = ({ fields }) => {
 
 
             <Tooltip title="Fees" placement="top">
-                <Button variant="outlined" color="secondary" size="small" style={{ minWidth: 2, width: 40, height: 25 }} onClick={() => { setCollapsed(!collapsed); }} >
+                <Button variant="outlined" color="secondary" size="small" style={{ minWidth: 2, width: 40, height: 40, borderRadius: 20 }} onClick={() => { setCollapsed(!collapsed); }} >
                     {collapsed ? <ExpandLess size="large" /> : <ExpandMore size="large" />}
                 </Button>
             </Tooltip>
@@ -80,7 +80,7 @@ const ValueInput = ({ fields }) => {
                     <TextField
                         {...fields.buyFee}
                         color="secondary"
-                        sx={{ mt: 2, mb: 1 }}
+                        sx={{ mt: 2, mb: 1, width: 200 }}
                         helperText={investmentFee}
                         InputProps={{ startAdornment: <InputAdornment position="start">%</InputAdornment> }}
                         label="Buy Fee"
@@ -91,7 +91,7 @@ const ValueInput = ({ fields }) => {
                     <TextField
                         {...fields.sellFee}
                         color="secondary"
-                        sx={{ mt: 2 }}
+                        sx={{ mt: 2, width: 200 }}
                         helperText={sellingFee}
                         InputProps={{ startAdornment: <InputAdornment position="start">%</InputAdornment> }}
                         label="Sell Fee"

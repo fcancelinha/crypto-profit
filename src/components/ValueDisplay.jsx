@@ -14,7 +14,7 @@ const ValueDisplay = ({ values }) => {
     return (
         <Box sx={{ textAlign: 'center', mt: 3 }}>
             <Typography variant="subtitle2" >
-                RETURNS
+                NET GAIN
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Investment value={values.profit} inProfit={values.inProfit} options={{...options, signDisplay: 'exceptZero'}} display={true} />
                 </Box>

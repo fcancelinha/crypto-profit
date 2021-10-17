@@ -17,7 +17,7 @@ const Main = ({cryptoList}) => {
     };
 
     const setBuyValue = (coinValue) => {
-        fields.buyValue.onChange({event: {target: {value: coinValue}}})
+        fields.buyValue.onChange({target: {value: coinValue}})
     }
 
     return (
