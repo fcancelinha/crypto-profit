@@ -12,14 +12,15 @@ import NightsStayIcon from '@mui/icons-material/NightsStay';
 
 const style = {
     fabBox : {
-        display: 'flex', 
+        display: 'flex',
+        backgroundColor: 'transparent',
         justifyContent: 'flex-end', 
         flexDirection: 'column' ,
-         position: 'fixed', 
-         right: 0, 
-         bottom: 0, 
-         mb: 5, 
-         mr: 5
+        position: 'fixed', 
+        right: 0, 
+        bottom: 0, 
+        mb: 5, 
+        mr: 5
     },
     fabMenu: {
         position: 'fixed', 
@@ -36,9 +37,6 @@ const style = {
     },
     fabMenuButtonBox: {
         alignSelf: 'flex-end'
-    },
-    fabMenuButton: {
-
     }
 }
 
@@ -47,16 +45,13 @@ const Menu = () => {
     const [open, setOpen] = useState(false)
 
     return (
-        <Box sx={{ ...style.fabBox }}>
-            <Fade
-                in={open}
-                {...(open ? { timeout: 800 } : {timeout: 600})}
-            >
+        <Box sx={{ ...style.fabBox }} bgcolor="background.default">
+            <Fade in={open} {...(open ? { timeout: 800 } : {timeout: 600})}>
                 <Box sx={{ ...style.fabMenu }} bgcolor="primary.main">
                     <Stack direction="column" alignItems="flex-end" sx={{ mb: 4.2 }}>
 
-                        <Box sx={{ alignSelf: 'flex-end' }}>
-                            <Fab color="secondary"  sx={{ mr: 8 }}>
+                        <Box sx={{ ...style.fabMenuButtonBox }}>
+                            <Fab color="secondary"  sx={{ mr: 9 }}>
                                 <SearchIcon />
                             </Fab>
                         </Box>
@@ -66,12 +61,12 @@ const Menu = () => {
                             </Fab>
                         </Box>
                         <Box sx={{ ...style.fabMenuButtonBox }}>
-                            <Fab color="secondary"  sx={{ mr: 28, mb: 3.5 }}>
+                            <Fab color="secondary"  sx={{ mr: 28, mb: 4 }}>
                                 <AttachMoneyIcon />
                             </Fab>
                         </Box>
                         <Box sx={{ ...style.fabMenuButtonBox }}>
-                            <Fab color="secondary" sx={{ mr: 33 }}>
+                            <Fab color="secondary" sx={{ mr: 32 }}>
                                 <NightsStayIcon />
                             </Fab>
                         </Box>

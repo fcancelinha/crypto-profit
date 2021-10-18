@@ -14,29 +14,41 @@ const addresses = {
 
 const style = {
     address: {
-        color: '#D68910',
+        color: '#F39C12',
         fontWeight: 'bold',
         fontFamily: 'monospace'
     },
     coinName: {
-        color: '000',
-        fontWeight: 'bold',
+        color: '#000',
+        fontWeight: 600,
         fontFamily: 'monospace'
+    },
+    coinImage: {
+        marginRight: 5,
+        width: 15,
+        height: 'auto'
+    },
+    donationText: {
+        my: 1, 
+        fontFamily: 'Consolas', 
+        fontSize: 16, 
+        fontWeight: 'bold'
     }
-
 }
+
+const donationText = "< Buy me a coffee ? ☕/> "
 
 const Donations = () => {
 
     return (
         <Stack sx={{ alignItems: 'center', my: 3, }} spacing={0}>
 
-            <Typography version="overline" sx={{ my: 1, fontFamily: 'Consolas', fontSize: 16 }}>
-                {"< Buy me a coffee ? ☕/> "}
+            <Typography version="overline" sx={{...style.donationText }}>
+                {donationText}
             </Typography>
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img src={bitcoin} alt="bitcoin-address" width="15" height="auto" style={{ marginRight: 5 }} />
+                <img src={bitcoin} alt="bitcoin-address" style={{ ...style.coinImage }} />
                 <Typography variant="caption" sx={{ ...style.coinName }}>
                     BTC&nbsp;-&nbsp;
                     <Typography variant="caption" sx={{ ...style.address }}>
@@ -46,7 +58,7 @@ const Donations = () => {
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img src={usdt} alt="usdt-address" width="15" height="auto" style={{ marginRight: 5 }} />
+                <img src={usdt} alt="usdt-address" style={{ ...style.coinImage}} />
                 <Typography variant="caption" sx={{ ...style.coinName }}>
                     USDT&nbsp;-&nbsp;
                     <Typography variant="caption" sx={{ ...style.address }}>
@@ -56,7 +68,7 @@ const Donations = () => {
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img src={ethereum} alt="ethereum-address" width="15" height="auto" style={{ marginRight: 5 }} />
+                <img src={ethereum} alt="ethereum-address" style={{ ...style.coinImage }} />
                 <Typography variant="caption" sx={{ ...style.coinName }}>
                     ETH&nbsp;-&nbsp;
                     <Typography variant="caption" sx={{ ...style.address }}>

@@ -8,8 +8,9 @@ const subTitle = "made by @fcancelinha"
 const style = {
     container: {
         display: 'flex', 
-        flexDirection: 'column', 
-        pb: 15
+        flexDirection: 'column',
+        minWidth: '100%',
+        pb: 15,
     },
     text: {
         alignSelf: 'center',
