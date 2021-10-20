@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
-import Box from '@mui/material/Box'
 import InputAdornment from '@mui/material/InputAdornment'
 import { calculate } from '../utils/calculation'
 import ValueDisplay from '../components/ValueDisplay'

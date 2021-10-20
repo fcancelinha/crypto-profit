@@ -22,7 +22,8 @@ const style = {
         display: 'flex', 
         justifyContent: 'center', 
         flexDirection:'column', 
-        minWidth: '100%'
+        minWidth: '100%',
+        pb: 10
     },
     paper: {
         alignSelf: 'center',
@@ -58,7 +59,7 @@ const App = () => {
                     style={{ borderRadius: 5, position: 'absolute', top: 0, left: 0 }} />
             </a>
 
-            <Box sx={{...style.subContainer}}>
+            <Box sx={{...style.subContainer}} bgcolor="secondary.main">
 
                 <AppTitle />
 
@@ -70,7 +71,7 @@ const App = () => {
                 </Paper>
 
                 <Menu />
-                
+
             </Box>
         </Box>
     );
