@@ -37,7 +37,7 @@ const ValueInput = ({ fields }) => {
                     startAdornment: <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
                     endAdornment: 
                     <Tooltip title="Change between fiat investment and token amount" placement="top" TransitionComponent={Fade} TransitionProps={{ timeout: 500 }} sx={{mt: 1}}>
-                        <IconButton onClick={() => setMode(!mode)} variant="secondary" sx={{ minWidth: 4, width: 4 }}>
+                        <IconButton variant="contained" size="10px" onClick={() => setMode(!mode)}  sx={{ minWidth: 4, width: 2 }}>
                             <CachedIcon position="end" />
                         </IconButton>
                     </Tooltip>

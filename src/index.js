@@ -7,7 +7,7 @@ import { theme } from './styles/customTheme';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App id='root'/>
+      <App />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

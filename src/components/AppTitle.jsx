@@ -9,8 +9,7 @@ const style = {
     container: {
         display: 'flex', 
         flexDirection: 'column',
-        minWidth: '100%',
-        pb: 15,
+        pb: 15
     },
     text: {
         alignSelf: 'center',
