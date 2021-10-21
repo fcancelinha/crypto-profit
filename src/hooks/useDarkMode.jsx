@@ -1,13 +1,17 @@
-import {useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import useLocalStorage from './useLocalStorage';
 import useMedia from './useMedia';
+import lightTheme from '../styles/lightTheme'
+import darkTheme from '../styles/darkTheme'
+
 
 const usePrefersDarkMode = () => {
     return useMedia(["(prefers-color-scheme: dark)"], [true], false)
 }
 
-const useDarkTheme = () => {
+const useDarkMode = () => {
     const [enabledState, setEnabledState] = useLocalStorage("dark-mode-enabled")
+    const [darkMode, setDarkMode] = useState(darkTheme)
     const prefersDarkMode = usePrefersDarkMode()
 
     const enabled = 
@@ -15,20 +19,27 @@ const useDarkTheme = () => {
 
     useEffect(
         () => {
-
-            const className = "dark-mode"
-            const element = window.document.body
-
-            if (enabled) {
-                element.classList.add(className)
-            } else {
-                element.classList.remove(className)
-            }
+            setDarkMode((enabled ? darkTheme : lightTheme))
         },
         [enabled]
     )
 
-    return [enabled, setEnabledState];
+    const wrapSetDarkMode = (isDarkMode) => {
+        
+        if(isDarkMode)
+        {
+            setDarkMode(darkTheme)
+            setEnabledState("dark-mode-enabled")
+        }
+        else
+        {
+            setDarkMode(lightTheme)
+            setEnabledState("light-mode-enabled")
+        }
+
+    }
+
+    return [darkMode, wrapSetDarkMode];
 }
 
-export default useDarkTheme;
+export default useDarkMode;
