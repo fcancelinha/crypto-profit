@@ -61,12 +61,12 @@ const Menu = () => {
                             <Fab color="secondary"  sx={{ mr: 9 }} aria-label="search-crypto-currency">
                                 <SearchIcon />
                             </Fab>
-                            <Typography variant="caption" color="secondary" sx={{ ...style.fabMenuButtonLabel, bottom: 218, left: 247, mb: 2 }}>
+                            <Typography variant="caption" color="secondary" sx={{ ...style.fabMenuButtonLabel, bottom: 218, left: 249, mb: 2 }}>
                                 Search
                             </Typography>
                         </Box>
                         <Box sx={{ ...style.fabMenuButtonBox }}>
-                            <Fab color="secondary"  sx={{ mr: 20, mb: 2.5}} aria-label="list-calculations">
+                            <Fab color="secondary"  sx={{ mr: 20, mb: 2.3}} aria-label="list-calculations">
                                 <ListAltIcon />
                             </Fab>
                             <Typography variant="caption" color="secondary" sx={{ ...style.fabMenuButtonLabel, bottom: 162, left: 170, mb: 2 }}>
@@ -90,6 +90,7 @@ const Menu = () => {
                             </Typography>
                         </Box>
                     </Stack>
+                    
                 </Box>
             </Fade>
 
