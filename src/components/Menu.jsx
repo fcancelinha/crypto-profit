@@ -48,7 +48,7 @@ const style = {
 }
 
 
-const Menu = () => {
+const Menu = ({ switchTheme }) => {
     const [open, setOpen] = useState(false)
 
     return (
@@ -82,7 +82,7 @@ const Menu = () => {
                             </Typography>
                         </Box>
                         <Box sx={{ ...style.fabMenuButtonBox }}>
-                            <Fab color="secondary" sx={{ mr: 32 }} aria-label="darkmode">
+                            <Fab color="secondary" sx={{ mr: 32 }} aria-label="darkmode" onClick={switchTheme}>
                                 <NightsStayIcon />
                             </Fab>
                             <Typography variant="caption" color="secondary" sx={{ ...style.fabMenuButtonLabel, bottom: 6, left: 54 }}>

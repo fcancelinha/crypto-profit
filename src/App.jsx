@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
 import get from './services/crypto-service';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
@@ -7,6 +8,8 @@ import AppTitle from './components/AppTitle';
 import Main from './components/Main';
 import Donations from './components/Donations';
 import Menu from './components/Menu';
+import useDarkMode from './hooks/useDarkMode';
+import Github from './components/Github';
 
 const style = {
     container: {
@@ -37,7 +40,8 @@ const style = {
 
 
 const App = () => {
-    const [cryptoList, setCryptoList] = useState([{}]);
+    const [cryptoList, setCryptoList] = useState([]);
+    const [theme, setTheme] = useDarkMode();
 
     // useEffect(() => {
 
@@ -50,31 +54,28 @@ const App = () => {
     // }, []);
 
     return (
-        <Box sx={{ ...style.container}} bgcolor="secondary.main">
+        <ThemeProvider theme={theme}>
+            <Box sx={{ ...style.container }} bgcolor="secondary.main">
 
-            <a href="https://www.github.com/fcancelinha/crypto-profit" target="_blank" rel="noreferrer">
-                <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"
-                    width="100"
-                    alt="github"
-                    style={{ borderRadius: 5, position: 'absolute', top: 0, left: 0 }} />
-            </a>
+                <Github />
 
-            <Box sx={{...style.subContainer}} bgcolor="secondary.main">
+                <Box sx={{ ...style.subContainer }} bgcolor="secondary.main">
 
-                <AppTitle />
+                    <AppTitle />
 
-                <Paper sx={{ ...style.paper }} elevation={10}>
-                    <Stack>
-                        <Main cryptoList={cryptoList} />
-                        <Donations />
-                    </Stack>
-                </Paper>
+                    <Paper sx={{ ...style.paper }} elevation={10}>
+                        <Stack>
+                            <Main cryptoList={cryptoList} />
+                            <Donations />
+                        </Stack>
+                    </Paper>
 
-                <Menu />
+                    <Menu switchTheme={() => setTheme()} />
 
+                </Box>
             </Box>
-        </Box>
-    );
-};
+        </ThemeProvider>
+    )
+}
 
 export default App;

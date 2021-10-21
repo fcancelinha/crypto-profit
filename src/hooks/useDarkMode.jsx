@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import useLocalStorage from './useLocalStorage';
 import useMedia from './useMedia';
-import lightTheme from '../styles/lightTheme'
-import darkTheme from '../styles/darkTheme'
+import { lightTheme } from '../styles/lightTheme'
+import { darkTheme } from '../styles/darkTheme'
 
 
 const usePrefersDarkMode = () => {
@@ -10,36 +10,34 @@ const usePrefersDarkMode = () => {
 }
 
 const useDarkMode = () => {
-    const [enabledState, setEnabledState] = useLocalStorage("dark-mode-enabled")
-    const [darkMode, setDarkMode] = useState(darkTheme)
+    const [enabledState, setEnabledState] = useLocalStorage('theme','dark-mode')
+    const [theme, setTheme] = useState(lightTheme)
     const prefersDarkMode = usePrefersDarkMode()
 
-    const enabled = 
-        typeof enabledState !== "undefined" ? enabledState : prefersDarkMode
+    const enabled = typeof enabledState !== 'undefined' ? enabledState : prefersDarkMode
 
     useEffect(
         () => {
-            setDarkMode((enabled ? darkTheme : lightTheme))
+            setTheme((enabled && enabledState === 'dark-mode' ? darkTheme : lightTheme))
         },
         [enabled]
     )
 
-    const wrapSetDarkMode = (isDarkMode) => {
+    const wrapSetDarkMode = () => {
         
-        if(isDarkMode)
-        {
-            setDarkMode(darkTheme)
-            setEnabledState("dark-mode-enabled")
+        if(theme.palette.type === 'dark'){
+            setTheme(lightTheme)
+            setEnabledState("light-mode")
         }
         else
         {
-            setDarkMode(lightTheme)
-            setEnabledState("light-mode-enabled")
+            setTheme(darkTheme)
+            setEnabledState("dark-mode")
         }
 
     }
 
-    return [darkMode, wrapSetDarkMode];
+    return [theme, wrapSetDarkMode];
 }
 
 export default useDarkMode;
