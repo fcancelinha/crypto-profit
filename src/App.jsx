@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import { useTheme } from '@mui/system';
 import get from './services/crypto-service';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';

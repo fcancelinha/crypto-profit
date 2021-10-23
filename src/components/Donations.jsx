@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import Slide from '@mui/material/Slide';
+import Link from '@mui/material/Link'
+import Snackbar from '@mui/material/Snackbar'
 import Stack from '@mui/material/Stack'
 import bitcoin from '../assets/icons/bitcoin.png'
 import usdt from '../assets/icons/usdt.png'
@@ -14,9 +17,13 @@ const addresses = {
 
 const style = {
     address: {
-        color: '#ffb300',
+        color: '#F39C12',
         fontWeight: 'bold',
         fontFamily: 'Consolas'
+    },
+    adressContainer: {
+        display: 'flex', 
+        alignItems: 'center'
     },
     coinName: {
         fontWeight: 600,
@@ -37,8 +44,29 @@ const style = {
 
 const donationText = "< Buy me a coffee ? ☕/> "
 
-const Donations = () => {
+const WalletAdress = ({address, handleClick}) => {
 
+    return (
+        <Link underline="none" href="#" variant="caption" sx={style.address} onClick={handleClick(address)}>
+            {address}
+        </Link>
+    )
+}
+
+
+const Donations = () => {
+    const [state, setState] = useState(false);
+    
+      const handleClick = (address) => () => {
+        navigator.clipboard.writeText(address)
+        setState(true);
+
+        setTimeout(() => {
+            setState(false)
+        }, 2000);
+      };
+    
+ 
     return (
         <Stack sx={{ alignItems: 'center', my: 3, }} spacing={0}>
 
@@ -46,35 +74,36 @@ const Donations = () => {
                 {donationText}
             </Typography>
 
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box sx={style.adressContainer}>
                 <img src={bitcoin} alt="bitcoin-address" style={style.coinImage} />
                 <Typography variant="caption" sx={style.coinName}>
                     BTC&nbsp;-&nbsp;
-                    <Typography variant="caption" sx={style.address }>
-                        {addresses.btc}
-                    </Typography>
+                    <WalletAdress address={addresses.btc} handleClick={handleClick} />
                 </Typography>
             </Box>
 
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box sx={style.adressContainer}>
                 <img src={usdt} alt="usdt-address" style={style.coinImage} />
                 <Typography variant="caption" sx={style.coinName}>
                     USDT&nbsp;-&nbsp;
-                    <Typography variant="caption" sx={style.address}>
-                        {addresses.tether}
-                    </Typography>
+                    <WalletAdress address={addresses.tether} handleClick={handleClick} />
                 </Typography>
             </Box>
 
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box sx={style.adressContainer}>
                 <img src={ethereum} alt="ethereum-address" style={style.coinImage} />
                 <Typography variant="caption" sx={style.coinName}>
                     ETH&nbsp;-&nbsp;
-                    <Typography variant="caption" sx={style.address}>
-                        {addresses.eth}
-                    </Typography>
+                    <WalletAdress address={addresses.eth} handleClick={handleClick} />
                 </Typography>
             </Box>
+
+            <Snackbar
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                open={state}
+                message="Address copied !"
+                TransitionComponent={Slide}
+            />
 
         </Stack>
     )

@@ -24,4 +24,15 @@ export const lightTheme = createTheme({
         },
         divider: '#252525',
     },
+    components: {
+        MuiLink: {
+            styleOverrides: {
+                root: {
+                    "&:hover": {
+                        color: '#900C3F'
+                    }
+                }
+            }
+        }
+    }
 })

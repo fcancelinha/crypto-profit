@@ -45,6 +45,15 @@ export const darkTheme = createTheme({
                     },
                 }
             }
+        },
+        MuiLink: {
+            styleOverrides: {
+                root: {
+                    "&:hover": {
+                        color: '#900C3F'
+                    }
+                }
+            }
         }
     }
 })
