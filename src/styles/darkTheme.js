@@ -54,11 +54,6 @@ export const darkTheme = createTheme({
                     }
                 }
             }
-        },
-        MuiSnackbarContent: {
-            root: {
-                minWidth: "20px"
-            }
         }
     }
 })

@@ -5,6 +5,26 @@ import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 
+const style = {
+    tabs: {
+        maxWidth: 480, 
+        [`& .${tabsClasses.scrollButtons}`]: {
+            '&.Mui-disabled': { 
+                opacity: 0.3 
+            }
+        },
+    },
+    tab: {
+        minWidth: 20,
+        height: 80,
+        width: 80
+    },
+    tabAvatar: {
+        width: 35,
+        height: 35
+    }
+}
+
 const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
     const [selectedCoin, setSelectedCoin] = useState(false)
 
@@ -16,25 +36,6 @@ const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
     const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
     const filteredMock = mock.filter(x => filterCoins.indexOf(x.currency) < 0)
 
-    const style = {
-        tabs: {
-            maxWidth: 480, 
-            [`& .${tabsClasses.scrollButtons}`]: {
-                '&.Mui-disabled': { 
-                    opacity: 0.3 
-                }
-            },
-        },
-        tab: {
-            minWidth: 20,
-            height: 80,
-            width: 80
-        },
-        tabAvatar: {
-            width: 35,
-            height: 35
-        }
-    }
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>

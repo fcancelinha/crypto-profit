@@ -1,12 +1,16 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Avatar from '@mui/material/Avatar';
+import Autocomplete from '@mui/material/Autocomplete';
 import Modal from '@mui/material/Modal';
 import { useTheme } from '@mui/system';
 
 const style =  {
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
     position: 'absolute',
     top: '40%',
     left: '50%',
@@ -19,8 +23,7 @@ const style =  {
 }
 
 
-
-const CryptoSearch = ({open, handleClose}) => {
+const CryptoSearch = ({open, handleClose, cryptoList}) => {
     const theme = useTheme()
     const shadow = theme.palette.mode === 'dark' ? '0px 0px 10px 1px #ffb300' : 23
 
@@ -35,9 +38,23 @@ const CryptoSearch = ({open, handleClose}) => {
                 <Typography sx={{alignSelf: 'center'}} id="modal-modal-title" variant="h6" component="h2">
                     [ SEARCH ]
                 </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                </Typography>
+
+                <Autocomplete
+                    id="crypto-search"
+                    options={cryptoList}
+                    autoHighlight
+                    getOptionLabel={(option) => `${option.id} ${option.name}`}
+                    sx={{ width: 250, mt: 3, ml:2, alignSelf: 'center' }}
+                    renderOption={(props, option) => (
+                        <Box component="li" sx={{ '& > img': { mr: 5, flexShrink: 1 } }} {...props}>
+                            <Avatar alt={option.currency} src={option.logo_url} />
+                            <Typography variant="caption" sx={{ml: 4}}>{option.id} - {option.name} </Typography>
+                            
+                        </Box>
+                    )}
+                    renderInput={(params) => <TextField {...params} label="Search by tag or name" variant="standard" />}
+                />
+
             </Box>
         </Modal>
     )

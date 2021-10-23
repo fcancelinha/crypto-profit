@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import get from './services/crypto-service';
+import { mock } from './mocks/cryptoList'
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -43,11 +44,6 @@ const App = () => {
     const [cryptoList, setCryptoList] = useState([]);
     const [theme, setTheme] = useDarkMode();
 
- 
-    // const ctheme = useTheme()
-    // console.log("theme", ctheme.palette.text.primary)
-    // const paperShadow = `60px -16px white`
-
     // useEffect(() => {
 
     //     get()
@@ -75,7 +71,7 @@ const App = () => {
                         </Stack>
                     </Paper>
 
-                    <Menu switchTheme={() => setTheme()} />
+                    <Menu switchTheme={() => setTheme()} cryptoList={mock} />
 
                 </Box>
             </Box>

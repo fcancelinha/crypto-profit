@@ -51,7 +51,7 @@ const style = {
 }
 
 
-const Menu = ({ switchTheme }) => {
+const Menu = ({ switchTheme, cryptoList }) => {
     const [open, setOpen] = useToggle(false)
     const [modelOpen, modalSetOpen] = useState(false);
     const handleOpen = () => modalSetOpen(true);
@@ -104,7 +104,7 @@ const Menu = ({ switchTheme }) => {
                 {open ? <CloseIcon /> : <AppsIcon />}
             </Fab>
 
-            <CryptoSearch open={modelOpen}  handleClose={handleClose}/>
+            <CryptoSearch open={modelOpen}  handleClose={handleClose} cryptoList={cryptoList}/>
         </Box>
     )
 }
