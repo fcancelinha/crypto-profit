@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import useToggle from '../hooks/useToggle';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import Fade from '@mui/material/Fade';
@@ -51,7 +52,7 @@ const style = {
 
 
 const Menu = ({ switchTheme }) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useToggle(false)
     const [modelOpen, modalSetOpen] = useState(false);
     const handleOpen = () => modalSetOpen(true);
     const handleClose = () => modalSetOpen(false);
@@ -99,7 +100,7 @@ const Menu = ({ switchTheme }) => {
                 </Box>
             </Fade>
 
-            <Fab color={open ? 'secondary' : 'primary'} onClick={() => setOpen(!open)} aria-label="menu-button" >
+            <Fab color={open ? 'secondary' : 'primary'} onClick={() => setOpen()} aria-label="menu-button" >
                 {open ? <CloseIcon /> : <AppsIcon />}
             </Fab>
 

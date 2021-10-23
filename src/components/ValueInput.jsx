@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import useToggle from '../hooks/useToggle'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import InputAdornment from '@mui/material/InputAdornment'
@@ -14,9 +15,8 @@ import CachedIcon from '@mui/icons-material/Cached'
 import Fade from '@mui/material/Fade';
 
 const ValueInput = ({ fields }) => {
-    const [collapsed, setCollapsed] = useState(false)
+    const [collapsed, setCollapsed] = useToggle(false)
     const [mode, setMode] = useState(true)
-    const [btcEquiv, setBtcEquiv] = useState(0.8372837)
 
     const values = calculate(fields, mode);
 
@@ -32,7 +32,7 @@ const ValueInput = ({ fields }) => {
                 {...fields.coinAmount}
                 variant="outlined"
                 sx={{ mt: 1, width: 250 }}
-                helperText={`≈ ${btcEquiv} BTC`}
+                helperText={`≈ ${0.8372837} BTC`}
                 placeholder="0"
                 InputProps={{
                     startAdornment: <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
@@ -68,7 +68,7 @@ const ValueInput = ({ fields }) => {
 
 
             <Tooltip title="Fees" placement="top" TransitionComponent={Fade} TransitionProps={{ timeout: 500 }}>
-                <Button variant="contained" color="primary" size="small" style={{ minWidth: 2, width: 40, height: 40, borderRadius: 20 }} onClick={() => { setCollapsed(!collapsed); }} >
+                <Button variant="contained" color="primary" size="small" style={{ minWidth: 2, width: 40, height: 40, borderRadius: 20 }} onClick={() => { setCollapsed() }} >
                     {collapsed ? <ExpandLess size="large" /> : <ExpandMore size="large" />}
                 </Button>
             </Tooltip>

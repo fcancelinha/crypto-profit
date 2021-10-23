@@ -7,7 +7,7 @@ export const darkTheme = createTheme({
             main: '#ffb300',
             light: '#f5f5f5',
             contrastText: '#0A0A0A',
-            dark: '#ffb300',
+            dark: '#CF9200',
         },
         secondary: {
             main: '#0a0a0a',
@@ -53,6 +53,11 @@ export const darkTheme = createTheme({
                         color: '#900C3F'
                     }
                 }
+            }
+        },
+        MuiSnackbarContent: {
+            root: {
+                minWidth: "20px"
             }
         }
     }

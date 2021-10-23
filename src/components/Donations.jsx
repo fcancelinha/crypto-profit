@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import Box from '@mui/material/Box'
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Typography from '@mui/material/Typography'
 import Slide from '@mui/material/Slide';
 import Link from '@mui/material/Link'
 import Snackbar from '@mui/material/Snackbar'
+import Alert from '@mui/material/Alert'
 import Stack from '@mui/material/Stack'
 import bitcoin from '../assets/icons/bitcoin.png'
 import usdt from '../assets/icons/usdt.png'
@@ -101,9 +103,13 @@ const Donations = () => {
             <Snackbar
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
                 open={state}
-                message="Address copied !"
                 TransitionComponent={Slide}
-            />
+            >
+                <Alert
+                icon={<FavoriteIcon sx={{color: 'primary.contrastText'}} />} 
+                sx={{backgroundColor: 'primary.main', color: 'primary.contrastText', fontWeight: 'bold'}}>Address copied !</Alert>
+                
+            </ Snackbar>
 
         </Stack>
     )
