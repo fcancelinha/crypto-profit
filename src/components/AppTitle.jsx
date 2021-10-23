@@ -9,25 +9,27 @@ const style = {
     container: {
         display: 'flex', 
         flexDirection: 'column',
-        pb: 15
+        pb: 15,
+        backgroundColor: '#000000'
     },
     text: {
         alignSelf: 'center',
-        fontFamily: 'Cairo'
+        fontFamily: 'Cairo',
+        color: '#eeeeee'
     }
 }
 
 const AppTitle = () => {
     return (
-        <Box sx={{...style.container}} bgcolor="primary.main">
-            <Typography variant="h3" color="secondary" sx={{...style.text, mt: 2,  }} >
-                {title} <span style={{ color: 'gold' }}>₿</span>
+        <Box sx={{...style.container}} boxShadow={5}>
+            <Typography variant="h3" sx={{...style.text, mt: 2,  }} >
+                {title} <span style={{ color: '#ffb300' }}>₿</span>
             </Typography>
-            <Typography variant="caption" color="secondary" sx={{...style.text}} >
+            <Typography variant="caption" sx={style.text} >
                 {subTitle}
             </Typography>
         </Box>
-    );
+    )
 }
 
 export default AppTitle

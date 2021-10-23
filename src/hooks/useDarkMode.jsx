@@ -20,12 +20,12 @@ const useDarkMode = () => {
         () => {
             setTheme((enabled && enabledState === 'dark-mode' ? darkTheme : lightTheme))
         },
-        [enabled]
+        [enabled, enabledState]
     )
 
     const wrapSetDarkMode = () => {
         
-        if(theme.palette.type === 'dark'){
+        if(theme.palette.mode === 'dark'){
             setTheme(lightTheme)
             setEnabledState("light-mode")
         }

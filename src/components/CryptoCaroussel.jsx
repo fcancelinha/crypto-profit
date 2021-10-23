@@ -41,16 +41,17 @@ const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
             <Tabs variant="scrollable"
                 scrollButtons={true}
                 allowScrollButtonsMobile
-                textColor="secondary"
-                indicatorColor="secondary"
-                sx={{ ...style.tabs }}
+                textColor="primary"
+                indicatorColor="primary"
+                sx={style.tabs}
                 value={selectedCoin}
                 onChange={handleChange}
-                aria-label="crypto horizontal tab list"
+                aria-label="crypto-horizontal-tab-list"
+                aria-describedby="crypto-horizontal-tab-description"
             >
 
                 {filteredMock.map(x => {
-                    return <Tab key={x.id} value={x} sx={{ ...style.tab }} label={x.currency} icon={<Avatar alt={x.currency} src={x.logo_url} sx={{ ...style.tabAvatar }} />} />;
+                    return <Tab id="x.id" key={x.id} value={x} sx={style.tab} label={x.currency} icon={<Avatar alt={x.currency} src={x.logo_url} sx={style.tabAvatar} />} />;
                 })}
 
             </Tabs>

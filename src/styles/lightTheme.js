@@ -2,31 +2,26 @@ import { createTheme } from '@mui/material/styles'
 
 export const lightTheme = createTheme({
     palette: {
-        type: 'light',
+        mode: 'light',
         primary: {
-            main: '#121212',
+            main: '#0A0A0A',
             light: '#1A1A1A',
             contrastText: '#f5f5f5',
-            dark: '#252525',
+            dark: '#313131',
         },
         secondary: {
-            main: '#f5f5f5',
-            contrastText: '#1A1A1A',
-            dark: '#E5E7E9',
-            light: '#E5E7E9',
+            main: '#d5d5d5',
+            contrastText: '#0A0A0A',
+            dark: '#adadad',
+            light: '#ffab40',
         },
         background: {
-            default: '#f5f5f5',
-            paper: '#f5f5f5',
+            default: '#eeeeee',
+            paper: '#eeeeee',
         },
         text: {
-            primary: '#1A1A1A',
+            primary: '#0A0A0A',
         },
         divider: '#252525',
     },
-    props: {
-        MuiTooltip: {
-            arrow: true,
-        },
-    }
 })

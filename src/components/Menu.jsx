@@ -10,6 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Stack from '@mui/material/Stack';
 import AppsIcon from '@mui/icons-material/Apps';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
+import CryptoSearch from './CryptoSearch';
 
 const style = {
     fabBox : {
@@ -35,6 +36,7 @@ const style = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-end',
+        boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;'
     },
     fabMenuButtonBox: {
         display: 'flex',
@@ -50,22 +52,25 @@ const style = {
 
 const Menu = ({ switchTheme }) => {
     const [open, setOpen] = useState(false)
+    const [modelOpen, modalSetOpen] = useState(false);
+    const handleOpen = () => modalSetOpen(true);
+    const handleClose = () => modalSetOpen(false);
 
     return (
-        <Box sx={{ ...style.fabBox}} bgcolor="background.default" aria-label="menu">
+        <Box sx={{ ...style.fabBox}} bgcolor="background.default" aria-label="menu" >
             <Fade in={open} {...(open ? { timeout: 800 } : {timeout: 600})}>
-                <Box sx={{ ...style.fabMenu }} boxShadow={3} bgcolor="primary.main">
+                <Box sx={{ ...style.fabMenu }} bgcolor="primary.main">
                     <Stack direction="column" alignItems="flex-end" sx={{ mb: 4.2 }}>
 
-                        <Box sx={{ ...style.fabMenuButtonBox }}>
-                            <Fab color="secondary"  sx={{ mr: 9 }} aria-label="search-crypto-currency">
+                        <Box sx={style.fabMenuButtonBox}>
+                            <Fab color="secondary"  sx={{ mr: 9 }} aria-label="search-crypto-currency" onClick={handleOpen}>
                                 <SearchIcon />
                             </Fab>
                             <Typography variant="caption" color="secondary" sx={{ ...style.fabMenuButtonLabel, bottom: 218, left: 249, mb: 2 }}>
                                 Search
                             </Typography>
                         </Box>
-                        <Box sx={{ ...style.fabMenuButtonBox }}>
+                        <Box sx={style.fabMenuButtonBox}>
                             <Fab color="secondary"  sx={{ mr: 20, mb: 2.3}} aria-label="list-calculations">
                                 <ListAltIcon />
                             </Fab>
@@ -73,7 +78,7 @@ const Menu = ({ switchTheme }) => {
                                 List
                             </Typography>
                         </Box>
-                        <Box sx={{ ...style.fabMenuButtonBox }}>
+                        <Box sx={style.fabMenuButtonBox}>
                             <Fab color="secondary"  sx={{ mr: 28, mb: 5 }} aria-label="change-fiat-currency">
                                 <AttachMoneyIcon />
                             </Fab>
@@ -81,7 +86,7 @@ const Menu = ({ switchTheme }) => {
                                 Currency
                             </Typography>
                         </Box>
-                        <Box sx={{ ...style.fabMenuButtonBox }}>
+                        <Box sx={style.fabMenuButtonBox}>
                             <Fab color="secondary" sx={{ mr: 32 }} aria-label="darkmode" onClick={switchTheme}>
                                 <NightsStayIcon />
                             </Fab>
@@ -95,8 +100,10 @@ const Menu = ({ switchTheme }) => {
             </Fade>
 
             <Fab color={open ? 'secondary' : 'primary'} onClick={() => setOpen(!open)} aria-label="menu-button" >
-                {open ? <CloseIcon color="primary" /> : <AppsIcon color="secondary" />}
+                {open ? <CloseIcon /> : <AppsIcon />}
             </Fab>
+
+            <CryptoSearch open={modelOpen}  handleClose={handleClose}/>
         </Box>
     )
 }

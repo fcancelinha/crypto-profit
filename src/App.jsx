@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
+import { useTheme } from '@mui/system';
 import get from './services/crypto-service';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
@@ -36,12 +37,17 @@ const style = {
         mt: -12,
         width: '33rem'
     }
-};
+}
 
 
 const App = () => {
     const [cryptoList, setCryptoList] = useState([]);
     const [theme, setTheme] = useDarkMode();
+
+ 
+    // const ctheme = useTheme()
+    // console.log("theme", ctheme.palette.text.primary)
+    // const paperShadow = `60px -16px white`
 
     // useEffect(() => {
 
@@ -55,15 +61,15 @@ const App = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={{ ...style.container }} bgcolor="secondary.main">
+            <Box sx={style.container} bgcolor="background.default">
 
                 <Github />
 
-                <Box sx={{ ...style.subContainer }} bgcolor="secondary.main">
+                <Box sx={style.subContainer} bgcolor="background.default">
 
                     <AppTitle />
 
-                    <Paper sx={{ ...style.paper }} elevation={10}>
+                    <Paper sx={style.paper} elevation={23} >
                         <Stack>
                             <Main cryptoList={cryptoList} />
                             <Donations />

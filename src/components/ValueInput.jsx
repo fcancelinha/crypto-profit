@@ -25,10 +25,12 @@ const ValueInput = ({ fields }) => {
 
     return (
 
-        <Stack direction="column" justifyContent="center" alignItems="center" sx={{mt: 5}} >
+        <Stack direction="column" justifyContent="center" alignItems="center" sx={{mt: 5}} aria-labelledby="stack-stack" aria-describedby="stack-stack-description" >
 
             <TextField
+                id="investement-amount"
                 {...fields.coinAmount}
+                variant="outlined"
                 sx={{ mt: 1, width: 250 }}
                 helperText={`≈ ${btcEquiv} BTC`}
                 placeholder="0"
@@ -42,25 +44,26 @@ const ValueInput = ({ fields }) => {
                     </Tooltip>
                 }}
                 label={mode ? 'Investment Amount' : 'Coin Amount'}
-                variant="outlined"
             />
 
             <TextField
+                id="buy-value"
                 {...fields.buyValue}
+                variant="outlined"
                 placeholder="0"
                 sx={{ mt: 2, mb: 2, width: 250 }}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
                 label="Buy Value"
-                variant="outlined"
             />
 
             <TextField
+                id="sell-value"
                 {...fields.sellValue}
+                variant="outlined"
                 placeholder="0"
                 sx={{ mt: 2, mb: 2, width: 250}}
                 InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
                 label="Sell Value"
-                variant="outlined"
             />
 
 
@@ -75,22 +78,24 @@ const ValueInput = ({ fields }) => {
                 <Stack>
 
                     <TextField
+                        id="buy-fee"
                         {...fields.buyFee}
+                        variant="outlined"
                         sx={{ mt: 2, mb: 1, width: 200 }}
                         helperText={investmentFee}
                         InputProps={{ startAdornment: <InputAdornment position="start">%</InputAdornment> }}
                         label="Buy Fee"
-                        variant="outlined"
                         placeholder="0"
                     />
 
                     <TextField
+                        id="sell-fee"
                         {...fields.sellFee}
+                        variant="outlined"
                         sx={{ mt: 2, width: 200 }}
                         helperText={sellingFee}
                         InputProps={{ startAdornment: <InputAdornment position="start">%</InputAdornment> }}
                         label="Sell Fee"
-                        variant="outlined"
                         placeholder="0"
                     />
 

@@ -14,12 +14,11 @@ const addresses = {
 
 const style = {
     address: {
-        color: '#F39C12',
+        color: '#ffb300',
         fontWeight: 'bold',
-        fontFamily: 'monospace'
+        fontFamily: 'Consolas'
     },
     coinName: {
-        color: '#000',
         fontWeight: 600,
         fontFamily: 'monospace'
     },
@@ -43,35 +42,35 @@ const Donations = () => {
     return (
         <Stack sx={{ alignItems: 'center', my: 3, }} spacing={0}>
 
-            <Typography version="overline" sx={{...style.donationText }}>
+            <Typography version="overline" sx={style.donationText}>
                 {donationText}
             </Typography>
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img src={bitcoin} alt="bitcoin-address" style={{ ...style.coinImage }} />
-                <Typography variant="caption" sx={{ ...style.coinName }}>
+                <img src={bitcoin} alt="bitcoin-address" style={style.coinImage} />
+                <Typography variant="caption" sx={style.coinName}>
                     BTC&nbsp;-&nbsp;
-                    <Typography variant="caption" sx={{ ...style.address }}>
+                    <Typography variant="caption" sx={style.address }>
                         {addresses.btc}
                     </Typography>
                 </Typography>
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img src={usdt} alt="usdt-address" style={{ ...style.coinImage}} />
-                <Typography variant="caption" sx={{ ...style.coinName }}>
+                <img src={usdt} alt="usdt-address" style={style.coinImage} />
+                <Typography variant="caption" sx={style.coinName}>
                     USDT&nbsp;-&nbsp;
-                    <Typography variant="caption" sx={{ ...style.address }}>
+                    <Typography variant="caption" sx={style.address}>
                         {addresses.tether}
                     </Typography>
                 </Typography>
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <img src={ethereum} alt="ethereum-address" style={{ ...style.coinImage }} />
-                <Typography variant="caption" sx={{ ...style.coinName }}>
+                <img src={ethereum} alt="ethereum-address" style={style.coinImage} />
+                <Typography variant="caption" sx={style.coinName}>
                     ETH&nbsp;-&nbsp;
-                    <Typography variant="caption" sx={{ ...style.address }}>
+                    <Typography variant="caption" sx={style.address}>
                         {addresses.eth}
                     </Typography>
                 </Typography>

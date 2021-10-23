@@ -2,31 +2,51 @@ import { createTheme } from '@mui/material/styles'
 
 export const darkTheme = createTheme({
     palette: {
-        type: 'dark',
+        mode: 'dark',
         primary: {
-            main: '#f5f5f5',
-            light: '#E5E7E9',
-            contrastText: '#121212',
-            dark: '#E5E7E9',
+            main: '#ffb300',
+            light: '#f5f5f5',
+            contrastText: '#0A0A0A',
+            dark: '#ffb300',
         },
         secondary: {
-            main: '#121212',
+            main: '#0a0a0a',
             contrastText: '#f5f5f5',
-            dark: '#252525',
-            light: '#1a1a1a',
+            dark: '#212121',
+            light: '#ffab40',
         },
         background: {
-            default: '#121212',
-            paper: '#1A1A1A',
+            default: '#212121',
+            paper: '#000000',
         },
         text: {
-            primary: '#f5f5f5',
+            primary: '#eeeeee',
         },
         divider: '#252525',
     },
-    props: {
-        MuiTooltip: {
-            arrow: true,
-        },
+    components: {
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    "& .MuiTypography-root": {
+                        color: "#eeeeee"
+                    },
+                    "& .MuiInputLabel-formControl": {
+                        color: "#eeeeee"
+                    },
+                    "& .MuiFormHelperText-root": {
+                        color: "#eeeeee"
+                    },
+                    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#eeeeee"
+                    },
+                    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#ffb300"
+                    },
+                }
+            }
+        }
     }
 })
+
+//.Mui-focused
