@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import CryptoSearch from './CryptoSearch';
+import CurrencySelect from './CurrencySelect'
 import useToggle from '../hooks/useToggle';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
@@ -11,7 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Stack from '@mui/material/Stack';
 import AppsIcon from '@mui/icons-material/Apps';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
-import CryptoSearch from './CryptoSearch';
+
 
 const style = {
     fabBox : {
@@ -53,6 +55,7 @@ const style = {
 
 const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection }) => {
     const [open, setOpen] = useToggle(false)
+    const [curOpen, setCurOpen] = useToggle(false)
     const [modelOpen, modalSetOpen] = useState(false);
     
     const handleOpen = () => modalSetOpen(true);
@@ -81,7 +84,7 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                             </Typography>
                         </Box>
                         <Box sx={style.fabMenuButtonBox}>
-                            <Fab color="secondary"  sx={{ mr: 28, mb: 5 }} aria-label="change-fiat-currency">
+                            <Fab color="secondary"  sx={{ mr: 28, mb: 5 }} onClick={() => setCurOpen()} aria-label="change-fiat-currency">
                                 <AttachMoneyIcon />
                             </Fab>
                             <Typography variant="caption" color="secondary" sx={{ ...style.fabMenuButtonLabel, bottom: 90, left: 89, mb: 2  }}>
@@ -98,6 +101,8 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                         </Box>
                     </Stack>
                     
+
+                    <CurrencySelect curOpen={curOpen} />
                 </Box>
             </Fade>
 

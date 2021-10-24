@@ -27,13 +27,13 @@ const Main = ({ cryptoList , handleThemeChange }) => {
         }
     }
 
+    /* component MENU is absolute and outside of DOM */
     return (
         <>
             <ValueInput fields={fields} btc={btc} />
 
             <CryptoCaroussel buyValueField={fields.buyValue} selectedCoin={selectedCoin} cryptoList={cryptoList} handleCoinSelection={handleCoinSelection} />
 
-            {/* component is absolute and outside of DOM */}
             <Menu handleThemeChange={handleThemeChange} selectedCoin={selectedCoin} cryptoList={cryptoList}  handleCoinSelection={handleCoinSelection} />
         </>
 

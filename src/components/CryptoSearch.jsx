@@ -39,7 +39,7 @@ const CryptoSearch = ({open, handleClose, cryptoList, selectedCoin, handleCoinSe
             aria-describedby="modal-modal-description"
         >
             <Box sx={style} boxShadow={shadow}>
-                <Typography sx={{alignSelf: 'center'}} id="modal-modal-title" variant="h6" component="h2">
+                <Typography sx={{ alignSelf: 'center' }} id="modal-modal-title" variant="h6" component="h2">
                     [ SEARCH ]
                 </Typography>
 
@@ -48,14 +48,14 @@ const CryptoSearch = ({open, handleClose, cryptoList, selectedCoin, handleCoinSe
                     options={cryptoList}
                     onChange={handleChange}
                     getOptionLabel={(option) => `${option.id} ${option.name}`}
-                    sx={{ width: 250, mt: 3, ml:2, alignSelf: 'center' }}
+                    sx={{ width: 250, mt: 3, ml: 2, alignSelf: 'center' }}
                     renderOption={(props, option) => (
                         <Box component="li" sx={{ '& > img': { mr: 5, flexShrink: 1 } }} {...props}>
                             <Avatar alt={option.currency} src={option.logo_url} />
-                            <Typography variant="caption" sx={{ml: 4, fontWeight: 'bold'}}>{option.id} - {option.name} </Typography>
+                            <Typography variant="caption" sx={{ ml: 4, fontWeight: 'bold' }}>{option.id} - {option.name} </Typography>
                         </Box>
                     )}
-                    renderInput={(params) => <TextField {...params} label="Search by tag or name" variant="standard" /> }
+                    renderInput={(params) => <TextField {...params} label="Search by tag or name" variant="standard" />}
                 />
 
             </Box>
