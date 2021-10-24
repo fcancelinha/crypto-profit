@@ -23,9 +23,13 @@ const style =  {
 }
 
 
-const CryptoSearch = ({open, handleClose, cryptoList, handleCoinSelection}) => {
+const CryptoSearch = ({open, handleClose, cryptoList, selectedCoin, handleCoinSelection}) => {
     const theme = useTheme()
     const shadow = theme.palette.mode === 'dark' ? '0px 0px 10px 1px #ffb300' : 23
+
+    const handleChange = (_, newValue) => {
+        handleCoinSelection(newValue)
+    }
 
     return (
         <Modal
@@ -42,17 +46,16 @@ const CryptoSearch = ({open, handleClose, cryptoList, handleCoinSelection}) => {
                 <Autocomplete
                     id="crypto-search"
                     options={cryptoList}
-                    autoHighlight
+                    onChange={handleChange}
                     getOptionLabel={(option) => `${option.id} ${option.name}`}
                     sx={{ width: 250, mt: 3, ml:2, alignSelf: 'center' }}
                     renderOption={(props, option) => (
                         <Box component="li" sx={{ '& > img': { mr: 5, flexShrink: 1 } }} {...props}>
                             <Avatar alt={option.currency} src={option.logo_url} />
-                            <Typography variant="caption" sx={{ml: 4}}>{option.id} - {option.name} </Typography>
-                            
+                            <Typography variant="caption" sx={{ml: 4, fontWeight: 'bold'}}>{option.id} - {option.name} </Typography>
                         </Box>
                     )}
-                    renderInput={(params) => <TextField {...params} label="Search by tag or name" variant="standard" />}
+                    renderInput={(params) => <TextField {...params} label="Search by tag or name" variant="standard" /> }
                 />
 
             </Box>

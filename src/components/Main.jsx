@@ -11,7 +11,7 @@ const Main = ({ cryptoList , handleThemeChange }) => {
 
     //custom hook object with state value in property "value"
     const fields = {
-        coinAmount: useField(type),
+        coinAmount: useField(type), 
         buyValue: useField(type),
         sellValue: useField(type),
         buyFee: useField(type),
@@ -19,8 +19,11 @@ const Main = ({ cryptoList , handleThemeChange }) => {
     };
 
     const handleCoinSelection = (newValue) => {
-        setSelectedCoin(newValue);
-        fields.buyValue.onChange({target: {value: newValue.price}})
+
+        if(newValue && newValue?.price){
+            setSelectedCoin(newValue);
+            fields.buyValue.onChange({target: {value: newValue.price}})
+        }
     }
 
     return (
@@ -30,7 +33,7 @@ const Main = ({ cryptoList , handleThemeChange }) => {
             <CryptoCaroussel cryptoList={cryptoList} buyValueField={fields.buyValue} selectedCoin={selectedCoin} handleCoinSelection={handleCoinSelection} />
 
             {/*component is absolute and outside of DOM */}
-            <Menu cryptoList={cryptoList} handleThemeChange={handleThemeChange} handleCoinSelection={handleCoinSelection} />
+            <Menu handleThemeChange={handleThemeChange} selectedCoin={selectedCoin} cryptoList={cryptoList}  handleCoinSelection={handleCoinSelection} />
         </>
 
     );
