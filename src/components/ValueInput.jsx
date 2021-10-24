@@ -14,11 +14,11 @@ import ExpandLess from '@mui/icons-material/ExpandLess'
 import CachedIcon from '@mui/icons-material/Cached'
 import Fade from '@mui/material/Fade';
 
-const ValueInput = ({ fields }) => {
+const ValueInput = ({ fields, btc }) => {
     const [collapsed, setCollapsed] = useToggle(false)
     const [mode, setMode] = useState(true)
 
-    const values = calculate(fields, mode);
+    const values = calculate(fields, btc, mode);
 
     const investmentFee = `Investment Fee: ${values.investmentFee.toFixed(2)} $`
     const sellingFee = `Selling Fee: ${values.exitFee.toFixed(2)} $`
@@ -32,7 +32,7 @@ const ValueInput = ({ fields }) => {
                 {...fields.coinAmount}
                 variant="outlined"
                 sx={{ mt: 1, width: 250 }}
-                helperText={`≈ ${0.8372837} BTC`}
+                helperText={`≈ ${values.investToBtc} BTC`}
                 placeholder="0"
                 InputProps={{
                     startAdornment: 

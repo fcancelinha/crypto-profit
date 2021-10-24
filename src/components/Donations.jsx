@@ -45,6 +45,7 @@ const style = {
 }
 
 const donationText = "< Buy me a coffee ? ☕/> "
+const snackbarText = "Thank you ! Address copied"
 
 const WalletAdress = ({address, handleClick}) => {
 
@@ -59,14 +60,15 @@ const WalletAdress = ({address, handleClick}) => {
 const Donations = () => {
     const [state, setState] = useState(false);
     
-      const handleClick = (address) => () => {
-        navigator.clipboard.writeText(address)
+    const handleClick = (address) => () => {
+
+        navigator.clipboard.writeText(address);
         setState(true);
 
         setTimeout(() => {
-            setState(false)
+            setState(false);
         }, 2000);
-      };
+    };
     
  
     return (
@@ -107,7 +109,9 @@ const Donations = () => {
             >
                 <Alert
                 icon={<FavoriteIcon sx={{color: 'primary.contrastText'}} />} 
-                sx={{backgroundColor: 'primary.main', color: 'primary.contrastText', fontWeight: 'bold'}}>Address copied !</Alert>
+                sx={{backgroundColor: 'primary.main', color: 'primary.contrastText', fontWeight: 'bold', alignSelf: 'flex-start', verticalAlign: 'middle'}}>
+                   {snackbarText}
+                </Alert>
                 
             </ Snackbar>
 

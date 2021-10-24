@@ -7,15 +7,16 @@ import Menu from './Menu';
 const Main = ({ cryptoList , handleThemeChange }) => {
     const [selectedCoin, setSelectedCoin] = useState(false)
 
-    const type = 'number'
+    const TYPE = 'number'
+    const btc = cryptoList.find(x => x.currency === 'BTC')
 
     //custom hook object with state value in property "value"
     const fields = {
-        coinAmount: useField(type), 
-        buyValue: useField(type),
-        sellValue: useField(type),
-        buyFee: useField(type),
-        sellFee: useField(type),
+        coinAmount: useField(TYPE), 
+        buyValue: useField(TYPE),
+        sellValue: useField(TYPE),
+        buyFee: useField(TYPE),
+        sellFee: useField(TYPE),
     };
 
     const handleCoinSelection = (newValue) => {
@@ -28,11 +29,11 @@ const Main = ({ cryptoList , handleThemeChange }) => {
 
     return (
         <>
-            <ValueInput fields={fields} />
+            <ValueInput fields={fields} btc={btc} />
 
-            <CryptoCaroussel cryptoList={cryptoList} buyValueField={fields.buyValue} selectedCoin={selectedCoin} handleCoinSelection={handleCoinSelection} />
+            <CryptoCaroussel buyValueField={fields.buyValue} selectedCoin={selectedCoin} cryptoList={cryptoList} handleCoinSelection={handleCoinSelection} />
 
-            {/*component is absolute and outside of DOM */}
+            {/* component is absolute and outside of DOM */}
             <Menu handleThemeChange={handleThemeChange} selectedCoin={selectedCoin} cryptoList={cryptoList}  handleCoinSelection={handleCoinSelection} />
         </>
 
