@@ -16,8 +16,8 @@ export const lightTheme = createTheme({
             light: '#ffab40',
         },
         background: {
-            default: '#eeeeee',
-            paper: '#eeeeee',
+            default: '#EAEDED',
+            paper: '#EAEDED',
         },
         text: {
             primary: '#0A0A0A',

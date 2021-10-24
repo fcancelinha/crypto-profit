@@ -12,7 +12,7 @@ const style =  {
     flexDirection: 'column',
     justifyContent: 'center',
     position: 'absolute',
-    top: '40%',
+    top: '42%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
