@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import get from './services/crypto-service';
 import { mock } from './mocks/cryptoList'
-import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import AppTitle from './components/AppTitle';
 import Main from './components/Main';
 import Donations from './components/Donations';
-import Menu from './components/Menu';
 import useDarkMode from './hooks/useDarkMode';
 import Github from './components/Github';
 
@@ -30,6 +28,9 @@ const style = {
         pb: 10
     },
     paper: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
         alignSelf: 'center',
         borderRadius: 3,
         pb: 3,
@@ -41,8 +42,11 @@ const style = {
 
 
 const App = () => {
-    const [cryptoList, setCryptoList] = useState([]);
-    const [theme, setTheme] = useDarkMode();
+    const [theme, setTheme] = useDarkMode()
+
+    const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
+    const filteredMock = mock.filter(x => filterCoins.indexOf(x.currency) < 0)
+    const cryptoList = filteredMock;
 
     // useEffect(() => {
 
@@ -53,27 +57,27 @@ const App = () => {
     //     });
 
     // }, []);
-
+    
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={style.container} bgcolor="background.default">
+            <Box id="container" sx={style.container} bgcolor="background.default">
 
                 <Github />
 
-                <Box sx={style.subContainer} bgcolor="background.default">
+                <Box id="main-body" sx={style.subContainer} bgcolor="background.default">
 
                     <AppTitle />
 
                     <Paper sx={style.paper} elevation={23} >
-                        <Stack>
-                            <Main cryptoList={cryptoList} />
-                            <Donations />
-                        </Stack>
+
+                        <Main cryptoList={cryptoList} handleThemeChange={() => setTheme()} />
+
+                        <Donations />
+
                     </Paper>
 
-                    <Menu switchTheme={() => setTheme()} cryptoList={mock} />
-
                 </Box>
+
             </Box>
         </ThemeProvider>
     )

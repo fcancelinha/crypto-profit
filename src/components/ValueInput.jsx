@@ -35,13 +35,14 @@ const ValueInput = ({ fields }) => {
                 helperText={`≈ ${0.8372837} BTC`}
                 placeholder="0"
                 InputProps={{
-                    startAdornment: <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
-                    endAdornment: 
-                    <Tooltip title="Change between fiat investment and token amount" placement="top" TransitionComponent={Fade} TransitionProps={{ timeout: 500 }} sx={{mt: 1}}>
-                        <IconButton variant="contained" size="medium" onClick={() => setMode(!mode)}  sx={{width: 3, minWidth: 3,  height: 31, borderRadius: 5 }}>
-                            <CachedIcon position="end" />
+                    startAdornment: 
+                        <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
+                    endAdornment:                    
+                        <IconButton variant="contained" size="medium" onClick={() => setMode(!mode)} sx={{ width: 3, minWidth: 3, height: 31, borderRadius: 5 }}>
+                            <Tooltip title="Change between fiat investment and token amount" placement="top" TransitionComponent={Fade} TransitionProps={{ timeout: 500 }} >
+                                <CachedIcon position="end" />
+                            </Tooltip>
                         </IconButton>
-                    </Tooltip>
                 }}
                 label={mode ? 'Investment Amount' : 'Coin Amount'}
             />

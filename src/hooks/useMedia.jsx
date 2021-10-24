@@ -20,6 +20,7 @@ const useMedia = (queries, values, defaultValue) => {
             return () =>
                 mediaQueryLists.forEach((mql) => mql.removeListener(handler));
         },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [] // Empty array ensures effect is only run on mount and unmount
     );
     return value;

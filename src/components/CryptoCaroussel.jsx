@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { mock } from '../mocks/cryptoList'
+import React from 'react'
 import Tabs, { tabsClasses } from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
@@ -25,17 +24,11 @@ const style = {
     }
 }
 
-const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
-    const [selectedCoin, setSelectedCoin] = useState(false)
+const CryptoCaroussel = ({ cryptoList, selectedCoin, handleCoinSelection }) => {
 
-    const handleChange = (event, newValue) => {
-        setSelectedCoin(newValue);
-        setBuyValue(newValue.price)
-    };
-
-    const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
-    const filteredMock = mock.filter(x => filterCoins.indexOf(x.currency) < 0)
-
+    const handleChange = (_, newValue) => {
+        handleCoinSelection(newValue)
+    }
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
@@ -51,7 +44,7 @@ const CryptoCaroussel = ({ cryptoList, setBuyValue }) => {
                 aria-describedby="crypto-horizontal-tab-description"
             >
 
-                {filteredMock.map(x => {
+                {cryptoList.map(x => {
                     return <Tab id="x.id" key={x.id} value={x} sx={style.tab} label={x.currency} icon={<Avatar alt={x.currency} src={x.logo_url} sx={style.tabAvatar} />} />;
                 })}
 

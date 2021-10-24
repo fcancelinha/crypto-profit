@@ -1,7 +1,7 @@
-//https://nomics.com/docs/#operation/getCurrenciesTicker
-const API_KEY = process.env.REACT_APP_CRYPTO_API
+import { API_KEY } from "../config/config"
 
-export default async function get(total = 50) {
+//https://nomics.com/docs/#operation/getCurrenciesTicker
+const get = async (total = 50) => {
 
     let response =  await fetch(`https://api.nomics.com/v1/currencies/ticker?key=${API_KEY}&interval=1hd&convert=USD&per-page=${total}&status=active`)
 
@@ -9,3 +9,6 @@ export default async function get(total = 50) {
         return await response.json()
     }
 }
+
+
+export default get

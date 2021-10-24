@@ -51,9 +51,10 @@ const style = {
 }
 
 
-const Menu = ({ switchTheme, cryptoList }) => {
+const Menu = ({ handleThemeChange, cryptoList, handleCoinSelection }) => {
     const [open, setOpen] = useToggle(false)
     const [modelOpen, modalSetOpen] = useState(false);
+    
     const handleOpen = () => modalSetOpen(true);
     const handleClose = () => modalSetOpen(false);
 
@@ -88,7 +89,7 @@ const Menu = ({ switchTheme, cryptoList }) => {
                             </Typography>
                         </Box>
                         <Box sx={style.fabMenuButtonBox}>
-                            <Fab color="secondary" sx={{ mr: 32 }} aria-label="darkmode" onClick={switchTheme}>
+                            <Fab color="secondary" sx={{ mr: 32 }} aria-label="darkmode" onClick={handleThemeChange}>
                                 <NightsStayIcon />
                             </Fab>
                             <Typography variant="caption" color="secondary" sx={{ ...style.fabMenuButtonLabel, bottom: 6, left: 54 }}>
@@ -104,7 +105,7 @@ const Menu = ({ switchTheme, cryptoList }) => {
                 {open ? <CloseIcon /> : <AppsIcon />}
             </Fab>
 
-            <CryptoSearch open={modelOpen}  handleClose={handleClose} cryptoList={cryptoList}/>
+            <CryptoSearch open={modelOpen}  handleClose={handleClose} cryptoList={cryptoList} handleCoinSelection={handleCoinSelection} />
         </Box>
     )
 }

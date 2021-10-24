@@ -1,7 +1,7 @@
-//https://nomics.com/docs/#tag/Exchange-Rates
-const API_KEY = process.env.REACT_APP_CRYPTO_API
+import { API_KEY } from "../config/config"
 
-export default async function get() {
+//https://nomics.com/docs/#tag/Exchange-Rates
+const get = async () => {
 
     let response =  await fetch(`https://api.nomics.com/v1/exchange-rates?key=${API_KEY}`)
 
@@ -9,3 +9,5 @@ export default async function get() {
         return await response.json()
     }
 }
+
+export default get
