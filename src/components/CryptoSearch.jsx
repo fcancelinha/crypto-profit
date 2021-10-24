@@ -23,7 +23,7 @@ const style =  {
 }
 
 
-const CryptoSearch = ({open, handleClose, cryptoList}) => {
+const CryptoSearch = ({open, handleClose, cryptoList, handleCoinSelection}) => {
     const theme = useTheme()
     const shadow = theme.palette.mode === 'dark' ? '0px 0px 10px 1px #ffb300' : 23
 
