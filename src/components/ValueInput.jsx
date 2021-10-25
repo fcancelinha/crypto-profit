@@ -16,7 +16,7 @@ import Fade from '@mui/material/Fade';
 
 const ValueInput = ({ fields, btc }) => {
     const [collapsed, setCollapsed] = useToggle(false)
-    const [mode, setMode] = useState(true)
+    const [mode, setMode] = useToggle(true)
 
     const values = calculate(fields, btc, mode);
 
@@ -38,7 +38,7 @@ const ValueInput = ({ fields, btc }) => {
                     startAdornment: 
                         <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
                     endAdornment:                    
-                        <IconButton variant="contained" size="medium" onClick={() => setMode(!mode)} sx={{ width: 3, minWidth: 3, height: 31, borderRadius: 5 }}>
+                        <IconButton variant="contained" size="medium" onClick={setMode} sx={{ width: 3, minWidth: 3, height: 31, borderRadius: 5 }}>
                             <Tooltip title="Change between fiat investment and token amount" placement="top" TransitionComponent={Fade} TransitionProps={{ timeout: 500 }} >
                                 <CachedIcon position="end" />
                             </Tooltip>

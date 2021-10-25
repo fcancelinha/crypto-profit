@@ -1,4 +1,4 @@
-export const currencyList = [
+export const fiatList = [
     {
        "currency":"AED",
        "rate":"0.27224886",

@@ -4,10 +4,11 @@ import ValueInput from './ValueInput';
 import CryptoCaroussel from './CryptoCaroussel';
 import Menu from './Menu';
 
+const TYPE = 'number'
+
 const Main = ({ cryptoList , handleThemeChange }) => {
     const [selectedCoin, setSelectedCoin] = useState(false)
 
-    const TYPE = 'number'
     const btc = cryptoList.find(x => x.currency === 'BTC')
 
     //custom hook object with state value in property "value"

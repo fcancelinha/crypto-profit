@@ -1,3 +1,11 @@
-export const convert = () => {
+export const convert = (fiatlist) => {
+
+    const USD = 1.0
+
     
+
+
+
+
+
 }

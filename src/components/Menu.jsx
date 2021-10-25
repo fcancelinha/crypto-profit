@@ -101,8 +101,8 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                         </Box>
                     </Stack>
                     
-
                     <CurrencySelect curOpen={curOpen} />
+                    
                 </Box>
             </Fade>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import get from './services/crypto-service';
 import { mock } from './mocks/cryptoList'
+import { fiatList } from './mocks/fiatList'
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import AppTitle from './components/AppTitle';
@@ -40,13 +41,23 @@ const style = {
     }
 }
 
+const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
+const filterFiat = ['EUR', 'GBP', 'KRW']
+
 
 const App = () => {
     const [theme, setTheme] = useDarkMode()
+    const [crypto, setCrypto] = useState([])
+    const [cfiat, setFiat] = useState([])
 
-    const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
+   
     const filteredMock = mock.filter(x => filterCoins.indexOf(x.currency) < 0)
     const cryptoList = filteredMock;
+
+    const filteredFiat = fiatList.filter(x => filterFiat.indexOf(x.currency) > 0)
+    const fiat = filteredFiat
+
+    console.log("filteredFiatMock", fiat)
 
     // useEffect(() => {
 
