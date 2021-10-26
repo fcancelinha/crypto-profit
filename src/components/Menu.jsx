@@ -53,13 +53,13 @@ const style = {
 }
 
 
-const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection }) => {
+const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection, handleFiatSelection }) => {
     const [open, setOpen] = useToggle(false)
     const [curOpen, setCurOpen] = useToggle(false)
     const [modelOpen, modalSetOpen] = useState(false);
     
     const handleOpen = () => modalSetOpen(true);
-    const handleClose = () => modalSetOpen(false);
+    const handleClose = () => modalSetOpen(false)
 
     return (
         <Box sx={{ ...style.fabBox}} bgcolor="background.default" aria-label="menu" >
@@ -101,7 +101,7 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                         </Box>
                     </Stack>
                     
-                    <CurrencySelect curOpen={curOpen} />
+                    <CurrencySelect curOpen={curOpen} handleFiatSelection={handleFiatSelection} />
                     
                 </Box>
             </Fade>

@@ -19,7 +19,7 @@ const ValueInput = ({ fields, btc }) => {
     const [mode, setMode] = useToggle(true)
 
     const values = calculate(fields, btc, mode);
-
+    
     const investmentFee = `Investment Fee: ${values.investmentFee.toFixed(2)} $`
     const sellingFee = `Selling Fee: ${values.exitFee.toFixed(2)} $`
 

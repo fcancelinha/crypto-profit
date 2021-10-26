@@ -1,20 +1,17 @@
-const convertToNumber = (number) => {
-    return isNaN(parseFloat(number)) ? 0 : parseFloat(number);
-};
-
+import { parse } from "./parse"
 
 //TO-DO : DRY , mathematical functions 
 export const calculate = (inputValue, btc, mode) => {
 
-    const btcPrice = btc.price
-
     const values = {
-        amount: convertToNumber(inputValue.coinAmount.value),
-        buy: convertToNumber(inputValue.buyValue.value),
-        sell: convertToNumber(inputValue.sellValue.value),
-        buyFee: convertToNumber(inputValue.buyFee.value),
-        sellFee: convertToNumber(inputValue.sellFee.value),
+        amount: parse(inputValue.coinAmount.value),
+        buy: parse(inputValue.buyValue.value),
+        sell: parse(inputValue.sellValue.value),
+        buyFee: parse(inputValue.buyFee.value),
+        sellFee: parse(inputValue.sellFee.value),
     }
+
+    console.log("value inside calc", values)
 
     let buyValue = 0
     let sellValue = 0
@@ -24,7 +21,7 @@ export const calculate = (inputValue, btc, mode) => {
         sellValue = mode ? ((values.amount * values.sell) / values.buy) : (values.amount * values.sell)
     }
 
-    const calcBtc =  mode ? (values.amount / btcPrice) : ((values.amount * values.buy) / btcPrice)
+    const calcBtc =  mode ? (values.amount / btc.price) : ((values.amount * values.buy) / btc.price)
     const investToBtc = isFinite(calcBtc) ? calcBtc.toFixed(10) : 0
 
     const investmentFee = values.buyFee ? (buyValue * (values.buyFee * 0.01)) : 0

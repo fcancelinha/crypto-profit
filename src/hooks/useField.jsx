@@ -6,10 +6,12 @@ const useField = (type) => {
 
     const onChange = (event) => {
 
-        if(event.target.value.match(reg) || !event.target.value){
-            setValue(event.target.value.replace(',','.'))
+        const eventValue = event.target.value.toString().replace(',','.')
+    
+        if(eventValue.match(reg) || !eventValue){
+            console.log("####", eventValue)
+            setValue(eventValue)
         }
-            
     }
 
     return {

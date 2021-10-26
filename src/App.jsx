@@ -42,19 +42,18 @@ const style = {
 }
 
 const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
-const filterFiat = ['EUR', 'GBP', 'KRW']
+const filterFiat = ['EUR', 'GBP', 'KRW', 'USD']
 
 
 const App = () => {
     const [theme, setTheme] = useDarkMode()
-    const [crypto, setCrypto] = useState([])
-    const [cfiat, setFiat] = useState([])
+    // const [crypto, setCrypto] = useState([]);
+    // const [cfiat, setFiat] = useState([])
 
-   
     const filteredMock = mock.filter(x => filterCoins.indexOf(x.currency) < 0)
     const cryptoList = filteredMock;
 
-    const filteredFiat = fiatList.filter(x => filterFiat.indexOf(x.currency) > 0)
+    const filteredFiat = fiatList.filter(x => filterFiat.indexOf(x.currency) >= 0)
     const fiat = filteredFiat
 
     console.log("filteredFiatMock", fiat)
@@ -81,7 +80,7 @@ const App = () => {
 
                     <Paper sx={style.paper} elevation={23} >
 
-                        <Main cryptoList={cryptoList} handleThemeChange={() => setTheme()} />
+                        <Main cryptoList={cryptoList} fiatList={fiat} handleThemeChange={() => setTheme()} />
 
                         <Donations />
 
