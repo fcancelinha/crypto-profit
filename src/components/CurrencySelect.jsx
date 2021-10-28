@@ -14,7 +14,7 @@ const CurrencySelect = ({ curOpen, handleFiatSelection }) => {
                 <Stack direction="column" alignItems="flex-end" >
 
                     <Box sx={{ mr: 3.5}}>
-                        <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'USD', symbol: '$'})}>
+                        <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'USD', symbol:'$'})}>
                             $
                         </Fab>
                         <Typography sx={{ ml: 1 }} variant="caption" color="secondary">
@@ -23,7 +23,7 @@ const CurrencySelect = ({ curOpen, handleFiatSelection }) => {
                     </Box>
 
                     <Box sx={{ mr: 9.7, mb: 1 }}>
-                        <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'EUR', symbol: '€'})}>
+                        <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'EUR', symbol:'€'})}>
                             €
                         </Fab>
                         <Typography sx={{ ml: 1 }} variant="caption" color="secondary">
@@ -32,7 +32,7 @@ const CurrencySelect = ({ curOpen, handleFiatSelection }) => {
                     </Box>
 
                     <Box sx={{ mr: 14.5, mb: 2 }}>
-                        <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'GBP', symbol: '£'})}>
+                        <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'GBP', symbol:'£'})}>
                             £
                         </Fab>
                         <Typography sx={{ ml: 1 }} variant="caption" color="secondary">
@@ -41,7 +41,7 @@ const CurrencySelect = ({ curOpen, handleFiatSelection }) => {
                     </Box>
 
                     <Box sx={{ mr: 16.8 }}>
-                        <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'KRW', symbol: '₩'})}>
+                        <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'KRW', symbol:'₩'})}>
                             ₩
                         </Fab>
                         <Typography sx={{ ml: 1 }} variant="caption" color="secondary">

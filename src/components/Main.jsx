@@ -9,7 +9,7 @@ const TYPE = 'number'
 
 const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
     const [selectedCoin, setSelectedCoin] = useState(false)
-    const [selectedCurrency, setSelectedCurrency] = useState({currency: 'USD', symbol: '$'})
+    // const [selectedCurrency, setSelectedCurrency] = useState({ currency: 'USD', symbol: '$' })
 
     const btc = cryptoList.find(x => x.currency === 'BTC')
 
@@ -20,7 +20,7 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
         sellValue: useField(TYPE),
         buyFee: useField(TYPE),
         sellFee: useField(TYPE),
-    };
+    }
 
     const handleCoinSelection = (newValue) => {
         if(newValue && newValue?.price){
@@ -30,12 +30,14 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
     }
 
     const handleFiatSelection = (newCurrency) => {
-        setSelectedCurrency({
-            ...selectedCurrency,
-            currency: newCurrency.currency,
-            symbol: newCurrency.symbol
-        })
-        convert(fiatList, selectedCurrency, fields)
+        // setSelectedCurrency({
+        //     ...selectedCurrency,
+        //     currency: newCurrency.currency,
+        //     symbol: newCurrency.symbol
+        // })
+        console.log("newCurrency State", newCurrency)
+        // console.log("Selected Currency State", selectedCurrency)
+        convert(fiatList, newCurrency, fields)
     }
 
 

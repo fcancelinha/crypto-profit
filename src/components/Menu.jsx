@@ -68,13 +68,14 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                     <Stack direction="column" alignItems="flex-end" sx={{ mb: 4.2 }}>
 
                         <Box sx={style.fabMenuButtonBox}>
-                            <Fab color="secondary"  sx={{ mr: 9 }} aria-label="search-crypto-currency" onClick={handleOpen}>
+                            <Fab color="secondary"  sx={{ mr: 9 }} aria-label="search-crypto-currency" onClick={() => handleOpen()}>
                                 <SearchIcon />
                             </Fab>
                             <Typography variant="caption" color="secondary" sx={{ ...style.fabMenuButtonLabel, bottom: 218, left: 249, mb: 2 }}>
                                 Search
                             </Typography>
                         </Box>
+
                         <Box sx={style.fabMenuButtonBox}>
                             <Fab color="secondary"  sx={{ mr: 20, mb: 2.3}} aria-label="list-calculations">
                                 <ListAltIcon />
@@ -83,6 +84,7 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                                 List
                             </Typography>
                         </Box>
+
                         <Box sx={style.fabMenuButtonBox}>
                             <Fab color="secondary"  sx={{ mr: 28, mb: 5 }} onClick={() => setCurOpen()} aria-label="change-fiat-currency">
                                 <AttachMoneyIcon />
@@ -91,6 +93,7 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                                 Currency
                             </Typography>
                         </Box>
+
                         <Box sx={style.fabMenuButtonBox}>
                             <Fab color="secondary" sx={{ mr: 32 }} aria-label="darkmode" onClick={handleThemeChange}>
                                 <NightsStayIcon />
@@ -99,6 +102,7 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                                 Darkmode
                             </Typography>
                         </Box>
+                        
                     </Stack>
                     
                     <CurrencySelect curOpen={curOpen} handleFiatSelection={handleFiatSelection} />
