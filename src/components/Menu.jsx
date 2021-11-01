@@ -114,7 +114,7 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
                 {open ? <CloseIcon /> : <AppsIcon />}
             </Fab>
 
-            <CryptoSearch open={modelOpen}  handleClose={handleClose} selectedCoin={selectedCoin} cryptoList={cryptoList} handleCoinSelection={handleCoinSelection} />
+            <CryptoSearch open={modelOpen} handleClose={handleClose} selectedCoin={selectedCoin} cryptoList={cryptoList} handleCoinSelection={handleCoinSelection} />
         </Box>
     )
 }

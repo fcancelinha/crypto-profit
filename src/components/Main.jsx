@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { convert } from '../utils/conversion';
-import useField from '../hooks/useField';
-import ValueInput from './ValueInput';
-import CryptoCaroussel from './CryptoCaroussel';
-import Menu from './Menu';
+import React, { useState } from 'react'
+import { convert } from '../utils/conversion'
+import useField from '../hooks/useField'
+import ValueInput from './ValueInput'
+import CryptoCaroussel from './CryptoCaroussel'
+import Menu from './Menu'
 
 const TYPE = 'number'
 
 const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
     const [selectedCoin, setSelectedCoin] = useState(false)
-    // const [selectedCurrency, setSelectedCurrency] = useState({ currency: 'USD', symbol: '$' })
+    const [selectedCurrency, setSelectedCurrency] = useState({ currency: 'USD', symbol: '$' })
 
     const btc = cryptoList.find(x => x.currency === 'BTC')
 
@@ -30,14 +30,15 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
     }
 
     const handleFiatSelection = (newCurrency) => {
-        // setSelectedCurrency({
-        //     ...selectedCurrency,
-        //     currency: newCurrency.currency,
-        //     symbol: newCurrency.symbol
-        // })
-        console.log("newCurrency State", newCurrency)
-        // console.log("Selected Currency State", selectedCurrency)
-        convert(fiatList, newCurrency, fields)
+        const { currency, symbol } = newCurrency
+        
+        setSelectedCurrency({
+            ...selectedCurrency,
+            currency,
+            symbol
+        })
+
+        convert(fiatList, selectedCurrency, fields)
     }
 
 
@@ -46,23 +47,24 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
         <>
             <ValueInput 
                 fields={fields} 
-                btc={btc} />
+                btc={btc} 
+            />
 
             <CryptoCaroussel 
                 selectedCoin={selectedCoin} 
                 cryptoList={cryptoList} 
-                handleCoinSelection={handleCoinSelection} />
+                handleCoinSelection={handleCoinSelection} 
+            />
 
             <Menu 
                 handleThemeChange={handleThemeChange} 
-                selectedCoin={selectedCoin} 
+                selectedCoin={selectedCoin}
                 cryptoList={cryptoList}
                 handleCoinSelection={handleCoinSelection}
                 handleFiatSelection={handleFiatSelection} 
             />
         </>
-
-    );
-};
+    )
+}
 
 export default Main;

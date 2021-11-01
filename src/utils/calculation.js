@@ -11,8 +11,6 @@ export const calculate = (inputValue, btc, mode) => {
         sellFee: parse(inputValue.sellFee.value),
     }
 
-    console.log("value inside calc", values)
-
     let buyValue = 0
     let sellValue = 0
 
