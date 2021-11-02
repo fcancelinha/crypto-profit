@@ -7,10 +7,8 @@ const useField = (type) => {
     const onChange = (event) => {
 
         const eventValue = event.target.value.toString()
-        console.log("eventValue #1", eventValue)
 
         if(eventValue.match(reg) || !eventValue){
-            console.log("entrou #2", eventValue)
             setValue(eventValue)
         }
     }

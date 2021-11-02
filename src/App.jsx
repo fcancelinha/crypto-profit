@@ -56,7 +56,15 @@ const App = () => {
     const filteredFiat = fiatList.filter(x => filterFiat.indexOf(x.currency) >= 0)
     const fiat = filteredFiat
 
-    console.log("filteredFiatMock", fiat)
+    // useEffect(() => {
+
+    //     get()
+    //     .then(response => {
+    //         console.log("response:", response);
+    //         setCryptoList(response);
+    //     });
+
+    // }, []);
 
     // useEffect(() => {
 

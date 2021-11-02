@@ -1,13 +1,13 @@
-import { parse } from "./parse"
-
 const convertHelper = (fieldValue, rate) => {    
+
     const value = parseFloat(fieldValue)
 
-    if(!isNaN(value) && value > 0){
-        return (parse(fieldValue) * parse(rate)).toFixed(3)
+    if((!isNaN(value) && value > 0)){
+        var convertedValue = (fieldValue / rate)
+        return convertedValue.toFixed(3)
     }
 
-    return fieldValue
+    return  fieldValue
 }
 
 
@@ -23,4 +23,5 @@ export const convert = (fiatList, selectedCurrency, fields ) => {
     fields.coinAmount.onChange({target: {value: amount}})
     fields.buyValue.onChange({target: {value: buy}})
     fields.sellValue.onChange({target: {value: sell}})  
+
 }

@@ -19,7 +19,7 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
         buyValue: useField(TYPE),
         sellValue: useField(TYPE),
         buyFee: useField(TYPE),
-        sellFee: useField(TYPE),
+        sellFee: useField(TYPE)
     }
 
     const handleCoinSelection = (newValue) => {
@@ -30,8 +30,12 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
     }
 
     const handleFiatSelection = (newCurrency) => {
+
         const { currency, symbol } = newCurrency
         
+        if(newCurrency.currency === selectedCurrency.currency) 
+            return
+
         setSelectedCurrency({
             ...selectedCurrency,
             currency,
