@@ -4,11 +4,11 @@ import Box from '@mui/material/Box'
 import Investment from './Investment'
 import TotalFee from './TotalFee'
 
-const ValueDisplay = ({ values }) => {
+const ValueDisplay = ({ values, selectedCurrency }) => {
 
     const options = {
         style: 'currency',
-        currency: 'USD',
+        currency: selectedCurrency.currency,
     }
 
     return (

@@ -14,11 +14,11 @@ import ExpandLess from '@mui/icons-material/ExpandLess'
 import CachedIcon from '@mui/icons-material/Cached'
 import Fade from '@mui/material/Fade';
 
-const ValueInput = ({ fields, btc }) => {
+const ValueInput = ({ fields, btc, selectedCurrency }) => {
     const [collapsed, setCollapsed] = useToggle(false)
     const [mode, setMode] = useToggle(true)
 
-    const values = calculate(fields, btc, mode);
+    const values = calculate(fields, btc, mode)
     
     const investmentFee = `Investment Fee: ${values.investmentFee.toFixed(2)} $`
     const sellingFee = `Selling Fee: ${values.exitFee.toFixed(2)} $`
@@ -36,7 +36,7 @@ const ValueInput = ({ fields, btc }) => {
                 placeholder="0"
                 InputProps={{
                     startAdornment: 
-                        <InputAdornment position="start">{mode ? '$' : '₿' }</InputAdornment>,
+                        <InputAdornment position="start">{mode ? selectedCurrency.symbol : '₿' }</InputAdornment>,
                     endAdornment:                    
                         <IconButton variant="contained" size="medium" onClick={setMode} sx={{ width: 3, minWidth: 3, height: 31, borderRadius: 5 }}>
                             <Tooltip title="Change between fiat investment and token amount" placement="top" TransitionComponent={Fade} TransitionProps={{ timeout: 500 }} >
@@ -53,7 +53,7 @@ const ValueInput = ({ fields, btc }) => {
                 variant="outlined"
                 placeholder="0"
                 sx={{ mt: 2, mb: 2, width: 250 }}
-                InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
+                InputProps={{ startAdornment: <InputAdornment position="start">{selectedCurrency.symbol}</InputAdornment> }}
                 label="Buy Value"
             />
 
@@ -63,7 +63,7 @@ const ValueInput = ({ fields, btc }) => {
                 variant="outlined"
                 placeholder="0"
                 sx={{ mt: 2, mb: 2, width: 250}}
-                InputProps={{ startAdornment: <InputAdornment position="start">$</InputAdornment> }}
+                InputProps={{ startAdornment: <InputAdornment position="start">{selectedCurrency.symbol}</InputAdornment> }}
                 label="Sell Value"
             />
 
@@ -104,7 +104,7 @@ const ValueInput = ({ fields, btc }) => {
 
             </Collapse>
             
-            <ValueDisplay values={values} />
+            <ValueDisplay values={values} selectedCurrency={selectedCurrency}  />
 
         </Stack>
     )

@@ -42,7 +42,7 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
             symbol
         })
 
-        convert(fiatList, selectedCurrency, fields)
+        convert(fiatList, newCurrency, fields)
     }
 
 
@@ -51,7 +51,8 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
         <>
             <ValueInput 
                 fields={fields} 
-                btc={btc} 
+                btc={btc}
+                selectedCurrency={selectedCurrency}
             />
 
             <CryptoCaroussel 
