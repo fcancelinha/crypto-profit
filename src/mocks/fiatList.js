@@ -266,7 +266,7 @@ export const fiatList = [
     },
     {
        "currency":"EUR",
-       "rate":"1.15990442",
+       "rate":"1.16",
        "timestamp":"2021-10-16T00:00:00Z"
     },
     {

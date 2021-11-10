@@ -30,19 +30,19 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
     }
 
     const handleFiatSelection = (newCurrency) => {
-
-        const { currency, symbol } = newCurrency
-        
+ 
         if(newCurrency.currency === selectedCurrency.currency) 
             return
+
+        convert(fiatList, fields, newCurrency, selectedCurrency)
+
+        const { currency, symbol } = newCurrency
 
         setSelectedCurrency({
             ...selectedCurrency,
             currency,
             symbol
         })
-
-        convert(fiatList, newCurrency, fields)
     }
 
 

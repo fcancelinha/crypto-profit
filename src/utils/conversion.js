@@ -1,33 +1,26 @@
-const convertHelper = (fieldValue, rate) => {
+const convertValue = (oldRate, newRate, value ) => {
 
-    const value = parseFloat(fieldValue);
+    const v = parseFloat(value)
+    const x = ((oldRate - newRate) / newRate)
+    const y = (x * v) + v
 
-    try {
-
-        if (value > 0) {
-            var convertedValue = (fieldValue / rate);
-            return convertedValue.toFixed(3);
-        }
-
-    } catch (exception) {
-        console.debug(exception);
-    }
-
-    return fieldValue;
+    console.log("y", y)
+    console.log("x", x)
+    console.log("v", v)
+    
+    return parseFloat(y.toFixed(3))
 }
 
+export const convert = (fiatList, fields, newCurrency, oldCurrency) => {
 
-export const convert = (fiatList, selectedCurrency, fields ) => {
+    const newRate = (fiatList.find(x => x.currency === newCurrency.currency)).rate
+    const oldRate = (fiatList.find(x => x.currency === oldCurrency.currency)).rate
 
-    const foundRate = (fiatList.find(x => x.currency === selectedCurrency.currency))
-    const newRate = foundRate.rate
-
-    const amount = convertHelper(fields.coinAmount.value, newRate)
-    const buy = convertHelper(fields.buyValue.value, newRate)
-    const sell = convertHelper(fields.sellValue.value, newRate)
+    const amount = convertValue(oldRate, newRate, fields.coinAmount.value)
+    const buy = convertValue(oldRate, newRate, fields.buyValue.value)
+    const sell = convertValue(oldRate, newRate, fields.sellValue.value)
 
     fields.coinAmount.onChange({target: {value: amount}})
     fields.buyValue.onChange({target: {value: buy}})
     fields.sellValue.onChange({target: {value: sell}})  
-
 }
