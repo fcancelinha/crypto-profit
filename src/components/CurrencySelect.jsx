@@ -13,7 +13,7 @@ const CurrencySelect = ({ curOpen, handleFiatSelection }) => {
             <Fade in={curOpen} {...(curOpen ? { timeout: 500 } : { timeout: 500 })}>
                 <Stack direction="column" alignItems="flex-end" >
 
-                    <Box sx={{ mr: 3.5}}>
+                    <Box sx={{ mr: 5.2}}>
                         <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'USD', symbol:'$'})}>
                             $
                         </Fab>
@@ -22,7 +22,7 @@ const CurrencySelect = ({ curOpen, handleFiatSelection }) => {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ mr: 9.7, mb: 1 }}>
+                    <Box sx={{ mr: 11.3, mb: 1 }}>
                         <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'EUR', symbol:'€'})}>
                             €
                         </Fab>
@@ -31,7 +31,7 @@ const CurrencySelect = ({ curOpen, handleFiatSelection }) => {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ mr: 14.5, mb: 2 }}>
+                    <Box sx={{ mr: 15.5, mb: 2 }}>
                         <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'GBP', symbol:'£'})}>
                             £
                         </Fab>
@@ -40,7 +40,7 @@ const CurrencySelect = ({ curOpen, handleFiatSelection }) => {
                         </Typography>
                     </Box>
 
-                    <Box sx={{ mr: 16.8 }}>
+                    <Box sx={{ mr: 17.8 }}>
                         <Fab size="small" color="secondary" onClick={() => handleFiatSelection({currency: 'KRW', symbol:'₩'})}>
                             ₩
                         </Fab>
