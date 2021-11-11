@@ -4,8 +4,6 @@ import { parse } from '../utils/parse'
 // currency: 'USD', symbol: '$'
 export const exchange = async (fields, from, to) => {
 
-    console.log("test", from, to)
-
     const response = await get(from, to)
     const result = response.info.rate
 
