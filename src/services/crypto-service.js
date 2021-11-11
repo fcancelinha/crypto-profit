@@ -1,7 +1,7 @@
 import { API_KEY } from "../config/config"
 
 //https://nomics.com/docs/#operation/getCurrenciesTicker
-const get = async (total = 50, currency = 'USD') => {
+const get = async (currency = 'USD', total = 50) => {
 
     const response =  await fetch(`https://api.nomics.com/v1/currencies/ticker?key=${API_KEY}&interval=1hd&convert=${currency}&per-page=${total}&status=active`)
 

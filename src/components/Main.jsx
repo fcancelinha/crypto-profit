@@ -5,7 +5,7 @@ import ValueInput from './ValueInput'
 import CryptoCaroussel from './CryptoCaroussel'
 import Menu from './Menu'
 import Box from '@mui/system/Box';
-import { load } from 'dotenv';
+import {ReactComponent as Loader} from '../assets/images/loading.svg';
 
 const TYPE = 'number'
 const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD', 'TUSD']
@@ -14,11 +14,11 @@ const Main = ({ handleThemeChange }) => {
     const [crypto, setCrypto] = useState([]);
     const [selectedCoin, setSelectedCoin] = useState(false)
     const [selectedCurrency, setSelectedCurrency] = useState({ currency: 'USD', symbol: '$' })
-    const loading = Boolean(crypto.length)
+    const loading = Boolean(!crypto.length)
 
     useEffect(() => {
-
-        get()
+        
+        get(selectedCurrency.currency)
         .then(response =>  {
             const result = response.filter(x => filterCoins.indexOf(x.currency) < 0)
             setCrypto(result)
@@ -27,7 +27,8 @@ const Main = ({ handleThemeChange }) => {
             console.log(error)
         })
 
-    }, []);
+    }, [selectedCurrency.currency]);
+
 
     const btc = crypto.find(x => x.currency === 'BTC')
 
@@ -47,14 +48,12 @@ const Main = ({ handleThemeChange }) => {
         }
     }
 
-    console.log("btc", btc)
-
-    
     /* component MENU is absolute and outside of DOM */
     return (
         <Box>
             {
-                loading &&
+                loading ?
+                <Loader /> :
                 <Box>
                     <ValueInput
                         fields={fields}
