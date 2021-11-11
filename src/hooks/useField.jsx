@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const useField = (type) => {
     const [value, setValue] = useState("")
-    const reg = /^[0-9]+([\\,\\.]?)([0-9]{1,10})?$/g
+    const reg = /^[0-9]+([\\,\\.]?)([0-9]{1,20})?$/g
 
     const onChange = (event) => {
 

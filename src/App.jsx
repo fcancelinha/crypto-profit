@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import get from './services/crypto-service';
-import { mock } from './mocks/cryptoList'
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import AppTitle from './components/AppTitle';
@@ -9,6 +7,7 @@ import Main from './components/Main';
 import Donations from './components/Donations';
 import useDarkMode from './hooks/useDarkMode';
 import Github from './components/Github';
+import Typography from '@mui/material/Typography';
 
 const style = {
     container: {
@@ -34,54 +33,44 @@ const style = {
         alignSelf: 'center',
         borderRadius: 3,
         pb: 3,
-        mb: 4,
+        mb: 2,
         mt: -12,
         width: '33rem'
     }
 }
 
-const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD', 'TUSD']
-
 const App = () => {
     const [theme, setTheme] = useDarkMode()
-    // const [crypto, setCrypto] = useState([]);
-
-    const filteredMock = mock.filter(x => filterCoins.indexOf(x.currency) < 0)
-    const cryptoList = filteredMock;
-
-    // useEffect(() => {
-
-    //     get()
-    //     .then(response => {
-    //         console.log("response:", response);
-    //         setCryptoList(response);
-    //     });
-
-    // }, []);
-    
+   
     return (
         <ThemeProvider theme={theme}>
-            <Box id="container" sx={style.container} bgcolor="background.default">
 
-                <Github />
+                <Box id="container" sx={style.container} bgcolor="background.default">
 
-                <Box id="main-body" sx={style.subContainer} bgcolor="background.default">
+                    <Github />
 
-                    <AppTitle />
+                    <Box id="main-body" sx={style.subContainer} bgcolor="background.default">
 
-                    <Paper sx={style.paper} elevation={23} >
+                        <AppTitle />
 
-                        <Main cryptoList={cryptoList} handleThemeChange={() => setTheme()} />
+                        <Paper sx={style.paper} elevation={23} >
 
-                        <Donations />
+                            <Main handleThemeChange={() => setTheme()} />
 
-                    </Paper>
+                            <Donations />
+
+                        </Paper>
+
+                        <Typography variant="caption" sx={{ alignSelf: 'center', fontSize: 8.5 }} color="primary.main">
+                            * exchange rates might not reflect current ones, this app is using free API's with limited resources
+                        </Typography>
+
+                    </Box>
 
                 </Box>
-
-            </Box>
+            
         </ThemeProvider>
-    )
+    );
 }
 
 export default App;

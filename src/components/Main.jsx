@@ -1,17 +1,35 @@
-import React, { useState } from 'react'
-import { exchange } from '../utils/exchange'
+import React, { useState, useEffect } from 'react'
+import get from '../services/crypto-service';
 import useField from '../hooks/useField'
 import ValueInput from './ValueInput'
 import CryptoCaroussel from './CryptoCaroussel'
 import Menu from './Menu'
+import Box from '@mui/system/Box';
+import { load } from 'dotenv';
 
 const TYPE = 'number'
+const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD', 'TUSD']
 
-const Main = ({ cryptoList , handleThemeChange }) => {
+const Main = ({ handleThemeChange }) => {
+    const [crypto, setCrypto] = useState([]);
     const [selectedCoin, setSelectedCoin] = useState(false)
     const [selectedCurrency, setSelectedCurrency] = useState({ currency: 'USD', symbol: '$' })
+    const loading = Boolean(crypto.length)
 
-    const btc = cryptoList.find(x => x.currency === 'BTC')
+    useEffect(() => {
+
+        get()
+        .then(response =>  {
+            const result = response.filter(x => filterCoins.indexOf(x.currency) < 0)
+            setCrypto(result)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+    }, []);
+
+    const btc = crypto.find(x => x.currency === 'BTC')
 
     //custom hook object with state value in property "value"
     const fields = {
@@ -29,46 +47,39 @@ const Main = ({ cryptoList , handleThemeChange }) => {
         }
     }
 
-    const handleFiatSelection = (newCurrency) => {
- 
-        if(newCurrency.currency === selectedCurrency.currency) 
-            return
+    console.log("btc", btc)
 
-        const { currency, symbol } = newCurrency
-
-        exchange(fields, currency, selectedCurrency.currency)
-
-        setSelectedCurrency({
-            ...selectedCurrency,
-            currency,
-            symbol
-        })
-    }
-
-
+    
     /* component MENU is absolute and outside of DOM */
     return (
-        <>
-            <ValueInput 
-                fields={fields} 
-                btc={btc}
-                selectedCurrency={selectedCurrency}
-            />
+        <Box>
+            {
+                loading &&
+                <Box>
+                    <ValueInput
+                        fields={fields}
+                        btc={btc}
+                        selectedCurrency={selectedCurrency}
+                    />
 
-            <CryptoCaroussel 
-                selectedCoin={selectedCoin} 
-                cryptoList={cryptoList} 
-                handleCoinSelection={handleCoinSelection} 
-            />
+                    <CryptoCaroussel
+                        selectedCoin={selectedCoin}
+                        cryptoList={crypto}
+                        handleCoinSelection={handleCoinSelection}
+                    />
 
-            <Menu 
-                handleThemeChange={handleThemeChange} 
-                selectedCoin={selectedCoin}
-                cryptoList={cryptoList}
-                handleCoinSelection={handleCoinSelection}
-                handleFiatSelection={handleFiatSelection} 
-            />
-        </>
+                    <Menu
+                        handleThemeChange={handleThemeChange}
+                        selectedCoin={selectedCoin}
+                        cryptoList={crypto}
+                        handleCoinSelection={handleCoinSelection}
+                        setSelectedCurrency={setSelectedCurrency}
+                        fields={fields}
+                        selectedCurrency={selectedCurrency}
+                    />
+                </Box>
+            }
+        </Box>
     )
 }
 

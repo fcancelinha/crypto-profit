@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import CryptoSearch from './CryptoSearch';
 import CurrencySelect from './CurrencySelect'
 import useToggle from '../hooks/useToggle';
+import { exchange } from '../utils/exchange'
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import Fade from '@mui/material/Fade';
@@ -53,13 +54,31 @@ const style = {
 }
 
 
-const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection, handleFiatSelection }) => {
+const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection, setSelectedCurrency, fields, selectedCurrency}) => {
     const [open, setOpen] = useToggle(false)
     const [curOpen, setCurOpen] = useToggle(false)
     const [modelOpen, modalSetOpen] = useState(false);
     
     const handleOpen = () => modalSetOpen(true);
     const handleClose = () => modalSetOpen(false)
+
+
+    const handleFiatSelection = (newCurrency) => {
+        if(newCurrency.currency === selectedCurrency.currency) {
+            return
+        }
+           
+        const { currency, symbol } = newCurrency
+
+        exchange(fields, currency, selectedCurrency.currency)
+
+        setSelectedCurrency({
+            ...selectedCurrency,
+            currency,
+            symbol
+        })
+    }
+
 
     return (
         <Box sx={{ ...style.fabBox}} bgcolor="background.default" aria-label="menu" >

@@ -38,8 +38,8 @@ const style = {
     },
     donationText: {
         my: 1, 
-        fontFamily: 'Consolas', 
-        fontSize: 16, 
+        fontFamily: 'monospace', 
+        fontSize: 13, 
         fontWeight: 'bold'
     }
 }
