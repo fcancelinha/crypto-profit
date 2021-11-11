@@ -1,9 +1,7 @@
-import { API_KEY } from "../config/config"
+//https://exchangerate.host/#/docs
+const get = async (from, to) => {
 
-//https://nomics.com/docs/#tag/Exchange-Rates
-const get = async () => {
-
-    const response =  await fetch(`https://api.nomics.com/v1/exchange-rates?key=${API_KEY}`)
+    const response =  await fetch(`https://api.exchangerate.host/convert?from=${from}&to=${to}`)
 
     if(response.ok){
         return await response.json()

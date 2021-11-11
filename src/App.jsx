@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import get from './services/crypto-service';
 import { mock } from './mocks/cryptoList'
-import { fiatList } from './mocks/fiatList'
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import AppTitle from './components/AppTitle';
@@ -41,30 +40,14 @@ const style = {
     }
 }
 
-const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD']
-const filterFiat = ['EUR', 'GBP', 'KRW', 'USD']
-
+const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD', 'TUSD']
 
 const App = () => {
     const [theme, setTheme] = useDarkMode()
     // const [crypto, setCrypto] = useState([]);
-    // const [cfiat, setFiat] = useState([])
 
     const filteredMock = mock.filter(x => filterCoins.indexOf(x.currency) < 0)
     const cryptoList = filteredMock;
-
-    const filteredFiat = fiatList.filter(x => filterFiat.indexOf(x.currency) >= 0)
-    const fiat = filteredFiat
-
-    // useEffect(() => {
-
-    //     get()
-    //     .then(response => {
-    //         console.log("response:", response);
-    //         setCryptoList(response);
-    //     });
-
-    // }, []);
 
     // useEffect(() => {
 
@@ -88,7 +71,7 @@ const App = () => {
 
                     <Paper sx={style.paper} elevation={23} >
 
-                        <Main cryptoList={cryptoList} fiatList={fiat} handleThemeChange={() => setTheme()} />
+                        <Main cryptoList={cryptoList} handleThemeChange={() => setTheme()} />
 
                         <Donations />
 

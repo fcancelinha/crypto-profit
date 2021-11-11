@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { convert } from '../utils/conversion'
+import { exchange } from '../utils/exchange'
 import useField from '../hooks/useField'
 import ValueInput from './ValueInput'
 import CryptoCaroussel from './CryptoCaroussel'
@@ -7,7 +7,7 @@ import Menu from './Menu'
 
 const TYPE = 'number'
 
-const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
+const Main = ({ cryptoList , handleThemeChange }) => {
     const [selectedCoin, setSelectedCoin] = useState(false)
     const [selectedCurrency, setSelectedCurrency] = useState({ currency: 'USD', symbol: '$' })
 
@@ -34,9 +34,9 @@ const Main = ({ cryptoList , fiatList, handleThemeChange }) => {
         if(newCurrency.currency === selectedCurrency.currency) 
             return
 
-        convert(fiatList, fields, newCurrency, selectedCurrency)
-
         const { currency, symbol } = newCurrency
+
+        exchange(fields, currency, selectedCurrency.currency)
 
         setSelectedCurrency({
             ...selectedCurrency,
