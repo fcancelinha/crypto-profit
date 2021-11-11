@@ -14,10 +14,9 @@ import ExpandLess from '@mui/icons-material/ExpandLess'
 import CachedIcon from '@mui/icons-material/Cached'
 import Fade from '@mui/material/Fade';
 
-const ValueInput = ({ fields, selectedCurrency, btc}) => {
+const ValueInput = ({ fields, selectedCurrency, btc, mode, setMode}) => {
     const [collapsed, setCollapsed] = useToggle(false)
-    const [mode, setMode] = useToggle(true)
-    
+
     const values = calculate(fields, btc, mode)
     
     const investmentFee = `Investment Fee: ${values.investmentFee.toFixed(2)} $`

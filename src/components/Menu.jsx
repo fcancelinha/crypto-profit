@@ -54,7 +54,7 @@ const style = {
 }
 
 
-const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection, setSelectedCurrency, fields, selectedCurrency}) => {
+const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection, setSelectedCurrency, fields, selectedCurrency, mode}) => {
     const [open, setOpen] = useToggle(false)
     const [curOpen, setCurOpen] = useToggle(false)
     const [modelOpen, modalSetOpen] = useState(false);
@@ -70,7 +70,7 @@ const Menu = ({ handleThemeChange, selectedCoin, cryptoList, handleCoinSelection
            
         const { currency, symbol } = newCurrency
 
-        exchange(fields, currency, selectedCurrency.currency)
+        exchange(fields, currency, selectedCurrency.currency, mode)
 
         setSelectedCurrency({
             ...selectedCurrency,

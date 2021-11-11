@@ -3,16 +3,18 @@ import get from '../services/crypto-service';
 import useField from '../hooks/useField'
 import ValueInput from './ValueInput'
 import CryptoCaroussel from './CryptoCaroussel'
+import useToggle from '../hooks/useToggle';
 import Menu from './Menu'
 import Box from '@mui/system/Box';
 import {ReactComponent as Loader} from '../assets/images/loading.svg';
 
 const TYPE = 'number'
-const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD', 'TUSD']
+const filterCoins = ['USDT', 'USDC', 'HEX', 'BUSD', 'DAI', 'TUSD', 'UST', 'USDP']
 
 const Main = ({ handleThemeChange }) => {
     const [crypto, setCrypto] = useState([]);
     const [selectedCoin, setSelectedCoin] = useState(false)
+    const [mode, setMode] = useToggle(true)
     const [selectedCurrency, setSelectedCurrency] = useState({ currency: 'USD', symbol: '$' })
     const loading = Boolean(!crypto.length)
 
@@ -59,6 +61,8 @@ const Main = ({ handleThemeChange }) => {
                         fields={fields}
                         btc={btc}
                         selectedCurrency={selectedCurrency}
+                        mode={mode}
+                        setMode={setMode}
                     />
 
                     <CryptoCaroussel
@@ -75,6 +79,7 @@ const Main = ({ handleThemeChange }) => {
                         setSelectedCurrency={setSelectedCurrency}
                         fields={fields}
                         selectedCurrency={selectedCurrency}
+                        mode={mode}
                     />
                 </Box>
             }

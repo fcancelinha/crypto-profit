@@ -10,7 +10,10 @@ export const exchange = async (fields, from, to, mode) => {
     const buy = (fields.buyValue.value / rate).toFixed(2)
     const sell = (fields.sellValue.value / rate).toFixed(2)
 
-    fields.coinAmount.onChange({ target: { value: amount }});
+    if(mode){
+        fields.coinAmount.onChange({ target: { value: amount }});
+    }
+
     fields.buyValue.onChange({ target: { value: buy }});
     fields.sellValue.onChange({ target: { value: sell }});
 };
