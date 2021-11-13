@@ -1,7 +1,10 @@
 {
   "name": "crypto-profit",
   "version": "0.1.0",
-  "description": "Crypto Profit App",
+  "description": "A simple crypto profit calculator that helps your calculate how much profit/loss you incurred, convert it to 4 different currencies and get current market prices ",
+  "homepage": "https://github.com/fcancelinha/crypto-profit",
+  "url": "https://github.com/fcancelinha/crypto-profit/issues",
+  "email": "48698009+fcancelinha@users.noreply.github.com",
   "author": "Filipe Cancelinha",
   "license": "MIT",
   "main": "index.js",
@@ -9,8 +12,15 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "precommit": "lint-staged",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint --fix", 
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +54,8 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "eslint": "^8.2.0",
+    "eslint-plugin-react": "^7.27.0"
   }
 }

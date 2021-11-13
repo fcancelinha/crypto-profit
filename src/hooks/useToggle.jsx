@@ -1,13 +1,13 @@
 import React from 'react'
 
 const useToggle = (initialState = true) =>  {
-    const [toggle, setToggle] = React.useState(initialState)
+	const [toggle, setToggle] = React.useState(initialState)
 
-    const wrappedSetToggle = () => {
-        setToggle(!toggle)
-    }
+	const wrappedSetToggle = () => {
+		setToggle(!toggle)
+	}
 
-    return [toggle, wrappedSetToggle]
+	return [toggle, wrappedSetToggle]
 }
 
 
