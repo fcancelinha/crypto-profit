@@ -26,8 +26,6 @@ jobs:
           npm install
           echo building...
           npm run build
-        env:
-          REACT_APP_CRYPTO_API: ${{ secrets.REACT_APP_CRYPTO_API }}
 
       - name: deploy
         uses: crazy-max/ghaction-github-pages@v1
