@@ -1,5 +1,5 @@
 const options =  {
-    mode: 'cors',
+    mode: 'no-cors',
     credentials: 'include'
 }
 
