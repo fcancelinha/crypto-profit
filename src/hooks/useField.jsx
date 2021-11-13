@@ -1,23 +1,23 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 const useField = (type) => {
-    const [value, setValue] = useState("")
-    const reg = /^[0-9]+([\\,\\.]?)([0-9]{1,20})?$/g
+	const [value, setValue] = useState('')
+	const reg = /^[0-9]+([\\,\\.]?)([0-9]{1,20})?$/g
 
-    const onChange = (event) => {
+	const onChange = (event) => {
 
-        const eventValue = event.target.value.toString()
+		const eventValue = event.target.value.toString()
 
-        if(eventValue.match(reg) || !eventValue){
-            setValue(eventValue)
-        }
-    }
+		if(eventValue.match(reg) || !eventValue){
+			setValue(eventValue)
+		}
+	}
 
-    return {
-        type,
-        value,
-        onChange
-    }
+	return {
+		type,
+		value,
+		onChange
+	}
 }
 
 export default useField

@@ -1,29 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 
 const useMedia = (queries, values, defaultValue) => {
-    const mediaQueryLists = queries.map((q) => window.matchMedia(q));
+	const mediaQueryLists = queries.map((q) => window.matchMedia(q))
 
-    const getValue = () => {
-        const index = mediaQueryLists.findIndex((mql) => mql.matches);
-        return typeof values[index] !== "undefined" ? values[index] : defaultValue;
-    };
+	const getValue = () => {
+		const index = mediaQueryLists.findIndex((mql) => mql.matches)
+		return typeof values[index] !== 'undefined' ? values[index] : defaultValue
+	}
 
-    const [value, setValue] = useState(getValue);
-    
-    useEffect(
-        () => {
-           
-            const handler = () => setValue(getValue);
-            mediaQueryLists.forEach((mql) => mql.addListener(handler));
+	const [value, setValue] = useState(getValue)
 
-            return () =>
-                mediaQueryLists.forEach((mql) => mql.removeListener(handler));
-        },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [] // Empty array ensures effect is only run on mount and unmount
-    );
-    return value;
+	useEffect(
+		() => {
+
+			const handler = () => setValue(getValue)
+			mediaQueryLists.forEach((mql) => mql.addListener(handler))
+
+			return () =>
+				mediaQueryLists.forEach((mql) => mql.removeListener(handler))
+		},
+		[] // Empty array ensures effect is only run on mount and unmount
+	)
+	return value
 }
 
 export default useMedia
