@@ -62,7 +62,7 @@ const App = () => {
 					</Paper>
 
 					<Typography variant="caption" sx={{ alignSelf: 'center', fontSize: 8.5 }} color="primary.main">
-                            * exchange rates might not reflect current ones, this app is using free API's with limited resources
+                            * exchange rates might not reflect current ones, this app is using free APIs with limited resources
 					</Typography>
 
 				</Box>

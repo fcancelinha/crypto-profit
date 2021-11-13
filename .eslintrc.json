@@ -47,6 +47,9 @@
                 "before": true,
                 "after": true
             }
+        ],
+        "react/prop-types": [
+            "ignore"
         ]
     }
 }
