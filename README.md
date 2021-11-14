@@ -4,7 +4,7 @@
   Crypto Profit APP
 </h1> 
 
-> Whenever I was searching on the internet for a simple calculator to do some quick math I could never find one... there was mining calculators for sure but not what I was looking for. So ! I decided to make my own and share with anyone having the same trouble as I once did. This was my first attempt at creating something with react and I feel like I still have so much to learn. I regret not using Redux and Typescript as the scope of the project quickly grew beyond my initial expectations as I was adding more and more features.
+> Whenever I was searching on the internet for a simple calculator to do some quick math I could never find one. There were mining calculators for sure but not really what I was looking for... So ! I decided to make my own and share with anyone facing the same troubles as I once did. This is my first attempt at creating an app using react and I feel like I still have so much to learn. I regret not using Redux and Typescript as the scope of the project quickly grew beyond my initial expectations as I was adding more and more features.
 
 <div align="center">
 <img alt="Deploy" src="https://github.com/fcancelinha/crypto-profit/actions/workflows/gh-deploy.yml/badge.svg">
