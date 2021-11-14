@@ -14,6 +14,16 @@ import ExpandLess from '@mui/icons-material/ExpandLess'
 import CachedIcon from '@mui/icons-material/Cached'
 import Fade from '@mui/material/Fade'
 
+const style = {
+	textInput: {
+		width: '20rem'
+	},
+	textInputFee: {
+		width: '15rem'
+	}
+}
+
+
 const ValueInput = ({ fields, selectedCurrency, btc, mode, setMode }) => {
 	const [collapsed, setCollapsed] = useToggle(false)
 
@@ -30,11 +40,13 @@ const ValueInput = ({ fields, selectedCurrency, btc, mode, setMode }) => {
 			sx={{ mt: 5 }}
 			aria-labelledby='stack-stack'
 			aria-describedby='stack-stack-description'>
+			
 			<TextField
 				id='investement-amount'
+				fullWidth
 				{...fields.coinAmount}
 				variant='outlined'
-				sx={{ mt: 1, width: 250 }}
+				sx={{...style.textInput, mt: 1}}
 				helperText={`≈ ${values.investToBtc} BTC`}
 				placeholder='0'
 				InputProps={{
@@ -72,7 +84,7 @@ const ValueInput = ({ fields, selectedCurrency, btc, mode, setMode }) => {
 				{...fields.buyValue}
 				variant='outlined'
 				placeholder='0'
-				sx={{ mt: 2, mb: 2, width: 250 }}
+				sx={{...style.textInput, mt: 2, mb: 2 }}
 				InputProps={{
 					startAdornment: (
 						<InputAdornment position='start'>
@@ -88,7 +100,7 @@ const ValueInput = ({ fields, selectedCurrency, btc, mode, setMode }) => {
 				{...fields.sellValue}
 				variant='outlined'
 				placeholder='0'
-				sx={{ mt: 2, mb: 2, width: 250 }}
+				sx={{ ...style.textInput, mt: 2, mb: 2}}
 				InputProps={{
 					startAdornment: (
 						<InputAdornment position='start'>
@@ -131,7 +143,7 @@ const ValueInput = ({ fields, selectedCurrency, btc, mode, setMode }) => {
 						id='buy-fee'
 						{...fields.buyFee}
 						variant='outlined'
-						sx={{ mt: 2, mb: 1, width: 200 }}
+						sx={{...style.textInputFee, mt: 2, mb: 1}}
 						helperText={investmentFee}
 						InputProps={{
 							startAdornment: (
@@ -148,7 +160,7 @@ const ValueInput = ({ fields, selectedCurrency, btc, mode, setMode }) => {
 						id='sell-fee'
 						{...fields.sellFee}
 						variant='outlined'
-						sx={{ mt: 2, width: 200 }}
+						sx={{ ...style.textInputFee, mt: 2 }}
 						helperText={sellingFee}
 						InputProps={{
 							startAdornment: (
