@@ -13,8 +13,8 @@ import Typography from '@mui/material/Typography'
 const style = {
 	container: {
 		display: 'flex',
-		flexGrow: 1,
-		height: window.innerHeight,
+		heigh: '100vh',
+		width: '100vw',
 		flexDirection: 'column',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
