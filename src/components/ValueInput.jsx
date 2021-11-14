@@ -16,10 +16,10 @@ import Fade from '@mui/material/Fade'
 
 const style = {
 	textInput: {
-		width: '20rem'
+		width: '18rem'
 	},
 	textInputFee: {
-		width: '15rem'
+		width: '16rem'
 	}
 }
 
@@ -37,7 +37,7 @@ const ValueInput = ({ fields, selectedCurrency, btc, mode, setMode }) => {
 			direction='column'
 			justifyContent='center'
 			alignItems='center'
-			sx={{ mt: 5 }}
+			sx={{ mt: 2 }}
 			aria-labelledby='stack-stack'
 			aria-describedby='stack-stack-description'>
 			

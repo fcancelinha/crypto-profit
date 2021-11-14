@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="A simple app to calculate your crypto profit" />
 
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico?" type="image/x-icon" />
+  
     <!-- Material UI Dependencies -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap">
@@ -17,19 +18,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-
     <title>Crypto Profit App</title>
 
     <style>
+
       html,
-      body {
-        margin: 0px;
-        height: 0px;
-        padding: 0px;
-        border: none 0px;
+      body,
+      #root {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none 0 !important;
       }
 
-      /* Hide scrollbar for Chrome, Safari and Opera */
+      /*Hide scrollbar for Chrome, Safari and Opera */
       body::-webkit-scrollbar {
         display: none;
       }
@@ -39,6 +40,8 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+
+
 
     </style>
 

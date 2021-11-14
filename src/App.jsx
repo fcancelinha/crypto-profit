@@ -2,6 +2,7 @@ import React from 'react'
 import { ThemeProvider } from '@mui/material/styles'
 import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 import Link from '@mui/material/Link'
 import AppTitle from './components/AppTitle'
 import Main from './components/Main'
@@ -11,39 +12,23 @@ import Github from './components/Github'
 import Typography from '@mui/material/Typography'
 
 const style = {
-	container: {
-		display: 'flex',
-		heigh: '100vh',
-		width: '100vw',
-		flexDirection: 'column',
-		alignItems: 'flex-start',
-		justifyContent: 'flex-start',
-		alignContent: 'flex-start',
-	},
-	subContainer: {
-		display: 'flex',
-		justifyContent: 'center',
-		flexDirection: 'column',
-		inHeight: '100vh',
-		minWidth: '100vw',
-		pb: 10,
-	},
 	paper: {
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'center',
-		alignSelf: 'center',
-		borderRadius: 3,
-		pb: 3,
+		pt: 2,
+		borderRadius: 4,
+		pb: 2,
 		mb: 2,
 		mt: -12,
 		width: '33rem',
+		ml: 'auto',
+		mr: 'auto',
 	},
 	notice: {
 		alignSelf: 'center',
-		fontSize: 9,
+		fontSize: 10,
 		fontFamily: 'Monospace',
-		fontWeight: 'bold'
+		fontWeight: 'bold',
+		ml: 'auto',
+		mr: 'auto',
 	},
 }
 
@@ -57,16 +42,19 @@ const App = () => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<Box
-				id="container"
-				sx={style.container}
-				bgcolor="background.default">
-				<Github />
 
-				<Box
-					id="main-body"
-					sx={style.subContainer}
-					bgcolor="background.default">
+			<Grid
+				container
+				direction="column"
+				justifyContent="center"
+				alignItems="center"
+				alignItems="stretch"
+				id="main-body"
+				bgcolor="background.default">
+				
+				<Grid item>
+					<Github />
+
 					<AppTitle />
 
 					<Paper sx={style.paper} elevation={23}>
@@ -75,25 +63,28 @@ const App = () => {
 						<Donations />
 					</Paper>
 
-					<Typography
-						variant="caption"
-						sx={style.notice}
-						color="primary.main">
-						* exchange rates might not reflect current ones, this
-						app is using free APIs with limited resources
-					</Typography>
+					<Box sx={{ textAlign: 'center', mb: 2 }}>
+						<Typography
+							variant="caption"
+							sx={style.notice}
+							color="primary.main">
+							exchange rates might not reflect current ones
+						</Typography>
 
-					<Link
-						href="https://nomics.com/"
-						target="_blank"
-						rel="noreferrer"
-						variant="caption"
-						color="primary.main"
-						sx={{...style.notice}}>
-						Crypto Market Cap & Pricing Data Provided By Nomics
-					</Link>
-				</Box>
-			</Box>
+						<br />
+
+						<Link
+							href="https://nomics.com/"
+							target="_blank"
+							rel="noreferrer"
+							variant="caption"
+							color="primary.main"
+							sx={style.notice}>
+							Crypto Market Cap & Pricing Data Provided By Nomics
+						</Link>
+					</Box>
+				</Grid>
+			</Grid>
 		</ThemeProvider>
 	)
 }

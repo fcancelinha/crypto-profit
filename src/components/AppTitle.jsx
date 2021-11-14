@@ -6,14 +6,11 @@ const title = 'CRYPTO PROFIT'
 
 const style = {
 	container: {
-		display: 'flex',
-		flexDirection: 'column',
 		pb: 15,
-		pt:2,
+		textAlign: 'center',
 		backgroundColor: '#000000',
 	},
 	text: {
-		alignSelf: 'center',
 		fontFamily: 'Cairo',
 		color: '#eeeeee',
 	},
@@ -22,7 +19,7 @@ const style = {
 const AppTitle = () => {
 	return (
 		<Box sx={{ ...style.container }} boxShadow={5}>
-			<Typography variant='h3' sx={{ ...style.text, mt: 2 }}>
+			<Typography variant='h3' sx={{ ...style.text, pt: 2 }}>
 				{title} <span style={{ color: '#ffb300' }}>₿</span>
 			</Typography>
 		</Box>
