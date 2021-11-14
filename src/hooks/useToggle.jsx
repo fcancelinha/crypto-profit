@@ -1,6 +1,6 @@
 import React from 'react'
 
-const useToggle = (initialState = true) =>  {
+const useToggle = (initialState = true) => {
 	const [toggle, setToggle] = React.useState(initialState)
 
 	const wrappedSetToggle = () => {
@@ -9,6 +9,5 @@ const useToggle = (initialState = true) =>  {
 
 	return [toggle, wrappedSetToggle]
 }
-
 
 export default useToggle

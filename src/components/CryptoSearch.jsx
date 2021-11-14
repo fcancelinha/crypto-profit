@@ -7,7 +7,7 @@ import Autocomplete from '@mui/material/Autocomplete'
 import Modal from '@mui/material/Modal'
 import { useTheme } from '@mui/system'
 
-const style =  {
+const style = {
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'center',
@@ -22,10 +22,15 @@ const style =  {
 	p: 4,
 }
 
-
-const CryptoSearch = ({ open, handleClose, cryptoList, handleCoinSelection }) => {
+const CryptoSearch = ({
+	open,
+	handleClose,
+	cryptoList,
+	handleCoinSelection,
+}) => {
 	const theme = useTheme()
-	const shadow = theme.palette.mode === 'dark' ? '0px 0px 10px 1px #ffb300' : 23
+	const shadow =
+		theme.palette.mode === 'dark' ? '0px 0px 10px 1px #ffb300' : 23
 
 	const handleChange = (_, newValue) => {
 		handleCoinSelection(newValue)
@@ -35,29 +40,47 @@ const CryptoSearch = ({ open, handleClose, cryptoList, handleCoinSelection }) =>
 		<Modal
 			open={open}
 			onClose={handleClose}
-			aria-labelledby="modal-modal-title"
-			aria-describedby="modal-modal-description"
-		>
+			aria-labelledby='modal-modal-title'
+			aria-describedby='modal-modal-description'>
 			<Box sx={style} boxShadow={shadow}>
-				<Typography sx={{ alignSelf: 'center' }} id="modal-modal-title" variant="h6" component="h2">
-                    [ SEARCH ]
+				<Typography
+					sx={{ alignSelf: 'center' }}
+					id='modal-modal-title'
+					variant='h6'
+					component='h2'>
+					[ SEARCH ]
 				</Typography>
 
 				<Autocomplete
-					id="crypto-search"
+					id='crypto-search'
 					options={cryptoList}
 					onChange={handleChange}
 					getOptionLabel={(option) => `${option.id} ${option.name}`}
 					sx={{ width: 250, mt: 3, ml: 2, alignSelf: 'center' }}
 					renderOption={(props, option) => (
-						<Box component="li" sx={{ '& > img': { mr: 5, flexShrink: 1 } }} {...props}>
-							<Avatar alt={option.currency} src={option.logo_url} />
-							<Typography variant="caption" sx={{ ml: 4, fontWeight: 'bold' }}>{option.id} - {option.name} </Typography>
+						<Box
+							component='li'
+							sx={{ '& > img': { mr: 5, flexShrink: 1 } }}
+							{...props}>
+							<Avatar
+								alt={option.currency}
+								src={option.logo_url}
+							/>
+							<Typography
+								variant='caption'
+								sx={{ ml: 4, fontWeight: 'bold' }}>
+								{option.id} - {option.name}{' '}
+							</Typography>
 						</Box>
 					)}
-					renderInput={(params) => <TextField {...params} label="Search by tag or name" variant="standard" />}
+					renderInput={(params) => (
+						<TextField
+							{...params}
+							label='Search by tag or name'
+							variant='standard'
+						/>
+					)}
 				/>
-
 			</Box>
 		</Modal>
 	)

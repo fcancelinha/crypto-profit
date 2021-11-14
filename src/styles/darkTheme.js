@@ -29,33 +29,35 @@ export const darkTheme = createTheme({
 			styleOverrides: {
 				root: {
 					'& .MuiTypography-root': {
-						color: '#eeeeee'
+						color: '#eeeeee',
 					},
 					'& .MuiInputLabel-formControl': {
-						color: '#eeeeee'
+						color: '#eeeeee',
 					},
 					'& .MuiFormHelperText-root': {
-						color: '#eeeeee'
+						color: '#eeeeee',
 					},
-					'&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-						borderColor: '#eeeeee'
-					},
-					'& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-						borderColor: '#ffb300'
-					},
-				}
-			}
+					'&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline':
+						{
+							borderColor: '#eeeeee',
+						},
+					'& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline':
+						{
+							borderColor: '#ffb300',
+						},
+				},
+			},
 		},
 		MuiLink: {
 			styleOverrides: {
 				root: {
 					'&:hover': {
-						color: '#900C3F'
-					}
-				}
-			}
-		}
-	}
+						color: '#900C3F',
+					},
+				},
+			},
+		},
+	},
 })
 
 //.Mui-focused

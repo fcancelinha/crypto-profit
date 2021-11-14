@@ -1,8 +1,6 @@
-const options =  {
-    mode: 'cors',
-    credentials: 'include'
+const options = {
+	mode: 'cors',
+	credentials: 'same-origin',
 }
 
-export {
-    options
-}
+export { options }
