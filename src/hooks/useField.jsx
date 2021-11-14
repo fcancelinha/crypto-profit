@@ -5,10 +5,9 @@ const useField = (type) => {
 	const reg = /^[0-9]+([\\,\\.]?)([0-9]{1,20})?$/g
 
 	const onChange = (event) => {
-
 		const eventValue = event.target.value.toString()
 
-		if(eventValue.match(reg) || !eventValue){
+		if (eventValue.match(reg) || !eventValue) {
 			setValue(eventValue)
 		}
 	}
@@ -16,7 +15,7 @@ const useField = (type) => {
 	return {
 		type,
 		value,
-		onChange
+		onChange,
 	}
 }
 

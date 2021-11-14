@@ -1,11 +1,9 @@
 import Typography from '@mui/material/Typography'
 import React from 'react'
 
-
 const Investment = ({ value, inProfit, options, display }) => {
-
 	const style = {
-		color: inProfit ? 'green' : 'red'
+		color: inProfit ? 'green' : 'red',
 	}
 
 	return (

@@ -17,14 +17,14 @@ const style = {
 		minWidth: 'auto',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
-		alignContent: 'flex-start'
+		alignContent: 'flex-start',
 	},
 	subContainer: {
 		display: 'flex',
 		justifyContent: 'center',
-		flexDirection:'column',
+		flexDirection: 'column',
 		minWidth: '100%',
-		pb: 10
+		pb: 10,
 	},
 	paper: {
 		display: 'flex',
@@ -35,8 +35,8 @@ const style = {
 		pb: 3,
 		mb: 2,
 		mt: -12,
-		width: '33rem'
-	}
+		width: '33rem',
+	},
 }
 
 const App = () => {
@@ -44,31 +44,33 @@ const App = () => {
 
 	return (
 		<ThemeProvider theme={theme}>
-
-			<Box id="container" sx={style.container} bgcolor="background.default">
-
+			<Box
+				id='container'
+				sx={style.container}
+				bgcolor='background.default'>
 				<Github />
 
-				<Box id="main-body" sx={style.subContainer} bgcolor="background.default">
-
+				<Box
+					id='main-body'
+					sx={style.subContainer}
+					bgcolor='background.default'>
 					<AppTitle />
 
-					<Paper sx={style.paper} elevation={23} >
-
+					<Paper sx={style.paper} elevation={23}>
 						<Main handleThemeChange={() => setTheme()} />
 
 						<Donations />
-
 					</Paper>
 
-					<Typography variant="caption" sx={{ alignSelf: 'center', fontSize: 8.5 }} color="primary.main">
-                            * exchange rates might not reflect current ones, this app is using free APIs with limited resources
+					<Typography
+						variant='caption'
+						sx={{ alignSelf: 'center', fontSize: 8.5 }}
+						color='primary.main'>
+						* exchange rates might not reflect current ones, this
+						app is using free APIs with limited resources
 					</Typography>
-
 				</Box>
-
 			</Box>
-
 		</ThemeProvider>
 	)
 }

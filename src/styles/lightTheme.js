@@ -29,10 +29,10 @@ export const lightTheme = createTheme({
 			styleOverrides: {
 				root: {
 					'&:hover': {
-						color: '#900C3F'
-					}
-				}
-			}
-		}
-	}
+						color: '#900C3F',
+					},
+				},
+			},
+		},
+	},
 })
