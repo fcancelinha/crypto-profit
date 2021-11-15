@@ -19,8 +19,8 @@ const style = {
 		width: 80,
 	},
 	tabAvatar: {
-		width: 35,
-		height: 35,
+		width: 37,
+		height: 37,
 	},
 }
 

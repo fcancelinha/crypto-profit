@@ -12,15 +12,17 @@ import Github from './components/Github'
 import Typography from '@mui/material/Typography'
 
 const style = {
+	container: {
+		p: 0,
+		m: 0,
+	},
 	paper: {
 		pt: 2,
 		borderRadius: 4,
+		width: '100%',
 		pb: 2,
 		mb: 2,
-		mt: -12,
-		width: '33rem',
-		ml: 'auto',
-		mr: 'auto',
+		mt: -12
 	},
 	notice: {
 		alignSelf: 'center',
@@ -42,48 +44,53 @@ const App = () => {
 
 	return (
 		<ThemeProvider theme={theme}>
-
 			<Grid
-				container
 				direction="column"
 				justifyContent="center"
-				alignItems="center"
 				alignItems="stretch"
 				id="main-body"
-				bgcolor="background.default">
-				
-				<Grid item>
+				bgcolor="background.default"
+				sx={style.container}
+				columns={24}
+				>
+
+				<Box>
 					<Github />
 
 					<AppTitle />
+				</Box>
 
-					<Paper sx={style.paper} elevation={23}>
-						<Main handleThemeChange={() => setTheme()} />
+				<Box>
+					<Grid item xs={24} sm={24} md={11} lg={8} xl={7} sx={{alignSelf: 'center', ml: 'auto', mr:'auto'}} >
+						<Paper sx={style.paper} elevation={6}>
+							<Main handleThemeChange={() => setTheme()} />
 
-						<Donations />
-					</Paper>
+							<Donations />
+						</Paper>
+					</Grid>
+				</Box>
 
-					<Box sx={{ textAlign: 'center', mb: 2 }}>
-						<Typography
-							variant="caption"
-							sx={style.notice}
-							color="primary.main">
-							exchange rates might not reflect current ones
-						</Typography>
+				<Box sx={{ textAlign: 'center', mb: 2 }}>
+					<Typography
+						variant="caption"
+						sx={style.notice}
+						color="primary.main">
+						exchange rates might not reflect current ones
+					</Typography>
 
-						<br />
+					<br />
 
-						<Link
-							href="https://nomics.com/"
-							target="_blank"
-							rel="noreferrer"
-							variant="caption"
-							color="primary.main"
-							sx={style.notice}>
-							Crypto Market Cap & Pricing Data Provided By Nomics
-						</Link>
-					</Box>
-				</Grid>
+					<Link
+						href="https://nomics.com/"
+						target="_blank"
+						rel="noreferrer"
+						variant="caption"
+						color="primary.main"
+						sx={style.notice}>
+						Crypto Market Cap & Pricing Data Provided By Nomics
+					</Link>
+				</Box>
+
 			</Grid>
 		</ThemeProvider>
 	)
