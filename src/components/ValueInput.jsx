@@ -16,10 +16,10 @@ import Fade from '@mui/material/Fade'
 
 const style = {
 	textInput: {
-		width: '18rem'
+		width: 300
 	},
 	textInputFee: {
-		width: '16rem'
+		width: 230
 	}
 }
 

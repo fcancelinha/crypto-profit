@@ -10,6 +10,9 @@ const style = {
 		textAlign: 'center',
 		backgroundColor: '#000000',
 	},
+	title: {
+		color: '#ffb300'
+	},
 	text: {
 		fontFamily: 'Cairo',
 		color: '#eeeeee',
@@ -18,9 +21,9 @@ const style = {
 
 const AppTitle = () => {
 	return (
-		<Box sx={{ ...style.container }} boxShadow={5}>
+		<Box sx={style.container} boxShadow={5}>
 			<Typography variant='h3' sx={{ ...style.text, pt: 2 }}>
-				{title} <span style={{ color: '#ffb300' }}>₿</span>
+				{title} <span style={style.title}>₿</span>
 			</Typography>
 		</Box>
 	)

@@ -24,18 +24,18 @@ const Main = ({ handleThemeChange }) => {
 	const [crypto, setCrypto] = useState([])
 	const [selectedCoin, setSelectedCoin] = useState(false)
 	const [mode, setMode] = useToggle(true)
+
 	const [selectedCurrency, setSelectedCurrency] = useState({
 		currency: 'USD',
 		symbol: '$',
 	})
+
 	const loading = Boolean(!crypto.length)
 
 	useEffect(() => {
 		get(selectedCurrency.currency)
 			.then((response) => {
-				const result = response.filter(
-					(x) => filterCoins.indexOf(x.currency) < 0
-				)
+				const result = response.filter((x) => filterCoins.indexOf(x.currency) < 0)
 				setCrypto(result)
 			})
 			.catch((error) => {
