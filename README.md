@@ -1,5 +1,5 @@
 <h1 align="center"> 
-  <img src="https://user-images.githubusercontent.com/48698009/141694419-a0f94f09-c913-4da6-9f40-a63332cd696f.png" width="70" height="auto">
+  <img src="https://user-images.githubusercontent.com/48698009/141694419-a0f94f09-c913-4da6-9f40-a63332cd696f.png" width="120" height="auto">
       <br />
   Crypto Profit APP
 </h1> 
