@@ -61,7 +61,7 @@ const App = () => {
 				</Box>
 
 				<Box>
-					<Grid item xs={24} sm={24} md={11} lg={8} xl={7} sx={{alignSelf: 'center', ml: 'auto', mr:'auto'}} >
+					<Grid item xs={24} sm={24} md={12} lg={9} xl={7} sx={{alignSelf: 'center', ml: 'auto', mr:'auto'}} >
 						<Paper sx={style.paper} elevation={6}>
 							<Main handleThemeChange={() => setTheme()} />
 
@@ -70,7 +70,7 @@ const App = () => {
 					</Grid>
 				</Box>
 
-				<Box sx={{ textAlign: 'center', mb: 2 }}>
+				<Box sx={{ textAlign: 'center', mb: 2, ml: 'auto', mr:'auto' }}>
 					<Typography
 						variant="caption"
 						sx={style.notice}
