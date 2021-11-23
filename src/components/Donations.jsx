@@ -44,7 +44,7 @@ const style = {
 	},
 }
 
-const donationText = '< Buy me a coffee ? ☕/> '
+const donationText = '< Buy me a coffee ?/> '
 const snackbarText = 'Thanks ! Address copied'
 
 const WalletAdress = ({ address, handleClick }) => {

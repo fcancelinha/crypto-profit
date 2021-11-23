@@ -12,30 +12,34 @@ const ValueDisplay = ({ values, selectedCurrency }) => {
 
 	return (
 		<Box sx={{ textAlign: 'center', mt: 3 }}>
-			<Typography variant='subtitle2'>
+			
+			<Typography variant="subtitle2" color="primary.main">
 				NET GAIN
-				<Box sx={{ display: 'flex', justifyContent: 'center' }}>
-					<Investment
-						value={values.profit}
-						inProfit={values.inProfit}
-						options={{ ...options, signDisplay: 'exceptZero' }}
-						display={true}
-					/>
-				</Box>
-				{values.totalFee > 0 && (
-					<TotalFee totalFees={values.totalFee} />
-				)}
+			</Typography>
+			
+			<Box sx={{ display: 'flex', justifyContent: 'center' }}>
+				<Investment
+					value={values.profit}
+					inProfit={values.inProfit}
+					options={{ ...options, signDisplay: 'exceptZero' }}
+					display={true}
+				/>
+			</Box>
+			
+			<Typography variant="caption">
+				{values.totalFee > 0 && <TotalFee totalFees={values.totalFee} />}
 			</Typography>
 
-			<Typography variant='subtitle2' sx={{ mt: 1 }}>
+			<Typography variant="subtitle2" sx={{ mt: 1 }} color="primary.main">
 				TOTAL
-				<Investment
-					value={values.total}
-					inProfit={values.inProfit}
-					options={options}
-					display={false}
-				/>
 			</Typography>
+			
+			<Investment
+				value={values.total}
+				inProfit={values.inProfit}
+				options={options}
+				display={false}
+			/>
 		</Box>
 	)
 }

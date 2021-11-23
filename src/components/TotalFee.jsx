@@ -1,10 +1,11 @@
 import React from 'react'
+import Box from '@mui/system/Box'
 
 const TotalFee = ({ totalFees }) => {
 	return (
-		<span style={{ fontSize: 11, color: 'darkgrey' }}>
-             &nbsp;&nbsp;&nbsp;&nbsp;( - {totalFees.toFixed(2)} $ total fees )
-		</span>
+		<Box sx={{ fontSize: 11, color: 'primary.main', ml:'auto', mr: 'auto' }}>
+             &nbsp;&nbsp;&nbsp;&nbsp;( - {totalFees.toFixed(2)} $ Total fees )
+		</Box>
 	)
 }
 

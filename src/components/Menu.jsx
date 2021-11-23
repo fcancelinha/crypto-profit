@@ -4,12 +4,13 @@ import CurrencySelect from './CurrencySelect'
 import useToggle from '../hooks/useToggle'
 import { exchange } from '../utils/exchange'
 import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
 import Fab from '@mui/material/Fab'
 import Fade from '@mui/material/Fade'
 import Typography from '@mui/material/Typography'
 import CloseIcon from '@mui/icons-material/Close'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
-import ListAltIcon from '@mui/icons-material/ListAlt'
+import FeedbackIcon from '@mui/icons-material/Feedback';
 import SearchIcon from '@mui/icons-material/Search'
 import Stack from '@mui/material/Stack'
 import AppsIcon from '@mui/icons-material/Apps'
@@ -108,7 +109,7 @@ const Menu = ({
 								sx={{
 									...style.fabMenuButtonLabel,
 									bottom: 218,
-									left: 249,
+									left: 248,
 									mb: 2,
 								}}>
 								Search
@@ -116,11 +117,17 @@ const Menu = ({
 						</Box>
 
 						<Box sx={style.fabMenuButtonBox}>
+							<Link 
+								underline="none"
+								href="https://forms.gle/YYc541x2QiF1CfaKA"
+								target="_blank"
+								rel="noreferrer"
+							>
 							<Fab
 								color='secondary'
 								sx={{ mr: 20, mb: 2.3 }}
-								aria-label='list-calculations'>
-								<ListAltIcon />
+								aria-label='feedback'>
+								<FeedbackIcon />
 							</Fab>
 							<Typography
 								variant='caption'
@@ -128,11 +135,12 @@ const Menu = ({
 								sx={{
 									...style.fabMenuButtonLabel,
 									bottom: 162,
-									left: 170,
+									left: 154,
 									mb: 2,
 								}}>
-								List
+								Feedback
 							</Typography>
+							</Link>
 						</Box>
 
 						<Box sx={style.fabMenuButtonBox}>
@@ -149,7 +157,7 @@ const Menu = ({
 								sx={{
 									...style.fabMenuButtonLabel,
 									bottom: 90,
-									left: 89,
+									left: 90,
 									mb: 2,
 								}}>
 								Currency

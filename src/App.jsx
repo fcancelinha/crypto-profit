@@ -54,7 +54,7 @@ const App = () => {
 				columns={24}
 				>
 
-				<Box>
+				<Box sx={{pb: 15, textAlign: 'center', backgroundColor: '#000000',}}>
 					<Github />
 
 					<AppTitle />
