@@ -1,7 +1,7 @@
 <h1 align="center"> 
-  <img src="https://user-images.githubusercontent.com/48698009/141694419-a0f94f09-c913-4da6-9f40-a63332cd696f.png" width="70" height="auto">
+  <img src="https://user-images.githubusercontent.com/48698009/141694419-a0f94f09-c913-4da6-9f40-a63332cd696f.png" width="120" height="auto">
       <br />
-  Crypto Profit APP
+  Crypto Profit App
 </h1> 
 
 > Whenever I was searching on the internet for a simple calculator to do some quick math I could never find one. There were mining calculators for sure but not really what I was looking for... So ! I decided to make my own and share with anyone facing the same troubles as I once did. This is my first attempt at creating an app using react and I feel like I still have so much to learn. I regret not using Redux and Typescript as the scope of the project quickly grew beyond my initial expectations as I was adding more and more features.
