@@ -5,7 +5,7 @@ const title = 'CRYPTO PROFIT'
 
 const style = {
 	title: {
-		color: '#ffb300'
+		color: '#ffb300',
 	},
 	text: {
 		fontFamily: 'Cairo',

@@ -61,7 +61,6 @@ const Main = ({ handleThemeChange }) => {
 		}
 	}
 
-	/* component MENU is absolute and outside of DOM */
 	return (
 		<Box>
 			{loading ? (
