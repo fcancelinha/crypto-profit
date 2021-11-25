@@ -31,7 +31,6 @@ You will need to add an API key to a .env file at the root of the project from h
 - [x] Select between cash amount spent or tokens bought
 - [x] Fiat currency conversion
 - [x] Local storage remembers your preferences
-- [ ] Add your calculations to a list
 
 ## Screenshots
 
