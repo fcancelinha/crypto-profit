@@ -1,6 +1,5 @@
 import React from 'react'
 import Box from '@mui/system/Box'
-
 import Marquee from "react-fast-marquee";
 import RolloutItem from './RolloutItem';
 

@@ -81,7 +81,7 @@ const App = () => {
 				columns={24}
 			>
 
-				<Box sx={{pb: 15, textAlign: 'center', backgroundColor: '#000000',}}>
+				<Box sx={{pb: 15, textAlign: 'center', backgroundColor: '#000000'}} boxShadow={10}>
 					<Rollout cryptoList={crypto} currency={selectedCurrency.symbol} />
 
 					<AppTitle />
