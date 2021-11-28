@@ -15,7 +15,7 @@ const style = {
 
 const AppTitle = () => {
 	return (
-		<Typography variant="h3" sx={{ ...style.text, pt: 4 }}>
+		<Typography variant="h3" sx={{ ...style.text, pt: 1 }}>
 			{title} <span style={style.title}>₿</span>
 		</Typography>
 	)

@@ -3,9 +3,6 @@ import React from 'react'
 const style = {
 	github: {
 		borderRadius: 5,
-		position: 'absolute',
-		top: 0,
-		left: 0,
 	},
 }
 

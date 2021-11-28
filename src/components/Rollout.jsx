@@ -1,0 +1,23 @@
+import React from 'react'
+import Box from '@mui/system/Box'
+
+import Marquee from "react-fast-marquee";
+import RolloutItem from './RolloutItem';
+
+const Rollout = ({ cryptoList, currency }) => {
+	console.log('cryptoList', cryptoList)
+
+	return (
+		<Box sx={{pt:0.2}}>
+			<Marquee pauseOnHover={true} gradientColor={[0,0,0]} gradientWidth={80}>
+				{
+					cryptoList.map((crypto) =>
+						<RolloutItem key={crypto.id} currency={currency} symbol={crypto.symbol} cryptoPrice={crypto.price} priceChange={crypto["1h"].price_change}  />
+					)
+				}
+			</Marquee>
+		</Box>
+	)
+}
+
+export default Rollout
