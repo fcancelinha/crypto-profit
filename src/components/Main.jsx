@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import get from '../services/crypto-service'
+import React, { useState } from 'react'
 import useField from '../hooks/useField'
 import ValueInput from './ValueInput'
 import CryptoCaroussel from './CryptoCaroussel'
@@ -9,39 +8,15 @@ import Box from '@mui/system/Box'
 import { ReactComponent as Loader } from '../assets/images/loading.svg'
 
 const TYPE = 'number'
-const filterCoins = [
-	'USDT',
-	'USDC',
-	'HEX',
-	'BUSD',
-	'DAI',
-	'TUSD',
-	'UST',
-	'USDP',
-]
 
-const Main = ({ handleThemeChange }) => {
-	const [crypto, setCrypto] = useState([])
+
+const Main = ({ handleThemeChange, crypto, setSelectedCurrency, selectedCurrency }) => {
+
+	console.log("crypto load", crypto)
+
 	const [selectedCoin, setSelectedCoin] = useState(false)
 	const [mode, setMode] = useToggle(true)
-
-	const [selectedCurrency, setSelectedCurrency] = useState({
-		currency: 'USD',
-		symbol: '$',
-	})
-
 	const loading = Boolean(!crypto.length)
-
-	useEffect(() => {
-		get(selectedCurrency.currency)
-			.then((response) => {
-				const result = response.filter((x) => filterCoins.indexOf(x.currency) < 0)
-				setCrypto(result)
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-	}, [selectedCurrency.currency])
 
 	const btc = crypto.find((x) => x.currency === 'BTC')
 
