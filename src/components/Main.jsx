@@ -12,8 +12,6 @@ const TYPE = 'number'
 
 const Main = ({ handleThemeChange, crypto, setSelectedCurrency, selectedCurrency }) => {
 
-	console.log("crypto load", crypto)
-
 	const [selectedCoin, setSelectedCoin] = useState(false)
 	const [mode, setMode] = useToggle(true)
 	const loading = Boolean(!crypto.length)

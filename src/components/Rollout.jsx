@@ -5,8 +5,6 @@ import Marquee from "react-fast-marquee";
 import RolloutItem from './RolloutItem';
 
 const Rollout = ({ cryptoList, currency }) => {
-	console.log('cryptoList', cryptoList)
-
 	return (
 		<Box sx={{pt:0.2}}>
 			<Marquee pauseOnHover={true} gradientColor={[0,0,0]} gradientWidth={80}>

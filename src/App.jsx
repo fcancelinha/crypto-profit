@@ -63,7 +63,6 @@ const App = () => {
 			.then((response) => {
 				const result = response.filter((x) => filterCoins.indexOf(x.currency) < 0)
 				setCrypto(result)
-				console.log("testing re-rendering")
 			})
 			.catch((error) => {
 				console.log(error)
