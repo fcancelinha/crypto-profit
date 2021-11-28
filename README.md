@@ -11,6 +11,12 @@
 <img alt="License" src="https://img.shields.io/badge/License-MIT-brightgreen.svg">
 </div>
 
+<h1 align="center"> 
+  Preview
+</h1> 
+
+<img alt="preview" src="/src/assets/preview/crypto.apng">
+
 
 ## Installation
 
