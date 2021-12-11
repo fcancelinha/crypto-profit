@@ -25,6 +25,9 @@ Use the package manager [npm](https://www.npmjs.com/) to install crypto-profit-a
 ```bash
 npm install
 ```
+```bash
+npm start
+```
 
 ## API 
 
