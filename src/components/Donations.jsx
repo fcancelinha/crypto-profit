@@ -12,9 +12,9 @@ import usdt from '../assets/icons/usdt.png'
 import ethereum from '../assets/icons/ethereum.png'
 
 const addresses = {
-	btc: '15V5uReVCQ3z4ooexd3wRvmQM5PBCAR5CL',
-	tether: 'TF9oCBuM5cAgdH5f757LBSSKZmbpGHNc5E',
-	eth: '0x3f41097f233d22ee56bcbfd4f7f184755e0ff185',
+	btc: '1MARbXK65MsP4vUxQfuErgLyD9fC4jnAdH',
+	tether: 'TK8modKSLCaaF48BYMM3YtguAP8W5T9XhP (tron)',
+	eth: '0xa2fb6da8c2150541c9c7d79324b7fa00c16a21f3 (erc20)',
 }
 
 const style = {
